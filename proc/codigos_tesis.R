@@ -516,10 +516,10 @@ vif(modelo_logit_matri_1_3)
 
 ##base de datos abierta 1/2
 
-base_unica <- read_csv("~/base_unica.csv")
-base_propu_trayec_ <- read_csv("~/base_propu_trayec_.csv")
-base_para_modelo <- read_csv("~/base_para_modelo.csv")
-base_trayectorias_SC <- read_csv("~/base_trayectorias_SC.csv")
+base_unica <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_unica.csv",delim = ",")
+base_propu_trayec_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_propu_trayec_r.csv",delim = ",")
+base_para_modelo <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_para_modelo.csv",delim = ",")
+base_trayectorias_SC_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_trayectorias_SC_r.csv",delim = ",")
 
 ###codigos
 
@@ -529,12 +529,12 @@ colores_egreso <- c("Sí" = "#698B69", "No" = "#CD3333")
 
 ####ver duracion de los estudios
 
-duracion_promedio_categoria <- base_propu_trayec_ %>% group_by(categoria_peda) %>%
+duracion_promedio_categoria <- base_propu_trayec_r %>% group_by(categoria_peda) %>%
   summarise(promedio_duracion = mean(dur_estudio_carr, na.rm = TRUE))
 
 ####calcular duración individual (por cantidad de años con presencia en la carrera)
 
-duracion_individual <- base_propu_trayec_ %>%
+duracion_individual <- base_propu_trayec_r %>%
   filter(!is.na(cat_periodo)) %>%  # asegurarse que anno exista
   group_by(mrun) %>%
   summarise(
@@ -557,7 +557,7 @@ duracion_genero_egreso_categoria <- duracion_individual %>%
     mediana_anios = median(duracion_carrera, na.rm = TRUE),
     n = n())
 
-duracion_individual <- base_propu_trayec_ %>%
+duracion_individual <- base_propu_trayec_r %>%
   filter(!is.na(cat_periodo)) %>%
   group_by(mrun) %>%
   summarise(
@@ -592,15 +592,15 @@ ggplot(duracion_individual, aes(
 
 ####ver base
 
-glimpse(base_trayectorias_SC)
-summary(base_trayectorias_SC)
+glimpse(base_trayectorias_SC_r)
+summary(base_trayectorias_SC_r)
 
-base_trayectorias_SC_ultimo_dato <- base_trayectorias_SC %>%
+base_trayectorias_SC_ultimo_dato <- base_trayectorias_SC_r %>%
   group_by(mrun) %>%
   filter(cat_periodo == max(cat_periodo, na.rm = TRUE)) %>%
   ungroup()
 
-tabla_frecuencias <- table(base_trayectorias_SC$gen_alu, base_trayectorias_SC$categoria_peda)
+tabla_frecuencias <- table(base_trayectorias_SC_r$gen_alu, base_trayectorias_SC_r$categoria_peda)
 
 prop_fila <- prop.table(tabla_frecuencias, margin = 1)
 round(prop_fila, 3)
@@ -610,7 +610,7 @@ round(prop_total, 3)
 
 ####Proporcion de egreso por carrera y genero
 
-proporciones_egreso <- base_propu_trayec_ %>%
+proporciones_egreso <- base_propu_trayec_r %>%
   mutate(
     sexo = case_when(
       gen_alu == 1 ~ "Hombre",
@@ -693,7 +693,7 @@ ggplot(tasas_todas_filtradas, aes(x = cat_periodo, y = tasa, color = SEXO, linet
 
 ####proporciones instituciones
 
-base_propu_trayec_ <- base_propu_trayec_ %>%
+base_propu_trayec_r <- base_propu_trayec_r %>%
   filter(tipo_inst_3 != "Universidades (* Carrera en Convenio)") %>%
   mutate(
     tipo_inst_recod = case_when(
@@ -705,7 +705,7 @@ base_propu_trayec_ <- base_propu_trayec_ %>%
     tipo_inst_recod = factor(tipo_inst_recod, levels = c("Universidad estatal", "Universidad privada", "Instituto profesional"))
   )
 
-proporciones_inst <- base_propu_trayec_ %>%
+proporciones_inst <- base_propu_trayec_r %>%
   filter(!is.na(tipo_inst_recod)) %>%
   group_by(cat_periodo, tipo_inst_recod) %>%
   summarise(n = n(), .groups = "drop") %>%
@@ -730,7 +730,7 @@ ggplot(proporciones_inst, aes(x = cat_periodo, y = proporcion, fill = tipo_inst_
   ) +
   theme_minimal(base_size = 13)
 
-proporciones_inst_genero <- base_propu_trayec_ %>%
+proporciones_inst_genero <- base_propu_trayec_r %>%
   filter(!is.na(tipo_inst_recod), gen_alu %in% c(1, 2)) %>%
   mutate(
     sexo = case_when(
@@ -877,7 +877,7 @@ tab_model(
 
 ##base de datos abierta 2/2
 
-docente_fil_ <- read_csv("~/docente_fil_.csv")
+docente_fil_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/docente_fil_r.csv",delim = ",")
 
 #### Paleta personalizada
 
@@ -898,12 +898,12 @@ colores_genero <- c("Hombre" = "#6E7B8B", "Mujer" = "#B0C4DE")
 
 ####1.generar jerarquía - generar ascenso 
 
-docente_fil_ <- docente_fil_ %>% mutate(docente_aula = ifelse(ID_IFP %in% c(1, 17), 1, 0))
-frq(docente_fil_$docente_aula)
+docente_fil_r <- docente_fil_r %>% mutate(docente_aula = ifelse(ID_IFP %in% c(1, 17), 1, 0))
+frq(docente_fil_r$docente_aula)
 
-docente_fil_ <- docente_fil_ %>% mutate(directivo = ifelse(ID_IFP %in% c(4, 16), 1, 0))
+docente_fil_r <- docente_fil_r %>% mutate(directivo = ifelse(ID_IFP %in% c(4, 16), 1, 0))
 
-tabla_dir_genero <- docente_fil_ %>%
+tabla_dir_genero <- docente_fil_r %>%
   group_by(genero_lbl, directivo_lbl) %>%
   summarise(n = n(), .groups = "drop_last") %>%
   mutate(
@@ -913,9 +913,9 @@ tabla_dir_genero <- docente_fil_ %>%
 
 tabla_dir_genero
 
-frq(docente_fil_$RBD)
+frq(docente_fil_r$RBD)
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   arrange(mrun, RBD, AGNO) %>%
   group_by(mrun, RBD) %>%
   mutate(
@@ -923,16 +923,16 @@ docente_fil_ <- docente_fil_ %>%
   ) %>%
   ungroup()
 
-frq(docente_fil_$ascenso)
+frq(docente_fil_r$ascenso)
 
-docente_fil_ <- docente_fil_ %>% mutate(genero_lbl = factor(DOC_GENERO,
+docente_fil_r <- docente_fil_r %>% mutate(genero_lbl = factor(DOC_GENERO,
                                                           levels = c(1, 2),
                                                           labels = c("Hombre", "Mujer")),
                                       ascenso_lbl = factor(ascenso,
                                                            levels = c(0, 1),
                                                            labels = c("No", "Sí")))
 
-proporciones_ascenso <- docente_fil_ %>%
+proporciones_ascenso <- docente_fil_r %>%
   filter(!is.na(genero_lbl), !is.na(ascenso_lbl)) %>%
   group_by(genero_lbl, ascenso_lbl) %>%
   summarise(n = n(), .groups = "drop_last") %>%
@@ -952,7 +952,7 @@ ggplot(proporciones_ascenso,
   scale_y_continuous(labels = percent_format(scale = 100)) +
   theme_minimal(base_size = 13)    
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   arrange(mrun, RBD, AGNO) %>%
   group_by(mrun, RBD) %>%
   mutate(
@@ -964,7 +964,7 @@ docente_fil_ <- docente_fil_ %>%
   ) %>%
   ungroup()
 
-ascenso_tiempos <- docente_fil_ %>%
+ascenso_tiempos <- docente_fil_r %>%
   filter(ascenso == 1, !is.na(tiempo_ascenso_doc)) %>%
   group_by(DOC_GENERO) %>%
   summarise(
@@ -976,7 +976,7 @@ ascenso_tiempos <- docente_fil_ %>%
 
 ascenso_tiempos
 
-ascenso_tiempos <- docente_fil_ %>%
+ascenso_tiempos <- docente_fil_r %>%
   filter(ascenso == 1, !is.na(tiempo_ascenso_doc)) %>%
   mutate(
     genero_lbl = factor(DOC_GENERO, levels = c(1,2),
@@ -1004,11 +1004,11 @@ ggplot(proporciones_asc, aes(x = genero_lbl, y = prop, fill = factor(anios_asc))
 
 ###2.comprobar diferencias en horas hvsm 
 
-frq(docente_fil_$HORAS_CONTRATO)
-frq(docente_fil_$DOC_GENERO)
-frq(docente_fil_$horas_grupo_)
+frq(docente_fil_r$HORAS_CONTRATO)
+frq(docente_fil_r$DOC_GENERO)
+frq(docente_fil_r$horas_grupo_)
 
-tabla_horas_genero <- docente_fil_ %>%
+tabla_horas_genero <- docente_fil_r %>%
   filter(!is.na(horas_grupo_), !is.na(DOC_GENERO)) %>%
   count(DOC_GENERO, horas_grupo_, name = "n") %>%
   group_by(DOC_GENERO) %>%
@@ -1031,7 +1031,7 @@ ggplot(tabla_horas_genero,
   ) +
   theme_minimal(base_size = 13)
 
-base_filtrada <- docente_fil_ %>%
+base_filtrada <- docente_fil_r %>%
   filter(!is.na(horas_grupo_),
          horas_grupo_ != 0)
 
@@ -1052,7 +1052,7 @@ ggplot(tabla_horas_genero,
 
 ###5.comprobar ruralidad hvsm 
 
-tabla_rural_genero <- docente_fil_ %>%
+tabla_rural_genero <- docente_fil_r %>%
   filter(!is.na(RURAL_RBD), !is.na(DOC_GENERO)) %>%
   group_by(DOC_GENERO, RURAL_RBD) %>%
   summarise(n = n(), .groups = "drop_last") %>%
@@ -1061,7 +1061,7 @@ tabla_rural_genero <- docente_fil_ %>%
 tabla_rural_genero
 
 #### Tabla: ruralidad dentro de cada género
-tabla_rural_genero <- docente_fil_ %>%
+tabla_rural_genero <- docente_fil_r %>%
   filter(!is.na(RURAL_RBD), !is.na(DOC_GENERO)) %>%
   group_by(DOC_GENERO, RURAL_RBD) %>%
   summarise(n = n(), .groups = "drop_last") %>%
@@ -1091,7 +1091,7 @@ ggplot(tabla_rural_genero,
 
 ###6.ver tipos de establecimientos hvsm 
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   mutate(
     dependencia = case_when(
       COD_DEPE %in% c(1, 2, 5, 6) ~ "Municipal",
@@ -1103,7 +1103,7 @@ docente_fil_ <- docente_fil_ %>%
       dependencia,
       levels = c("Municipal", "Particular Subvencionado", "Particular Pagado")))
 
-tabla_dep_genero <- docente_fil_ %>%
+tabla_dep_genero <- docente_fil_r %>%
   filter(!is.na(DOC_GENERO), !is.na(dependencia)) %>%
   group_by(DOC_GENERO, dependencia) %>%
   summarise(n = n(), .groups = "drop_last") %>%
@@ -1133,12 +1133,12 @@ ggplot(tabla_dep_genero,
 
 ###7.ver abandono - noveles - rotacion
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   mutate(
     anio_nac = as.integer(substr(DOC_FEC_NAC, 1, 4)),
     edad = AGNO - anio_nac)
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   arrange(mrun, AGNO) %>%
   group_by(mrun) %>%
   mutate(
@@ -1158,7 +1158,7 @@ docente_fil_ <- docente_fil_ %>%
   ) %>%
   ungroup()
 
-abandono_final <- docente_fil_ %>%
+abandono_final <- docente_fil_r %>%
   group_by(mrun) %>%
   summarise(
     ultimo_agno = max(AGNO, na.rm = TRUE),
@@ -1171,7 +1171,7 @@ abandono_final <- docente_fil_ %>%
       genero == 1 & edad_ultimo < 65 & (2024 - ultimo_agno) >= 5 ~ 1,
       TRUE ~ 0))
 
-docente_fil_<- docente_fil_ %>%
+docente_fil_r<- docente_fil_r %>%
   arrange(mrun, AGNO) %>%
   group_by(mrun) %>%
   mutate(
@@ -1209,7 +1209,7 @@ docente_fil_<- docente_fil_ %>%
   ) %>%
   ungroup()
 
-tabla_abandono_genero <- docente_fil_%>%
+tabla_abandono_genero <- docente_fil_r%>%
   filter(!is.na(DOC_GENERO), !is.na(abandono_interno)) %>%
   group_by(DOC_GENERO, abandono_interno) %>%
   summarise(n = n(), .groups = "drop_last") %>%
@@ -1242,25 +1242,25 @@ ggplot(
 
 ###8.noveles
 
-titulos_por_mrun <- base_propu_trayec_ %>%
+titulos_por_mrun <- base_propu_trayec_r %>%
   mutate(cat_periodo = as.integer(cat_periodo)) %>%         # por si viene como carácter
   group_by(mrun) %>%
   summarise(anio_titulacion = max(cat_periodo, na.rm = TRUE),
             .groups = "drop")
 
-docente_fil_<- docente_fil_%>%
+docente_fil_r<- docente_fil_r%>%
   left_join(titulos_por_mrun, by = "mrun")
 
-docente_fil_<- docente_fil_%>%
+docente_fil_r<- docente_fil_r%>%
   group_by(mrun) %>%
   mutate(anio_ingreso_lab = suppressWarnings(min(AGNO, na.rm = TRUE))) %>%
   ungroup()
 
-docente_fil_<- docente_fil_%>%
+docente_fil_r<- docente_fil_r%>%
   mutate(
     novel = as.integer(!is.na(anio_titulacion) & anio_ingreso_lab == anio_titulacion))
 
-tabla_noveles_genero <- docente_fil_%>%
+tabla_noveles_genero <- docente_fil_r%>%
   filter(!is.na(DOC_GENERO), !is.na(novel)) %>%            # noveles debe ser 0/1
   group_by(genero = factor(DOC_GENERO, levels = c(1, 2),
                            labels = c("Hombre", "Mujer")),
@@ -1292,7 +1292,7 @@ ggplot(tabla_noveles_genero,
   ) +
   theme_minimal(base_size = 13)
 
-docente_fil_<- docente_fil_%>%
+docente_fil_r<- docente_fil_r%>%
   group_by(mrun) %>%
   mutate(
     # RBD distintos en los que ha estado la persona (ignorando NA)
@@ -1302,7 +1302,7 @@ docente_fil_<- docente_fil_%>%
   ) %>%
   ungroup()
 
-tabla_resumen <- docente_fil_%>%
+tabla_resumen <- docente_fil_r%>%
   distinct(mrun, genero_lbl, rotacion_total) %>%   # 1 fila por persona
   group_by(genero_lbl) %>%
   summarise(
@@ -1313,7 +1313,7 @@ tabla_resumen <- docente_fil_%>%
 
 print(tabla_resumen)
 
-base_personas <- docente_fil_ %>%
+base_personas <- docente_fil_r %>%
   distinct(mrun, DOC_GENERO, rotacion_total) %>%
   mutate(genero_lbl = factor(DOC_GENERO, levels = c(1, 2),
                              labels = c("Hombre", "Mujer")))
@@ -1339,10 +1339,10 @@ base_unica_simplificada <- base_unica %>%
   select(mrun, categoria_peda) %>% 
   distinct(mrun, .keep_all = TRUE)
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   left_join(base_unica_simplificada, by = "mrun")
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   mutate(
     ejercicio_area = case_when(
       docente_aula == 1 & categoria_peda == "Parvularia" & COD_ENS_1 == 10 ~ 1,
@@ -1350,10 +1350,10 @@ docente_fil_ <- docente_fil_ %>%
       docente_aula == 1 & categoria_peda == "Mixta"     & COD_ENS_1 %in% c(10, 110) ~ 1,
       TRUE ~ 0))
 
-frq(docente_fil_$ejercicio_area)
-frq(docente_fil_$categoria_peda)
+frq(docente_fil_r$ejercicio_area)
+frq(docente_fil_r$categoria_peda)
 
-tabla_ejercicio_genero_cat <- docente_fil_ %>%
+tabla_ejercicio_genero_cat <- docente_fil_r %>%
   filter(!is.na(DOC_GENERO),
          !is.na(categoria_peda),
          !is.na(ejercicio_area)) %>%
@@ -1392,7 +1392,7 @@ ggplot(tabla_ejercicio_genero_cat,
 
 ####no ejercen
 
-no_ejercen <- docente_fil_ %>%
+no_ejercen <- docente_fil_r %>%
   filter(ejercicio_area == 0 & !is.na(COD_ENS_1) & !is.na(ID_IFP))
 
 tabla_destino <- no_ejercen %>%
@@ -1415,7 +1415,7 @@ tabla_destino_gen
 
 ####posible sankey
 
-base_sankey1 <- docente_fil_ %>% filter(ejercicio_area == 0)
+base_sankey1 <- docente_fil_r %>% filter(ejercicio_area == 0)
 
 base_sankey1 <- docente_fil_base_sankey1 <- base_sankey1 %>% select(DOC_GENERO, categoria_peda, ID_IFP, NIVEL1)
 
@@ -1566,12 +1566,12 @@ p
 
 ###10.preparar modelos
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   mutate(optimo = case_when(
     ejercicio_area == 1 & horas_grupo_ == 40-45 ~ 1,
     TRUE ~ 0))
 
-docente_fil_ <- docente_fil_ %>%
+docente_fil_r <- docente_fil_r %>%
   mutate(
     optimo = as.integer(
       ejercicio_area == 1L &
@@ -1579,13 +1579,13 @@ docente_fil_ <- docente_fil_ %>%
     ))
 
 ##### chequeo rápido
-docente_fil_ %>% count(optimo) %>% mutate(prop = n / sum(n))
+docente_fil_r %>% count(optimo) %>% mutate(prop = n / sum(n))
 
-docente_fil_ <- docente_fil_ %>% mutate(optimo = as.integer(optimo))
+docente_fil_r <- docente_fil_r %>% mutate(optimo = as.integer(optimo))
 
 vars_pull <- c("mrun", "tipo_inst_recod", "cod_inst", "nomb_inst")
 
-base_princ <- docente_fil_ %>%
+base_princ <- docente_fil_r %>%
   transmute(
     optimo         = as.integer(optimo),           # DV 0/1
     DOC_GENERO     = as.factor(DOC_GENERO),
@@ -1609,7 +1609,7 @@ icc(fit_null_mrun); isSingular(fit_null_mrun)
 
 ###11.generar modelos
 
-base_princ <- docente_fil_ %>%
+base_princ <- docente_fil_r %>%
   transmute(
     optimo        = as.integer(optimo),     # DV 0/1
     DOC_GENERO    = as.factor(DOC_GENERO),
@@ -1641,7 +1641,7 @@ tab_model(fit_m1, transform = "exp", show.ci = TRUE, show.icc = TRUE,
 
 performance::icc(fit_m1)   # ICC(mrun) en logit
 
-base_ml <- docente_fil_ %>%
+base_ml <- docente_fil_r %>%
   group_by(mrun, RBD, AGNO) %>%
   summarise(
     optimo         = as.integer(any(optimo == 1L, na.rm = TRUE)),
