@@ -12,8 +12,8 @@ pacman::p_load(dplyr, summarytools, sjPlot, readr, purrr, sjmisc, ggplot2,
 
 ##base de datos demre
 
-base_matriculado_corta <- read_csv("~/universidad/base_matriculado_corta.csv")
-base_panel_enriquecida_final_ <- read_csv("~/base_panel_enriquecida_final_.csv")
+base_matriculado_corta <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_matriculado_corta.csv",delim = ",")
+base_panel_enriquecida_final_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_panel_enriquecida_final_r.csv",delim = ",")
 
 
 #### Paleta personalizada
@@ -87,7 +87,7 @@ ggplot(tasas_todas, aes(x = anno, y = tasa, color = SEXO, linetype = SEXO)) +
 ####quiero ver ahora las preferencias de aquellos que ingresan
 ####uso otra base para esto
 
-base_panel_enriquecida_final_ <- base_panel_enriquecida_final_ %>%
+base_panel_enriquecida_final_r <- base_panel_enriquecida_final_r %>%
   mutate(PREFERENCIA_RANGO = case_when(
     is.na(PREFERENCIA) ~ NA_character_,
     PREFERENCIA == 1 ~ "1° preferencia",
@@ -98,7 +98,7 @@ base_panel_enriquecida_final_ <- base_panel_enriquecida_final_ %>%
     TRUE ~ NA_character_)) %>%
   filter(!is.na(PREFERENCIA_RANGO))
 
-matriculados <- base_panel_enriquecida_final_ %>%
+matriculados <- base_panel_enriquecida_final_r %>%
   filter(matriculado == TRUE)
 
 tabla_preferencias <- matriculados %>%
@@ -123,7 +123,7 @@ ggplot(tabla_preferencias, aes(x = PREFERENCIA_RANGO, y = prop, fill = PREFERENC
 
 ####aca apilado y separado por genero
 
-tabla_prop <- base_panel_enriquecida_final_ %>%
+tabla_prop <- base_panel_enriquecida_final_r %>%
   group_by(SEXO, PREFERENCIA_RANGO) %>%
   summarise(n = n(), .groups = "drop") %>%
   group_by(SEXO) %>%
@@ -152,7 +152,7 @@ ggplot(tabla_prop, aes(x = SEXO, y = prop, fill = PREFERENCIA_RANGO)) +
 ###rendciones/inscripciones
 #### Filtrar personas matriculadas en carreras de pedagogía
 
-matriculados <- base_panel_enriquecida_final_ %>%
+matriculados <- base_panel_enriquecida_final_r %>%
   filter(matriculado == TRUE, !is.na(rendiciones), !is.na(SEXO))
 
 #### Calcular estadísticos descriptivos
@@ -272,7 +272,7 @@ print(resumen_nem_genero)
 
 base_matriculado_corta <- base_matriculado_corta %>%
   left_join(
-    base_panel_enriquecida_final_ %>% select(ID_aux, anno, PREFERENCIA),
+    base_panel_enriquecida_final_r %>% select(ID_aux, anno, PREFERENCIA),
     by = c("ID_aux", "anno"))
 
 base_matriculado_corta %>%
@@ -283,7 +283,7 @@ base_matriculado_corta %>%
 base_na_preferencia <- base_matriculado_corta %>%
   filter(is.na(PREFERENCIA))
 
-base_filtrada_na <- base_panel_enriquecida_final_ %>%
+base_filtrada_na <- base_panel_enriquecida_final_r %>%
   filter(ID_aux %in% base_na_preferencia$ID_aux)
 
 #### Ver variables de interes
