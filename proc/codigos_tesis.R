@@ -7,7 +7,7 @@ pacman::p_load(dplyr, summarytools, sjPlot, readr, purrr, sjmisc, ggplot2,
                survey, calidad, DT, zoo, glue, forcats, haven, car, corrplot, 
                stargazer, lme4, gt, tibble, janitor, psych, tidyverse, survival,
                survminer, knitr, kableExtra, naniar, corrr, lattice, forcats,
-               networkD3, htmlwidgets)
+               networkD3, htmlwidgets, modelsummary, scales)
 
 
 ##base de datos demre
@@ -376,7 +376,6 @@ tabla_cor %>%
 cor_matrix <- cor(vars_interes, use = "complete.obs", method = "pearson")
 
 summary(base_matriculado_corta)
-cor(base_modelo %>% select_if(is.numeric), use = "complete.obs")
 
 ####modelos y preparacion
 
@@ -426,7 +425,7 @@ tab_model(modelo_2, modelo_3, modelo_4, modelo_5,
           title = "Modelos Logísticos Multinivel paso a paso (Odds Ratios)"
 )
 
-modelo_logit_simple <- glm(matriculado ~ sexo_bin + edad_z + PTJE_NEM_z +
+modelo_logit_simple <- glm(matriculado ~ SEXO + edad_z + PTJE_NEM_z +
                              rendiciones_z + anno_z + rama,
                            data = base_matriculado_corta,
                            family = binomial)
@@ -780,10 +779,7 @@ View(na_table)   # tabla ordenada
 
 base_para_modelo <- base_para_modelo %>%
   mutate(egreso = factor(egresa, levels = c(0,1), labels = c("No","Sí")),
-         sexo = factor(gen_alu, levels = c(1,2), labels = c("Hombre","Mujer")),
-         categoria_peda = factor(categoria_peda,
-                                 levels = c(1,2,3),
-                                 labels = c("Parvularia","Basica","Mixta")))
+         sexo = factor(gen_alu, levels = c(1,2), labels = c("Hombre","Mujer")))
 
 
 num_vars <- base_para_modelo %>%
@@ -806,8 +802,8 @@ tab_model(modelo_test,
           digits = 3,
           pred.labels = c("Intercepto",
                           "Sexo (Mujer)",
-                          "Pedagogía Básica",
                           "Pedagogía Mixta",
+                          "Educación Parvularia",
                           "Univ. Privada",
                           "Inst. profesional"),
           dv.labels = "Probabilidad de Egreso")
