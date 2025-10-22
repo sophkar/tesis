@@ -1015,8 +1015,10 @@ base_unica <- base_para_modelo %>%
 ##### Revisar resultado
 nrow(base_unica)                 
 n_distinct(base_unica$mrun)      
+```
 
-
+```{r}
+      
 modelo_reg_1 <- glm(egresa ~ sexo, data = base_unica, family = binomial)
 modelo_reg_2 <- glm(egresa ~ categoria_peda + tipo_inst_recod, data = base_unica, family = binomial)
 modelo_reg_3 <- glm(egresa ~ sexo + tipo_inst_recod + categoria_peda, data = base_unica, family = binomial)
@@ -1043,6 +1045,7 @@ tab_model(
 )
 
 install.packages("modelsummary")
+library("modelsummary")
 
 modelsummary(
   list("Sexo" = modelo_reg_1,
@@ -1069,14 +1072,6 @@ tab_model(
   show.r2 = TRUE,
   title = "Modelo multinivel: probabilidad de egreso")
 ```
-
-En el modelo multinivel de probabilidad de egreso, se observa que las mujeres presentan 1,87 veces más probabilidades de titularse en comparación con los hombres, manteniendo constantes las demás variables del modelo.
-
-Respecto a la categoría pedagógica, los estudiantes de pedagogía básica muestran menores probabilidades de egreso que quienes estudian pedagogía parvularia (categoría de referencia), con un odds ratio de 0,61, lo que representa una reducción cercana al 39% en sus chances de culminar los estudios. En cambio, la categoría mixta no presenta diferencias relevantes respecto a parvularia (OR = 1,00).
-
-El tipo de institución formadora también muestra diferencias significativas. En relación con los institutos profesionales (categoría de referencia), los estudiantes que provienen de universidades estatales tienen 1,54 veces más probabilidades de egresar, mientras que en las universidades privadas el efecto es aún mayor, con un odds ratio de 1,71.
-
-En términos de varianza, el modelo reporta un ICC de 0,07, lo que indica que aproximadamente un 7% de la variabilidad en la probabilidad de egreso se explica por diferencias entre instituciones, más allá de las características individuales.
 
 ```{r}
 ##base de datos abierta 2/2
