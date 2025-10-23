@@ -1093,7 +1093,7 @@ tabla_dir_genero
 frq(docente_fil_r$RBD)
 
 docente_fil_r <- docente_fil_r %>%
-  arrange(mrun, RBD, AGNO) %>%
+  arrange(mrun, RBD) %>%
   group_by(mrun, RBD) %>%
   mutate(
     ascenso = ifelse(!is.na(lag(docente_aula)) & lag(docente_aula == 1) & directivo == 1, 1, 0)
@@ -1802,13 +1802,12 @@ base_princ <- docente_fil_r %>%
     categoria_peda = as.factor(categoria_peda),
     dependencia    = as.factor(dependencia),
     mrun           = as.factor(mrun),
-    RBD            = as.factor(RBD),
-    AGNO           = as.integer(AGNO)              # numérico (no factor por ahora)
+    RBD            = as.factor(RBD)
   ) %>%
   tidyr::drop_na(optimo) %>%
   droplevels()
 
-base_princ %>% summarise(n = n(), n_mrun = n_distinct(mrun), n_RBD = n_distinct(RBD), min_year=min(AGNO), max_year=max(AGNO))
+base_princ %>% summarise(n = n(), n_mrun = n_distinct(mrun), n_RBD = n_distinct(RBD))
 
 system.time({
   fit_null_mrun <- glmer(optimo ~ 1 + (1 | mrun),
@@ -1826,21 +1825,17 @@ base_princ <- docente_fil_r %>%
     categoria_peda= as.factor(categoria_peda),
     dependencia   = as.factor(dependencia),
     mrun          = as.factor(mrun),
-    RBD           = as.factor(RBD),
-    AGNO          = as.integer(AGNO)
+    RBD           = as.factor(RBD)
   ) %>%
   tidyr::drop_na(optimo) %>%
-  mutate(
-    AGNO_c = scale(AGNO, center = TRUE, scale = FALSE) |> as.numeric()
-  ) %>%
   droplevels()
 
-fit_fe <- glm(optimo ~ DOC_GENERO + categoria_peda + dependencia + AGNO_c,
+fit_fe <- glm(optimo ~ DOC_GENERO + categoria_peda + dependencia,
               family = binomial, data = base_princ)
 start_fixef <- coef(fit_fe)
 
 fit_m1 <- glmer(
-  optimo ~ DOC_GENERO + categoria_peda + dependencia + AGNO_c +
+  optimo ~ DOC_GENERO + categoria_peda + dependencia +
     (1 | mrun),
   family = binomial, data = base_princ,
   start  = list(fixef = start_fixef),
@@ -1852,7 +1847,7 @@ tab_model(fit_m1, transform = "exp", show.ci = TRUE, show.icc = TRUE,
 performance::icc(fit_m1)   # ICC(mrun) en logit
 
 base_ml <- docente_fil_r %>%
-  group_by(mrun, RBD, AGNO) %>%
+  group_by(mrun, RBD) %>%
   summarise(
     optimo         = as.integer(any(optimo == 1L, na.rm = TRUE)),
     DOC_GENERO     = dplyr::first(na.omit(DOC_GENERO)),
@@ -1865,17 +1860,14 @@ base_ml <- docente_fil_r %>%
     RBD           = factor(RBD),
     DOC_GENERO    = factor(DOC_GENERO),
     categoria_peda= factor(categoria_peda),
-    dependencia   = factor(dependencia),
-    AGNO          = as.integer(AGNO),
-    AGNO_c        = as.numeric(scale(AGNO, center = TRUE, scale = FALSE))
-  ) %>%
+    dependencia   = factor(dependencia)) %>%
   tidyr::drop_na(optimo) %>%
   droplevels()
 
 library(glmmTMB)
 
 fit_m2 <- glmmTMB(
-  optimo ~ DOC_GENERO + categoria_peda + dependencia + AGNO_c +
+  optimo ~ DOC_GENERO + categoria_peda + dependencia + 
     (1 | mrun) + (1 | RBD),
   family = binomial(link = "logit"),
   data = base_ml
@@ -1890,18 +1882,10 @@ tab_model(fit_m2, transform = "exp", show.ci = TRUE,
 
 En el modelo multinivel que estima la probabilidad de un ejercicio docente considerado óptimo (definido como desempeño en aula con jornada de 44-45 horas), se observan diferencias relevantes según género, categoría pedagógica y dependencia institucional.
 
-En comparación con los hombres, las mujeres presentan menores probabilidades de alcanzar un ejercicio docente óptimo (OR = 0,80). En relación con la categoría de referencia (pedagogía básica), quienes provienen de programas mixtos muestran una probabilidad aún menor (OR = 0,52), mientras que los egresados de pedagogía parvularia presentan la probabilidad más baja de todas (OR = 0,32).
+En comparación con los hombres, las mujeres presentan menores probabilidades de alcanzar un ejercicio docente óptimo (OR = 0,88). En relación con la categoría de referencia (pedagogía básica), quienes provienen de programas mixtos muestran una probabilidad aún menor (OR = 0,56), mientras que los egresados de pedagogía parvularia presentan la probabilidad más baja de todas (OR = 0,36).
 
-Al analizar la dependencia administrativa, tomando como referencia los establecimientos municipales, los docentes que se desempeñan en el sector particular subvencionado tienen un 63% menos de probabilidades de alcanzar un ejercicio óptimo (OR = 0,37), y aquellos en el sector particular pagado una reducción similar (OR = 0,35).
+Al analizar la dependencia administrativa, tomando como referencia los establecimientos municipales, los docentes que se desempeñan en el sector particular subvencionado tienen un 66% menos de probabilidades de alcanzar un ejercicio óptimo (OR = 0,34), y aquellos en el sector particular pagado una reducción similar (OR = 0,42).
 
-Por otra parte, el efecto del tiempo resulta positivo: por cada año adicional en la trayectoria laboral, la probabilidad de lograr un ejercicio óptimo aumenta en torno a un 25% (OR = 1,25).
-
-En términos de variabilidad, el modelo arroja un ICC de 0,65, lo que indica que más de la mitad de la variación en la probabilidad de ejercicio docente óptimo se explica por diferencias entre individuos, incluso después de controlar por características institucionales y contextuales.
+En términos de variabilidad, el modelo arroja un ICC de 0,61, lo que indica que más de la mitad de la variación en la probabilidad de ejercicio docente óptimo se explica por diferencias entre individuos, incluso después de controlar por características institucionales y contextuales.
 
 En el modelo de regresión logística multinivel cruzada, controla simultáneamente las trayectorias individuales y la institución de formación, los resultados confirman los patrones observados en el modelo anterior, aunque con variaciones en la intensidad de los efectos.
-
-Las mujeres presentan una menor probabilidad de alcanzar un ejercicio docente óptimo en comparación con los hombres (OR = 0,86), lo que evidencia una brecha de género persistente, aun considerando la heterogeneidad entre instituciones de formación. En cuanto a la categoría pedagógica, los egresados de programas mixtos muestran una probabilidad reducida de desempeño óptimo (OR = 0,47) y los de parvularia presentan el efecto más marcado, con una disminución del 80% en comparación con quienes egresan de pedagogía básica (OR = 0,20).
-
-Las diferencias también se expresan en la dependencia del establecimiento laboral: en relación con el sector municipal, los docentes en particulares subvencionados exhiben una probabilidad cinco veces menor de alcanzar un desempeño óptimo (OR = 0,20), mientras que en los particulares pagados la probabilidad se reduce en torno a dos tercios (OR = 0,34).
-
-El efecto del tiempo sigue siendo consistente: cada año adicional en la trayectoria laboral se asocia con un aumento del 32% en la probabilidad de desempeño óptimo (OR = 1,32). Finalmente, el modelo arroja un ICC de 0,77, lo que indica que una proporción relevante de la variabilidad se explica tanto por diferencias entre trayectorias individuales como entre instituciones formadoras, reforzando la necesidad de considerar simultáneamente ambos niveles para comprender la heterogeneidad en el ejercicio docente.

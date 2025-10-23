@@ -1,3 +1,155 @@
+---
+title: "tesis mg"
+author: "sophia"
+format: html
+editor: visual
+---
+
+# Minorías masculinas en pedagogía: Un estudio longitudinal de las trayectorias académicas de hombres en Chile (2007–2024)
+
+## Introducción
+
+La distribución de género en las profesiones no es neutral ni aleatoria, sino que responde a estructuras históricas, culturales y sociales que asignan distintos valores, habilidades y expectativas a mujeres y hombres (Benería, 1991). En el campo de la educación, estas dinámicas han contribuido a una feminización sostenida de la profesión docente a nivel internacional, especialmente en los niveles iniciales y primarios (Organisation for Economic Co-operation and Development \[OECD\], 2017).
+
+Este fenómeno tiene raíces profundas en los roles de género tradicionales, que han atribuido a las mujeres capacidades y habilidades relacionadas con el cuidado, la empatía y la enseñanza (Fiorucci et.al., 2022). En contraposición, la presencia masculina en las escuelas, y en específico, dentro de la primera etapa formativa, se encuentra permeada por dinámicas que conflictúan su pertinencia y desarrollo, en la medida que la conexión educativa directa con niños, y con ellos su familia, se aleja de aquellos roles esperables en hombres (Vargas, 2025; Weinerman, 2005; Carvalho, 1999). Esto ha generado una notable subrepresentación de hombres en las carreras de educación, una realidad que impacta tanto en la diversidad del cuerpo docente como en las dinámicas sociales dentro del sistema educativo (Vargas, 2025; García y Muñoz, 2023; Fernández et al., 2020).
+
+En Chile, esta tendencia global se expresa con particular fuerza. Al comparar las tendencias internacionales de los porcentajes de profesoras mujeres en los últimos años, los porcentajes chilenos (Ministerio de Educación, Centro de Estudios \[CEM\], 2024a) superan en casi su totalidad a los promedios globales (OECD, s.f.). Sumado a esa sobrerrepresentación, se observan importantes diferencias en la distribución de la participación femenina chilena según el nivel educativo a considerar, acrecentando en niveles iniciales. Mientras que en educación básica la participación femenina ronda el 78,1%, en párvulo esta cifra llega a un 99,1% (CEM, 2024b). El fenómeno de la feminización, no es el único que se manifiesta en el escenario formativo y docente chileno, este es también parte de un escenario más complejo de transformaciones profundas del sistema docente (Montero y Fernández, 2021), siendo uno de estos el fenómeno del déficit docente, y en específico, el déficit docente idóneo (EligeEducar, 2021). Si bien, en los últimos años la cantidad de matrículas universitarias en carreras de educación se ha mantenido relativamente estable con una fluctuación no mayor al 3% (CEM, 2024a), una cantidad importante de programas se han dado de baja, pasando de 635 en el 2017 a 401 en 2024 (CEM, 2024a). Esta contracción debe comprenderse en el marco de una serie de reformas institucionales orientadas a fortalecer la calidad y legitimidad de la profesión docente (Montero y Fernández, 2021), reflejadas en la Ley 20.903 de Desarrollo Profesional Docente promulgada en el año 2016, la cual exige la acreditación tanto de las carreras pedagógicas como de aquellas instituciones que las imparten (Biblioteca del Congreso Nacional de Chile, 2025). Sin embargo, el desafío actual no se limita únicamente a la disminución en la oferta formativa, sino que se extiende hacia la necesidad de asegurar la presencia de docentes idóneos, es decir, de profesionales que no solo cuenten con formación acreditada en educación, sino que además ejerzan efectivamente en el aula, en los niveles y asignaturas para los cuales fueron preparados (EligeEducar, 2021). Estudios han advertido que una proporción significativa de quienes egresan de pedagogía no se inserta en el sistema escolar, o bien lo hace en condiciones precarias y por períodos breves, lo que reduce el impacto de los esfuerzos formativos (Elige Educar, 2021; Vergara, Arias y Villaroel, 2021). Esta situación revela una tensión entre la regulación de la calidad de la formación y la capacidad efectiva del sistema para atraer, retener y distribuir adecuadamente a los nuevos docentes, generando una paradoja: mientras se busca elevar los estándares académicos, persiste una carencia crónica de profesionales disponibles para cubrir las necesidades reales del sistema escolar (Vergara, Arias y Villaroel, 2021).
+
+En este contexto, las trayectorias, desde la postulación hasta el ejercicio efectivo, del profesorado en pedagogías feminizadas no pueden analizarse como un fenómeno aislado ni únicamente vinculado a la sobrerrepresentación femenina. Por el contrario, estas forman parte de una configuración estructural que combina precariedad laboral, desvalorización simbólica y desequilibrios en la atracción y retención de nuevos profesionales. Si bien los hombres enfrentan obstáculos y formas particulares (Vergara et al, 2017; Subsecretaría de Educación Superior, 2023), estos se insertan en un campo más amplio en el que también las mujeres se ven afectadas. En este sentido, el escenario actual del sistema docente chileno no puede ser comprendido únicamente desde una perspectiva de género binaria, sino que debe ser desde una mirada estructural que reconozca las interacciones entre género, segmentación ocupacional y aspectos formativos. A partir de este diagnóstico, se vuelve necesario examinar con mayor profundidad las trayectorias educativas y laborales de los hombres en carreras de pedagogía altamente feminizadas. Si bien las desigualdades de género en el sistema formativo afectan transversalmente al conjunto del profesorado, los hombres que optan por ingresar a estos espacios enfrentan condiciones particulares de desajuste entre su elección vocacional y los mandatos tradicionales de masculinidad, lo que puede incidir en sus decisiones de ingreso, permanencia y desarrollo profesional. En un contexto marcado por el déficit de docentes idóneos y la creciente dificultad para atraer y retener profesionales en el sistema escolar, resulta relevante comprender cómo se despliegan estas trayectorias desde una posición de género históricamente minoritaria dentro del campo pedagógico.
+
+Este estudio se propone aportar evidencia empírica sistematizada sobre dichas trayectorias, mediante el análisis de datos longitudinales nacionales entre 2007 y 2024. A partir de la observación de los patrones de matrícula, egreso e inserción laboral, y su relación con variables individuales, institucionales y contextuales, se busca contribuir a una comprensión más matizada de los mecanismos que reproducen o tensionan la brecha de género en la formación docente. El foco en los hombres no responde a una mirada compensatoria, sino al interés por indagar cómo operan las dinámicas estructurales de género en sujetos cuya elección profesional desafía los esquemas tradicionales de división sexual del trabajo educativo.
+
+### Objetivo general
+
+Analizar las trayectorias educativas y laborales de hombres en carreras de educación altamente feminizadas en Chile entre los años 2007 a 2024.
+
+### Objetivos específicos
+
+-   Comparar las trayectorias educativas formativas de hombres y mujeres en carreras de educación parvularia y pedagogía básica, considerando diferencias en tasas de titulación, abandono de la carrera y duración de los estudios.
+
+-   Comparar las trayectorias laborales de hombres y mujeres en educación parvularia y básica, considerando variables laborales.
+
+-   Examinar el efecto de variables individuales e institucionales sobre la probabilidad de ingreso, egreso e inserción laboral de estudiantes matriculados en carreras de pedagogía altamente feminizadas en Chile.
+
+### Pregunta de investigación
+
+¿Cómo son las trayectorias educativas y laborales de los hombres que cursan carreras de pedagogía en Chile altamente feminizadas entre los años 2007 y 2024?
+
+## Revisión de la literatura
+
+*Feminización y división sexual del trabajo docente.*
+
+La actual composición feminizada del campo docente no debe entenderse como el resultado natural de una supuesta afinidad entre las mujeres y la enseñanza, sino como el producto de un proceso histórico de construcción social cuya legitimidad se funda en lo que Bourdieu y Passeron (1996) denominan arbitrariedad cultural. Este concepto alude al carácter contingente y selectivo de los significados, prácticas y disposiciones que una sociedad eleva a la categoría de legítimos, presentándose como universales o neutros, cuando en realidad son expresión de relaciones de poder que se han sedimentado institucionalmente. En este sentido, la sobrerrepresentación femenina en la docencia no obedece a una inclinación esencial hacia el cuidado, sino a un proceso de asignación simbólica que ha moldeado las estructuras de sentido del oficio docente, definiendo lo que se espera, valora y reconoce como propio de ese rol (Dantas, & Antloga, 2023).
+
+Más que una simple transformación cuantitativa en la composición del profesorado (OECD, 2022), la feminización ha operado como un reordenamiento simbólico del campo educativo, en el que se han consolidado ciertas disposiciones asociadas a lo femenino, como entrega emocional, empatía o contención afectiva, como atributos deseables del buen docente (Dantas, & Antloga, 2023). Este desplazamiento ha ido acompañado, además, de una progresiva desvalorización del trabajo pedagógico, tanto en términos salariales como de estatus profesional (Rahayani, 2010), proceso que encuentra su fundamento en las lógicas más amplias de la división sexual del trabajo. Desde esta perspectiva, la docencia, especialmente en los niveles iniciales y básicos, ha sido construida socialmente como una extensión de las tareas de reproducción social tradicionalmente asignadas a las mujeres (Fraser, 2016), lo que ha reforzado su ubicación periférica en la jerarquía de las profesiones.
+
+La segregación sexual ocupacional opera aquí en sus dos dimensiones: por una parte, la segregación horizontal concentra a las mujeres en ciertas ramas del empleo socialmente codificadas como “femeninas”, como la educación parvularia y básica; por otra, la segregación vertical restringe su acceso a posiciones de poder o dirección dentro del mismo campo (Charles, 2003). En el caso chileno, ambos mecanismos se expresan con claridad: mientras las mujeres representan más de dos tercios del profesorado en niveles básicos y alcanzan casi la totalidad en educación parvularia (CEM, 2024b).
+
+Esta distribución no responde a las características intrínsecas del trabajo docente, sino a procesos culturales e institucionales que han construido dicho oficio como una extensión naturalizada de lo femenino (Dantas, & Antloga, 2023). En contextos laborales feminizados, el género opera como principio organizador que no solo define quién debe ocupar determinados espacios, sino también cuánto deben valer y cómo deben ejercerse (Bourdieu y Passeron, 1996; Bourdieu, 1996). En este sentido, la feminización redefine el valor de una ocupación, subordinándola dentro del campo laboral a través de la asociación con cualidades supuestamente innatas, como la vocación o la entrega, que terminan legitimando la precariedad (Mills, 2003). Como plantea Rahayani (2010), este fenómeno va más allá de la presencia femenina: implica transformaciones simbólicas en los significados y roles del trabajo, con frecuencia acompañadas por una pérdida de estatus o autoridad.
+
+Esta lógica cultural se traduce en condiciones materiales concretas. La docencia, especialmente en sus niveles más feminizados, se encuentra marcada por bajos salarios, alta carga emocional, escasa autonomía y limitadas posibilidades de movilidad (Akiba et al., 2023; Lindsay & Lindsay, 1987; Connors, 1990; Bellei & Valenzuela, 2013). Lejos de contrarrestar estas desigualdades, la creciente presencia femenina puede reforzar su normalización, consolidando un modelo de empleo que asume el sacrificio personal como parte inherente del rol. Estudios recientes han mostrado que la feminización de ciertas ocupaciones se correlaciona con una degradación de su calidad laboral, tanto objetiva como subjetiva, incluso cuando se controla por nivel educativo, edad o tipo de país (Stier & Yaish, 2014). Esto obliga a pensar la docencia no sólo como un espacio feminizado en términos de acceso, sino como un campo estructurado por desigualdades persistentes que afectan las trayectorias de quienes lo habitan.
+
+En este marco, el caso chileno no escapa a las lógicas transnacionales de desvalorización del trabajo de cuidado. La fuerte concentración de mujeres en las carreras de pedagogía, especialmente en niveles iniciales, coexiste con una segmentación interna que distribuye poder, prestigio y oportunidades de manera desigual. Así, la feminización de la docencia no es un dato demográfico neutro, sino una forma específica de organización del trabajo que reproduce jerarquías de género y configura escenarios diferenciados de inserción, permanencia y movilidad dentro del sistema educativo (Dantas, & Antloga, 2023).
+
+*Trayectorias educativas*
+
+Las trayectorias educativas constituyen una herramienta analítica clave para comprender cómo los y las estudiantes acceden, transitan y egresan del sistema de educación superior (Loder, 2024). Más que un simple recorrido cronológico, el concepto permite capturar la articulación entre decisiones individuales, condiciones institucionales y estructuras sociales que configuran los procesos formativos. En este sentido, las trayectorias deben entenderse como procesos dinámicos y multifactoriales, marcados por transiciones, interrupciones y bifurcaciones, en lugar de recorridos lineales y homogéneos (Haas & Hadjar, 2020).
+
+Este enfoque ha sido fundamental para visibilizar cómo las desigualdades sociales, y particularmente las de género, se encarnan en formas diferenciadas de transitar por el sistema educativo. Julià (2018) plantea que las trayectorias expresan regularidades estructurales más que decisiones puramente individuales, al estar condicionadas por factores como el capital cultural de origen y las expectativas normativas asociadas al género. En línea con este argumento, la perspectiva de Bourdieu (2007) permite profundizar en la forma en que los distintos volúmenes y tipos de capital se traducen en recursos diferenciales que estructuran las posibilidades de acceso, permanencia y éxito. De este modo, las trayectorias no sólo reflejan decisiones personales, sino también los efectos de mecanismos de reproducción social que naturalizan las desigualdades preexistentes bajo la apariencia de mérito individual.
+
+Desde esta perspectiva, el concepto de habitus (Bourdieu, 2007) resulta igualmente relevante, al entender las disposiciones de los sujetos como esquemas incorporados que orientan su actuar dentro del sistema educativo, ajustándose a las expectativas del campo sin necesidad de una reflexión consciente. Así, las trayectorias educativas se configuran en la intersección entre las estructuras objetivas del campo y las disposiciones subjetivas de los agentes, lo que explica la persistencia de ciertos patrones sociales aun en contextos de expansión de la matrícula.
+
+Esta lectura permite complejizar el análisis de las transiciones educativas, al mostrar que no solo varía el acceso o egreso, sino también la forma en que se recorren los trayectos formativos. Desde esta perspectiva, la propuesta de Huberman (1993) resulta especialmente útil, al conceptualizar las trayectorias como secuencias estructuradas que adquieren sentido en su conjunto. Aunque su foco se ubica en el desarrollo profesional docente, su enfoque contribuye a los estudios cuantitativos al subrayar que momentos clave, como el ingreso, la titulación o la inserción laboral, sólo pueden comprenderse plenamente como parte de un proceso más amplio.
+
+*Barreras simbólicas y tensiones*
+
+En un campo educativo históricamente feminizado, la presencia de varones en carreras como educación parvularia y básica no constituye únicamente una anomalía estadística, sino una tensión estructural frente al orden simbólico que define los atributos legítimos del rol docente. Su participación activa interpela un conjunto de disposiciones históricamente generizadas, que asocian el “buen enseñar” con rasgos como el cuidado, la entrega afectiva o la vocación de servicio, elevando tales cualidades al estatus de norma profesional (González Castro, 2011).
+
+Los hombres que optan por este camino deben no solo demostrar su pertenencia al campo, sino también enfrentar los múltiples filtros que operan desde la elección vocacional hasta el ejercicio profesional. Estereotipos de género, narrativas sobre el “perfil docente” y las propias condiciones laborales de los niveles iniciales actúan como barreras simbólicas que restringen su integración y continuidad (Valenzuela, Bellei & Ríos, 2014). A ello se suma una dimensión estructural del contexto chileno, el capital académico de origen, el cual condiciona el tipo de inserción profesional disponible. Docentes con menores credenciales tienden a comenzar su carrera en establecimientos de alta vulnerabilidad o complejidad, configurando trayectorias segmentadas desde el inicio que tienden a reproducirse con el tiempo (Cabezas, 2011; Luschei, 2006).
+
+Su presencia en las aulas ha sido objeto de diversas representaciones, atravesadas por la expectativa de que se adapten a entornos construidos en torno a disposiciones feminizadas, así como por imaginarios que los sitúan como figuras excepcionales o incluso inapropiadas para esos espacios (Sumsion, 2000; King, 1998; Marcano y Suárez, 2022). Estas tensiones no provienen exclusivamente del entorno social externo, sino que se reproducen en las propias comunidades escolares, donde compañeras, directivos y apoderadas pueden percibir a los hombres como menos capacitados, menos empáticos o menos aptos para asumir tareas vinculadas al cuidado (Escalona, Cáceres y Torrego, 2025; Wainerman, 2005).
+
+Estas dinámicas constituyen una forma de violencia simbólica (Bourdieu, 1996), en tanto naturalizan la arbitrariedad de ciertas disposiciones como legítimas, imponiendo estructuras de sentido que definen lo adecuado, lo deseable y lo visible en el campo docente. No se trata de una exclusión directa, sino de una posición ambigua que obliga a los varones a negociar constantemente su pertenencia y legitimidad. Esta tensión es una manifestación del orden patriarcal que restringe también las posibilidades de lo masculino, al vincularlo con el poder, la racionalidad instrumental y la distancia emocional, desvalorizando al mismo tiempo las prácticas históricamente feminizadas. En este marco, la docencia inicial, al ser leída socialmente como una extensión del maternaje, aparece como un territorio simbólicamente incompatible con el habitus masculino dominante, generando incomodidad, sospechas o exigencias de sobrelegitimación.
+
+Desde esta perspectiva, los hombres que se insertan en estos espacios enfrentan trayectorias marcadas por la vigilancia identitaria, la expectativa de adaptación constante y la necesidad de justificar su presencia. Es posible entender desde Goffman (1997), que estos sujetos se ven compelidos a sostener una performance del rol docente bajo un guión simbólicamente ajeno, cuya desalineación puede devenir en sospecha o desaprobación tácita.
+
+En este escenario, algunas instituciones han comenzado a implementar medidas orientadas a revertir la baja participación masculina, como los ingresos especiales para varones en carreras de educación parvularia (Universidad de Chile, 2021). Estos esfuerzos expresan una preocupación institucional, por la desigual distribución de género, pero resultan insuficientes, si no están acompañados en un cambio en las condiciones simbólicas y materiales que siguen limitando la permanencia y proyección profesional de los hombres en un campo históricamente feminizado.
+
+Es a partir de lo expuesto que se plantean 3 principales hipótesis para las trayectorias masculinas:
+
+H1. En carreras de pedagogía en educación parvularia y básica, los postulantes hombres presentan una menor probabilidad de matrícula efectiva que las mujeres, controlando por variables individuales e institucionales.
+
+H2. Los hombres presentan una menor probabilidad de titulación en comparación con las mujeres, controlando por variables individuales e institucionales.
+
+H3. Los docentes titulados hombres presentan una menor probabilidad de ejercer en una docencia efectiva, en comparación con las mujeres, controlando por variables individuales e institucionales.
+
+## Metodología
+
+### Diseño de investigación 
+
+Este estudio se inscribe dentro del paradigma de investigación cuantitativo, con un diseño longitudinal y explicativo. La estrategia metodológica se basa en el seguimiento individual de personas a lo largo del tiempo, mediante un identificador único anonimizado que garantiza la confidencialidad de los datos. Este enfoque permite reconstruir trayectorias educativas y laborales desde la postulación a carreras pedagógicas hasta la eventual inserción en el sistema escolar chileno, identificando patrones de ingreso, abandono, titulación e inserción laboral en función de variables individuales, institucionales y contextuales.
+
+La estructura temporal de los datos posibilita analizar secuencias de eventos en distintos momentos del ciclo formativo y laboral. Además, permite incorporar simultáneamente dimensiones individuales, institucionales y contextuales, para observar su efecto sobre la trayectoria de quienes transitan por carreras altamente feminizadas.
+
+Desde una perspectiva explicativa, el análisis se articula mediante modelos de regresión logística estándar y multinivel, los cuales permiten identificar asociaciones entre variables. En este caso, se estiman tres modelos independientes que analizan, respectivamente, la probabilidad de matrícula efectiva, la probabilidad de titulación y la probabilidad de inserción laboral en contextos de alta complejidad. Este enfoque permite observar cómo distintas características individuales e institucionales influyen en dichas probabilidades, así como comparar los patrones observados entre hombres y mujeres en un campo históricamente feminizado.
+
+### Fuentes de datos
+
+Este estudio se basa en un diseño de tipo panel longitudinal, que permite observar las trayectorias académicas y laborales de estudiantes que ingresaron a carreras de pedagogía entre los años 2007 y 2024. La estrategia metodológica contempla la integración de bases de datos administrativas oficiales provistas por el Ministerio de Educación de Chile (MINEDUC) y el Departamento de Evaluación, Medición y Registro Educacional (DEMRE), lo que posibilita un seguimiento individualizado desde el proceso de admisión universitaria hasta el eventual ejercicio profesional en el sistema escolar.
+
+Para ello, se construyeron tres paneles principales:
+
+Panel de acceso universitario: elaborado a partir de los registros del DEMRE (Inscripción, Rendición, Postulación y Matrícula), permite caracterizar el perfil académico de ingreso, incluyendo puntajes en pruebas estandarizadas, preferencias de postulación y tipo de institución de destino.
+
+Panel formativo: construido con los registros de Matrícula y Titulación en Educación Superior (MINEDUC), permite identificar trayectorias formativas diferenciadas, considerando eventos de deserción, continuidad y egreso, así como la duración total de los estudios.
+
+Panel laboral docente: basado en la base de Cargos Docentes del MINEDUC, permite analizar las trayectorias de inserción profesional de los egresados en el sistema escolar chileno, considerando su continuidad, rol de educador y la dependencia administrativa en la que ejerce.
+
+Se excluyen del análisis los programas con duración inferior a siete semestres, con el fin de asegurar comparabilidad entre trayectorias equivalentes. Permitiendo construir una base representativa del universo de estudiantes que han transitado por carreras de pedagogía altamente feminizadas en el período analizado, y realizar estimaciones sobre sus trayectorias.
+
+### Muestra 
+
+La muestra está compuesta por todas las personas que ingresaron a carreras de pedagogía en los niveles de educación parvularia y básica en Chile entre los años 2007 y 2024, según los registros de matrícula del Centro de Estudios del Mineduc. Se incluyen tanto hombres como mujeres, con el propósito de comparar trayectorias educativas y laborales diferenciadas por género.
+
+La delimitación temporal de los años 2007 a 2024 se justifica por la disponibilidad de registros administrativos sistemáticos del Centro de Estudios del Ministerio de Educación, a partir del año 2007, ya que no existen bases previas consolidadas en el Centro de Estudios del Ministerio de Educación que permitan la trazabilidad longitudinal de cohortes anteriores.
+
+Este estudio adopta un enfoque censal, al considerar la totalidad de los registros disponibles en dos bases administrativas complementarias. Por un lado, la base del DEMRE, que contiene información sobre postulaciones y matrícula inicial a carreras de pedagogía; y por otro, la base del Mineduc, que permite seguir la matrícula continua durante el pregrado y su eventual transición al ejercicio profesional docente. La unidad de análisis corresponde a personas identificadas de forma individual mediante un código anónimo único, lo que posibilita su seguimiento longitudinal a lo largo de los distintos paneles construidos.
+
+Se excluyen del análisis:
+
+-   Las carreras que no correspondan a los niveles definidos como objeto de estudio (parvularia, básica y mixta) .
+
+-   Los programas de formación pedagógica con una duración inferior a siete semestres.
+
+-   Los registros en los que la titulación ocurre en una carrera distinta a aquella consignada en el ingreso, a fin de mantener la coherencia entre la trayectoria formativa y el campo profesional analizado.
+
+-   Aquellas personas cuya formación en pregrado para una misma carrera tenga una duración inferior a tres años, con el fin de evitar trayectorias incompletas y garantizar la consistencia temporal del seguimiento longitudinal.
+
+-   Puntajes que se hayan obtenido desde la implementación de la PAES.
+
+### Análisis
+
+#### 1. Análisis descriptivos
+
+En una primera etapa, se realizará un análisis descriptivo de las principales variables relevantes para el estudio, desagregadas por sexo, cohorte de ingreso, área disciplinar de la pedagogía, tipo de institución, región y duración de la carrera. Para ello, se emplearán medidas de tendencia central y dispersión en el caso de variables continuas, y frecuencias absolutas y relativas en variables categóricas.
+
+Para visualizar las trayectorias y transiciones entre etapas (matrícula, titulación, inserción laboral), se emplearán diagramas de flujo tipo Sankey, lo que permitirá observar los flujos diferenciales de hombres y mujeres en carreras pedagógicas feminizadas.
+
+#### 2. Análisis inferenciales
+
+En la primera etapa de los análisis inferenciales se estimaron modelos de regresión logística multivariada para el estudio de fenómenos en los que los individuos participan una única vez o presentan escasa repetición temporal. 
+
+En una segunda etapa se incorporarán modelos de regresión logística multinivel, implementados mediante la función glmer() de la librería lme4 en R, orientados a fenómenos que sí presentan estructura jerárquica. Estos modelos se aplicarán al análisis de la trayectoria formativa y de la inserción laboral docente. El diseño contempla dos niveles de análisis:
+
+Nivel 1 individuos anidados por identificador único
+
+Nivel 2 instituciones, lugar de estudio o ejercicio docente de los individuos 
+
+La combinación de ambas estrategias analíticas permite adaptar los modelos a la lógica de los datos, mientras la regresión logística multivariada se utiliza en contextos con trayectorias individuales no repetidas, los modelos multinivel capturan la heterogeneidad institucional y controlan la dependencia entre observaciones de sujetos anidados en un mismo contexto formativo o laboral.
+
+## Resultados
+
+```{r}
 #Codigos de bases de tesis 
 
 ##librerias
@@ -7,12 +159,12 @@ pacman::p_load(dplyr, summarytools, sjPlot, readr, purrr, sjmisc, ggplot2,
                survey, calidad, DT, zoo, glue, forcats, haven, car, corrplot, 
                stargazer, lme4, gt, tibble, janitor, psych, tidyverse, survival,
                survminer, knitr, kableExtra, naniar, corrr, lattice, forcats,
-               networkD3, htmlwidgets, modelsummary, scales)
-
+               networkD3, htmlwidgets, scales, modelsummary)
 
 ##base de datos demre
 
 base_matriculado_corta <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_matriculado_corta.csv",delim = ",")
+
 base_panel_enriquecida_final_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_panel_enriquecida_final_r.csv",delim = ",")
 
 
@@ -50,7 +202,11 @@ ggplot(proporciones, aes(x = SEXO, y = proporcion, fill = matriculado)) +
   scale_fill_manual(values = colores_matricula) +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   theme_minimal()
+```
 
+Las mujeres presentan una mayor proporción de matrícula en carreras de pedagogía feminizadas en comparación con los hombres. No solo son más en términos absolutos, sino que proporcionalmente respecto a su propio grupo, la matrícula efectiva es más frecuente entre ellas. Este patrón da cuenta de la persistente feminización de estas carreras, tanto en volumen total como en participación relativa.
+
+```{r}
 ####quiero ver factor tiempo, saco tasa de matricula hombres y mujeres
 ####annado promedio para que se note que los hombres tienen peor matricula
 
@@ -83,7 +239,24 @@ ggplot(tasas_todas, aes(x = anno, y = tasa, color = SEXO, linetype = SEXO)) +
        color = "Sexo",
        linetype = "Sexo") +
   theme_minimal(base_size = 13)
+```
 
+El gráfico muestra que la tasa de matrícula ha sido consistentemente mayor en mujeres que en hombres a lo largo de todas las cohortes. Mientras la tasa femenina se mantiene entre el 20% y el 30%, en los hombres fluctúa en torno al 10–20%, con brechas visibles en cada año. Esta diferencia revela una participación comparativamente más baja de varones en carreras de pedagogía feminizadas, reforzando el patrón de feminización histórica en este campo. Aunque se observan algunas alzas en años recientes, la brecha relativa entre géneros persiste.
+
+```{r}
+frq(base_matriculado_corta$rendiciones)
+
+base_matriculado_corta %>%
+  group_by(SEXO) %>%
+  summarise(promedio_rendiciones = mean(rendiciones, na.rm = TRUE),
+            desviacion_rendiciones = sd(rendiciones, na.rm = TRUE))
+
+
+```
+
+La diferencia en la cantidad de rendiciones entre hombres y mujeres, aunque estadísticamente acotada, revela matices importantes en la configuración de las trayectorias previas a la matrícula. Con una media de 1,89 rendiciones en hombres frente a 1,74 en mujeres, y una desviación estándar de 1,03 versus 0,87, se observa una dispersión más amplia entre los varones. Esta heterogeneidad no solo antecede el acto de matrícula, sino que puede influir directamente en la posición relativa que ocupan las carreras de pedagogía dentro de sus preferencias.
+
+```{r}
 ####quiero ver ahora las preferencias de aquellos que ingresan
 ####uso otra base para esto
 
@@ -120,7 +293,11 @@ ggplot(tabla_preferencias, aes(x = PREFERENCIA_RANGO, y = prop, fill = PREFERENC
   ) +
   theme_minimal(base_size = 13) +
   theme(legend.position = "none")
+```
 
+En relación con la preferencia de matrícula, los resultados muestran una fuerte concentración en la primera opción declarada por los postulantes, donde se ubica el 71% de las matrículas efectivas. Las siguientes preferencias presentan una caída marcada: la segunda opción concentra el 15,4%, la tercera el 7,4%, y a partir de la cuarta opción la proporción desciende por debajo del 6%. Esto indica que la gran mayoría de quienes se matriculan lo hacen en la carrera priorizada en primer lugar.
+
+```{r}
 ####aca apilado y separado por genero
 
 tabla_prop <- base_panel_enriquecida_final_r %>%
@@ -149,25 +326,11 @@ ggplot(tabla_prop, aes(x = SEXO, y = prop, fill = PREFERENCIA_RANGO)) +
   ) +
   theme_minimal(base_size = 13)
 
-###rendciones/inscripciones
-#### Filtrar personas matriculadas en carreras de pedagogía
+```
 
-matriculados <- base_panel_enriquecida_final_r %>%
-  filter(matriculado == TRUE, !is.na(rendiciones), !is.na(SEXO))
+Al desagregar por género, se observa que tanto hombres como mujeres privilegian mayoritariamente su primera opción (65,2% y 71,3%, respectivamente). Sin embargo, los hombres tienden a matricularse en mayor proporción en segundas y terceras preferencias (16,9% y 9,7%) que las mujeres (15,2% y 7,1%). Esto sugiere que, si bien en ambos grupos la primera preferencia domina ampliamente, los hombres muestran una mayor dispersión en las opciones de matrícula en comparación con las mujeres, quienes concentran aún más sus decisiones en la primera alternativa.
 
-#### Calcular estadísticos descriptivos
-resumen_rendiciones <- matriculados %>%
-  group_by(SEXO) %>%
-  summarise(
-    promedio_rendiciones = mean(rendiciones),
-    mediana_rendiciones = median(rendiciones),
-    maximo = max(rendiciones),
-    minimo = min(rendiciones),
-    n = n()
-    )
-
-print(resumen_rendiciones)
-
+```{r}
 ####Rama tecnico vs humanista/cientifico
 
 tabla_rama_sexo <- base_matriculado_corta %>%
@@ -214,7 +377,15 @@ ggplot(tabla_rama_sexo_mat, aes(x = SEXO, y = prop, fill = rama)) +
     fill = "Rama"
   ) +
   theme_minimal(base_size = 13)
+```
 
+La distribución proporcional de ramas de enseñanza media, desagregada por género y condición de matrícula, muestra una alta consistencia entre grupos. En todos los casos, la rama humanista-científica (H) concentra la gran mayoría de los postulantes, mientras que la rama técnico-profesional (T) representa una proporción menor, cercana al 25–30%.
+
+Entre los no matriculados, tanto hombres como mujeres provienen mayoritariamente de la rama humanista. Una tendencia similar se observa en los matriculados, aunque con una ligera diferencia por género: en los hombres la proporción de técnico-profesional se mantiene en torno al 29,5%, mientras que en las mujeres desciende a 22,4%.
+
+Este patrón sugiere que, aunque la rama humanista-científica domina en ambos géneros, la matrícula masculina mantiene una presencia algo mayor de estudiantes provenientes de la educación técnico-profesional en comparación con las mujeres, quienes se concentran en mayor medida en la formación humanista-científica.
+
+```{r}
 ####Ver dependencias de donde vienen pero por municipal, particular pagado, particular subvencionado
 
 tabla_dependencia <- base_matriculado_corta %>%
@@ -242,7 +413,11 @@ ggplot(tabla_dependencia, aes(x = SEXO, y = prop, fill = dependencia_label)) +
     fill = "Dependencia"
   ) +
   theme_minimal(base_size = 13)
+```
 
+La distribución por dependencia escolar revela patrones diferenciados según género. Entre los matriculados, los hombres provienen mayoritariamente de establecimientos municipales (50,1%), mientras que en las mujeres destaca una mayor proporción de egresadas de colegios particulares pagados (14,1%). En ambos casos, el sector particular subvencionado concentra alrededor de la mitad de los ingresos efectivos (45–49%).
+
+```{r}
 ####ver correlacion
 
 vars_continuas <- base_matriculado_corta %>%
@@ -278,13 +453,6 @@ base_matriculado_corta <- base_matriculado_corta %>%
 base_matriculado_corta %>%
   count(ID_aux, anno) %>%
   filter(n > 1)
-
-##### Filtrar casos con NA en la variable PREFERENCIA
-base_na_preferencia <- base_matriculado_corta %>%
-  filter(is.na(PREFERENCIA))
-
-base_filtrada_na <- base_panel_enriquecida_final_r %>%
-  filter(ID_aux %in% base_na_preferencia$ID_aux)
 
 #### Ver variables de interes
 variables_interes <- base_matriculado_corta %>%
@@ -425,6 +593,19 @@ tab_model(modelo_2, modelo_3, modelo_4, modelo_5,
           title = "Modelos Logísticos Multinivel paso a paso (Odds Ratios)"
 )
 
+
+```
+
+En el modelo de regresión logística multivariada, se observa que las mujeres presentan 1.63 veces más probabilidades de matricularse en carreras de pedagogía altamente feminizadas en comparación con los hombres, controlando por el resto de los predictores. El número de rendiciones de la prueba se asocia negativamente con la matrícula: por cada rendición adicional, las probabilidades de ingreso disminuyen en torno a un 7% (OR = 0.93).
+
+En relación con los antecedentes académicos, el puntaje NEM presenta un efecto prácticamente neutro (OR = 1.00), lo que sugiere que, en este caso, su influencia sobre la matrícula es marginal. Por otra parte, el régimen de estudios muestra que los programas vespertinos reducen la probabilidad de matricularse en un 5% respecto de los programas diurnos (OR = 0.95).
+
+El grupo de dependencia del establecimiento escolar de origen también evidencia diferencias: quienes provienen de colegios municipales y subvencionados presentan aproximadamente un 26% menos de probabilidades de matricularse en comparación con quienes egresan de colegios particulares (OR = 0.74). Finalmente, el año de cohorte revela un efecto positivo: cada nuevo año se asocia a un incremento de alrededor de 3% en las probabilidades de matrícula (OR = 1.03).
+
+En conjunto, estos resultados indican que el acceso a la matrícula no solo está mediado por factores individuales como el género y la trayectoria de rendiciones, sino también por el tipo de establecimiento y la modalidad de estudio, reflejando la interacción entre características personales y contextuales en el ingreso a carreras pedagógicas feminizadas.
+
+```{r}
+###o ver si me quedo con esto 
 modelo_logit_simple <- glm(matriculado ~ SEXO + edad_z + PTJE_NEM_z +
                              rendiciones_z + anno_z + rama,
                            data = base_matriculado_corta,
@@ -512,7 +693,9 @@ tab_model(
   title = "Modelos Logísticos Multinivel (Odds Ratios)")
 
 vif(modelo_logit_matri_1_3)
+```
 
+```{r}
 ##base de datos abierta 1/2
 
 base_unica <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_unica.csv",delim = ",")
@@ -524,7 +707,7 @@ base_trayectorias_SC_r <- read_delim("https://raw.githubusercontent.com/sophkar/
 
 #### Paleta personalizada
 
-colores_egreso <- c("Sí" = "#698B69", "No" = "#CD3333")  
+colores_egreso <- c("Sí" = "#698B69", "No" = "#CD3333")
 
 ####ver duracion de los estudios
 
@@ -636,7 +819,13 @@ ggplot(proporciones_egreso, aes(x = categoria_peda, y = proporcion, fill = egres
   scale_fill_manual(values = colores_egreso) +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   theme_minimal(base_size = 13)
+```
 
+La proporción de egreso muestra diferencias tanto por género como por categoría pedagógica. En los hombres, los niveles de egreso son más bajos en comparación con las mujeres, especialmente en parvularia, donde menos de la mitad culmina sus estudios. En básica y en programas mixtos la brecha se mantiene, aunque con una mayor proporción de egresados respecto a parvularia.
+
+En el caso de las mujeres, las tasas de egreso son más altas en todas las categorías, superando consistentemente el 70%. Destaca que en pedagogía básica y parvularia la mayoría logra egresar, mientras que en programas mixtos la proporción de no egreso es relativamente mayor, aunque aún inferior a la observada en hombres.
+
+```{r}
 ####evolucion por anno
 
 tasas_por_egreso <- base_trayectorias_SC_ultimo_dato %>%
@@ -761,7 +950,13 @@ ggplot(proporciones_inst_genero, aes(x = cat_periodo, y = proporcion, fill = tip
   ) +
   facet_wrap(~ sexo) +
   theme_minimal(base_size = 13)
+```
 
+La evolución de la matrícula por tipo de institución muestra un cambio marcado en la composición del sistema formador entre 2007 y 2023. En ambos géneros se observa una reducción progresiva de la participación de los institutos profesionales, que hacia 2020 prácticamente desaparecen como vía de ingreso a pedagogía. Paralelamente, las universidades privadas ganan un peso creciente, especialmente entre los hombres, donde hacia el final del período concentran más de la mitad de la matrícula.
+
+En el caso de las mujeres, si bien también aumenta la participación de las universidades privadas, las universidades estatales mantienen un peso relativamente mayor que en los hombres, representando una proporción más estable a lo largo del tiempo.
+
+```{r}
 ####preparacion y modelos
 
 # Conteo de NA por variable
@@ -817,15 +1012,13 @@ base_unica <- base_para_modelo %>%
 ##### Revisar resultado
 nrow(base_unica)                 
 n_distinct(base_unica$mrun)      
+```
 
-
+```{r}
+      
 modelo_reg_1 <- glm(egresa ~ sexo, data = base_unica, family = binomial)
 modelo_reg_2 <- glm(egresa ~ categoria_peda + tipo_inst_recod, data = base_unica, family = binomial)
 modelo_reg_3 <- glm(egresa ~ sexo + tipo_inst_recod + categoria_peda, data = base_unica, family = binomial)
-
-class(modelo_reg_1)
-class(modelo_reg_2)
-class(modelo_reg_3)
 
 tab_model(
   modelo_reg_1, modelo_reg_2, modelo_reg_3,
@@ -836,6 +1029,9 @@ tab_model(
   show.r2 = TRUE,
   dv.labels = c("Sexo", "Educativas", "Modelo completo"),
   title = "Modelos de regresión logística sobre probabilidad de egreso")
+
+install.packages("modelsummary")
+library("modelsummary")
 
 ######multinivel
 
@@ -851,7 +1047,9 @@ tab_model(
   show.obs = TRUE,
   show.r2 = TRUE,
   title = "Modelo multinivel: probabilidad de egreso")
+```
 
+```{r}
 ##base de datos abierta 2/2
 
 docente_fil_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/docente_fil_r.csv",delim = ",")
@@ -872,8 +1070,10 @@ colores_rur <- c("Urbano" = "#CD3333", "Rural" = "#698B69")
 colores_genero <- c("Hombre" = "#6E7B8B", "Mujer" = "#B0C4DE")
 
 ###codigos
+```
 
-####1.generar jerarquía - generar ascenso 
+```{r}
+####1.generar jerarquía - generar ascenso ¿vale la pena reportar?
 
 docente_fil_r <- docente_fil_r %>% mutate(docente_aula = ifelse(ID_IFP %in% c(1, 17), 1, 0))
 frq(docente_fil_r$docente_aula)
@@ -893,7 +1093,7 @@ tabla_dir_genero
 frq(docente_fil_r$RBD)
 
 docente_fil_r <- docente_fil_r %>%
-  arrange(mrun, RBD, AGNO) %>%
+  arrange(mrun, RBD) %>%
   group_by(mrun, RBD) %>%
   mutate(
     ascenso = ifelse(!is.na(lag(docente_aula)) & lag(docente_aula == 1) & directivo == 1, 1, 0)
@@ -978,7 +1178,9 @@ ggplot(proporciones_asc, aes(x = genero_lbl, y = prop, fill = factor(anios_asc))
   ) +
   scale_y_continuous(labels = percent_format(scale = 100)) +
   theme_minimal(base_size = 13)
+```
 
+```{r}
 ###2.comprobar diferencias en horas hvsm 
 
 frq(docente_fil_r$HORAS_CONTRATO)
@@ -1027,6 +1229,13 @@ ggplot(tabla_horas_genero,
   ) +
   theme_minimal(base_size = 13)
 
+```
+
+La distribución de horas de contrato evidencia diferencias por género en la inserción laboral docente. Entre los hombres, predomina la jornada completa de 40–45 horas (50,8%), seguida por el tramo de 30–39 horas (36,8%), mientras que las jornadas parciales menores a 30 horas representan proporciones reducidas.
+
+En el caso de las mujeres, aunque también es mayoritaria la jornada de 40–45 horas (43,3%), se observa una presencia más elevada en tramos inferiores, especialmente en 30–39 horas (47,1%). Además, la proporción femenina en contratos de 20–29 horas (7,1%) es superior a la masculina (6,4%), lo que sugiere una mayor dispersión en la carga laboral de las mujeres.
+
+```{r}
 ###5.comprobar ruralidad hvsm 
 
 tabla_rural_genero <- docente_fil_r %>%
@@ -1065,7 +1274,11 @@ ggplot(tabla_rural_genero,
     fill = "Tipo de establecimiento"
   ) +
   theme_minimal(base_size = 13)
+```
 
+La distribución por ruralidad muestra que la mayoría de los docentes, tanto hombres como mujeres, se desempeña en establecimientos urbanos. No obstante, se evidencian diferencias de género: mientras el 20,7% de los hombres trabaja en contextos rurales, entre las mujeres esta proporción desciende al 13,3%. De este modo, los hombres presentan una presencia relativamente mayor en zonas rurales.
+
+```{r}
 ###6.ver tipos de establecimientos hvsm 
 
 docente_fil_r <- docente_fil_r %>%
@@ -1107,7 +1320,11 @@ ggplot(tabla_dep_genero,
     fill = "Dependencia"
   ) +
   theme_minimal(base_size = 13)
+```
 
+La distribución de docentes según dependencia del establecimiento evidencia diferencias por género. Entre los hombres, la mayor proporción se encuentra en el sector municipal (49,5%), seguido por el particular subvencionado (46,7%) y en menor medida el particular pagado (3,8%). En el caso de las mujeres, predomina el particular subvencionado (52,1%), seguido del sector municipal (36,6%) y una proporción mayor que los hombres en el particular pagado (11,3%).
+
+```{r}
 ###7.ver abandono - noveles - rotacion
 
 docente_fil_r <- docente_fil_r %>%
@@ -1216,7 +1433,11 @@ ggplot(
     fill = "Abandono"
   ) +
   theme_minimal(base_size = 13)
+```
 
+El abandono durante la trayectoria formativa presenta niveles muy bajos en ambos géneros. Entre los hombres, el 2,7% interrumpe sus estudios antes de egresar, mientras que en las mujeres esta proporción asciende al 3,4%. En consecuencia, más del 96% de los estudiantes, sin distinción de género, logra mantenerse en el sistema formativo hasta completar su proceso académico.
+
+```{r}
 ###8.noveles
 
 titulos_por_mrun <- base_propu_trayec_r %>%
@@ -1367,6 +1588,13 @@ ggplot(tabla_ejercicio_genero_cat,
   theme_minimal(base_size = 13) +
   theme(legend.position = "bottom")
 
+```
+
+La proporción de ejercicio en el área titulada muestra diferencias relevantes por género y categoría pedagógica. En educación parvularia, solo el 31,6% de los hombres se desempeña en el área para la que se formó, frente al 79,8% de las mujeres, lo que evidencia una brecha marcada. En cambio, en educación básica y en programas mixtos las tasas de ejercicio son altas en ambos géneros, con valores que superan el 85% entre hombres y el 90% entre mujeres.
+
+Estos resultados indican que la principal diferencia de género en el ejercicio profesional se concentra en el nivel parvulario, donde los hombres presentan una probabilidad considerablemente menor de insertarse laboralmente en el área en la que se titularon.
+
+```{r}
 ####no ejercen
 
 no_ejercen <- docente_fil_r %>%
@@ -1541,6 +1769,11 @@ p <- onRender(p, '
 
 p
 
+```
+
+Falta generar reporte de aquellos que no ejercen de lo que estudiaron
+
+```{r}
 ###10.preparar modelos
 
 docente_fil_r <- docente_fil_r %>%
@@ -1569,7 +1802,8 @@ base_princ <- docente_fil_r %>%
     categoria_peda = as.factor(categoria_peda),
     dependencia    = as.factor(dependencia),
     mrun           = as.factor(mrun),
-    RBD            = as.factor(RBD) ) %>%
+    RBD            = as.factor(RBD)
+  ) %>%
   tidyr::drop_na(optimo) %>%
   droplevels()
 
@@ -1596,12 +1830,12 @@ base_princ <- docente_fil_r %>%
   tidyr::drop_na(optimo) %>%
   droplevels()
 
-fit_fe <- glm(optimo ~ DOC_GENERO + categoria_peda + dependencia ,
+fit_fe <- glm(optimo ~ DOC_GENERO + categoria_peda + dependencia,
               family = binomial, data = base_princ)
 start_fixef <- coef(fit_fe)
 
 fit_m1 <- glmer(
-  optimo ~ DOC_GENERO + categoria_peda + dependencia + 
+  optimo ~ DOC_GENERO + categoria_peda + dependencia +
     (1 | mrun),
   family = binomial, data = base_princ,
   start  = list(fixef = start_fixef),
@@ -1633,7 +1867,7 @@ base_ml <- docente_fil_r %>%
 library(glmmTMB)
 
 fit_m2 <- glmmTMB(
-  optimo ~ DOC_GENERO + categoria_peda + dependencia +
+  optimo ~ DOC_GENERO + categoria_peda + dependencia + 
     (1 | mrun) + (1 | RBD),
   family = binomial(link = "logit"),
   data = base_ml
@@ -1643,3 +1877,15 @@ summary(fit_m2)
 
 tab_model(fit_m2, transform = "exp", show.ci = TRUE,
           title = "Logística multinivel")
+
+```
+
+En el modelo multinivel que estima la probabilidad de un ejercicio docente considerado óptimo (definido como desempeño en aula con jornada de 44-45 horas), se observan diferencias relevantes según género, categoría pedagógica y dependencia institucional.
+
+En comparación con los hombres, las mujeres presentan menores probabilidades de alcanzar un ejercicio docente óptimo (OR = 0,88). En relación con la categoría de referencia (pedagogía básica), quienes provienen de programas mixtos muestran una probabilidad aún menor (OR = 0,56), mientras que los egresados de pedagogía parvularia presentan la probabilidad más baja de todas (OR = 0,36).
+
+Al analizar la dependencia administrativa, tomando como referencia los establecimientos municipales, los docentes que se desempeñan en el sector particular subvencionado tienen un 66% menos de probabilidades de alcanzar un ejercicio óptimo (OR = 0,34), y aquellos en el sector particular pagado una reducción similar (OR = 0,42).
+
+En términos de variabilidad, el modelo arroja un ICC de 0,61, lo que indica que más de la mitad de la variación en la probabilidad de ejercicio docente óptimo se explica por diferencias entre individuos, incluso después de controlar por características institucionales y contextuales.
+
+En el modelo de regresión logística multinivel cruzada, controla simultáneamente las trayectorias individuales y la institución de formación, los resultados confirman los patrones observados en el modelo anterior, aunque con variaciones en la intensidad de los efectos.
