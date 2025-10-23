@@ -1090,8 +1090,6 @@ tabla_dir_genero <- docente_fil_r %>%
 
 tabla_dir_genero
 
-frq(docente_fil_r$RBD)
-
 docente_fil_r <- docente_fil_r %>%
   arrange(mrun, RBD) %>%
   group_by(mrun, RBD) %>%
