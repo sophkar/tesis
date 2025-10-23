@@ -1030,29 +1030,8 @@ tab_model(
   dv.labels = c("Sexo", "Educativas", "Modelo completo"),
   title = "Modelos de regresión logística sobre probabilidad de egreso")
 
-tab_model(
-  modelo_reg_1, modelo_reg_2, modelo_reg_3,
-  transform = "exp",           # OR
-  show.ci = TRUE, ci.lvl = 0.95,
-  ci_method = "wald",          # <- usa IC Wald (no perfilados)
-  p.style = "numeric",         # p como número
-  digits = 3,
-  dv.labels = c("Sexo", "Educativas", "Modelo completo"),
-  title = "Modelos de regresión logística sobre probabilidad de egreso"
-)
-
 install.packages("modelsummary")
 library("modelsummary")
-
-modelsummary(
-  list("Sexo" = modelo_reg_1,
-       "Educativas" = modelo_reg_2,
-       "Modelo completo" = modelo_reg_3),
-  exponentiate = TRUE,                                # OR
-  estimate = "{estimate}",
-  statistic = "IC95% [{conf.low}, {conf.high}]  p={p.value}",
-  gof_omit = "Log.Lik|Deviance",                      # deja N y AIC
-  title = "Modelos de regresión logística sobre probabilidad de egreso")
 
 ######multinivel
 

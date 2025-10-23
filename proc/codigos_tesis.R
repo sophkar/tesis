@@ -823,6 +823,10 @@ modelo_reg_1 <- glm(egresa ~ sexo, data = base_unica, family = binomial)
 modelo_reg_2 <- glm(egresa ~ categoria_peda + tipo_inst_recod, data = base_unica, family = binomial)
 modelo_reg_3 <- glm(egresa ~ sexo + tipo_inst_recod + categoria_peda, data = base_unica, family = binomial)
 
+class(modelo_reg_1)
+class(modelo_reg_2)
+class(modelo_reg_3)
+
 tab_model(
   modelo_reg_1, modelo_reg_2, modelo_reg_3,
   transform = "exp",        # OR en vez de log-odds
@@ -831,29 +835,6 @@ tab_model(
   show.obs = TRUE,
   show.r2 = TRUE,
   dv.labels = c("Sexo", "Educativas", "Modelo completo"),
-  title = "Modelos de regresión logística sobre probabilidad de egreso")
-
-tab_model(
-  modelo_reg_1, modelo_reg_2, modelo_reg_3,
-  transform = "exp",           # OR
-  show.ci = TRUE, ci.lvl = 0.95,
-  ci_method = "wald",          # <- usa IC Wald (no perfilados)
-  p.style = "numeric",         # p como número
-  digits = 3,
-  dv.labels = c("Sexo", "Educativas", "Modelo completo"),
-  title = "Modelos de regresión logística sobre probabilidad de egreso"
-)
-
-install.packages("modelsummary")
-
-modelsummary(
-  list("Sexo" = modelo_reg_1,
-       "Educativas" = modelo_reg_2,
-       "Modelo completo" = modelo_reg_3),
-  exponentiate = TRUE,                                # OR
-  estimate = "{estimate}",
-  statistic = "IC95% [{conf.low}, {conf.high}]  p={p.value}",
-  gof_omit = "Log.Lik|Deviance",                      # deja N y AIC
   title = "Modelos de regresión logística sobre probabilidad de egreso")
 
 ######multinivel
