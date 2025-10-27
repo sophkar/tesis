@@ -624,6 +624,20 @@ proporciones_egreso <- base_propu_trayec_r %>%
   group_by(sexo, categoria_peda) %>%
   mutate(proporcion = n / sum(n) * 100)
 
+proporciones_egreso <- base_propu_trayec_r %>%
+  mutate(
+    sexo = case_when(
+      gen_alu == 1 ~ "Hombre",
+      gen_alu == 2 ~ "Mujer"
+    ),
+    egresa = ifelse(egresa == 1, "Sí", "No")
+  ) %>%
+  group_by(sexo, egresa) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(sexo) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+
 ggplot(proporciones_egreso, aes(x = categoria_peda, y = proporcion, fill = egresa)) +
   geom_col(position = "stack") +
   facet_wrap(~ sexo) +
@@ -1346,6 +1360,22 @@ tabla_ejercicio_genero_cat <- docente_fil_r %>%
   mutate(prop_dentro_genero = n / sum(n)) %>%
   ungroup()
 
+tabla_ejercicio_genero <- docente_fil_r %>%
+  filter(!is.na(DOC_GENERO),
+         !is.na(ejercicio_area)) %>%   # Quitamos categoria_peda porque ya no la usamos
+  mutate(
+    genero_lbl     = factor(DOC_GENERO, levels = c(1, 2),
+                            labels = c("Hombre", "Mujer")),
+    ejercicio_lbl  = factor(ifelse(ejercicio_area == 1, "Sí", "No"),
+                            levels = c("Sí", "No"))
+  ) %>%
+  group_by(genero_lbl, ejercicio_lbl) %>%
+  summarise(n = n(), .groups = "drop_last") %>%
+  group_by(genero_lbl) %>%
+  mutate(prop_dentro_genero = n / sum(n)) %>%
+  ungroup()
+
+
 #### separado por categoría pedagógica
 ggplot(tabla_ejercicio_genero_cat,
        aes(x = genero_lbl, y = prop_dentro_genero, fill = ejercicio_lbl)) +
@@ -1552,6 +1582,62 @@ docente_fil_r <- docente_fil_r %>%
       ejercicio_area == 1L &
         str_replace_all(str_squish(as.character(horas_grupo_)), "[−–—]", "-") == "40-45"
     ))
+
+tabla_optimo_genero <- docente_fil_r %>%
+  filter(!is.na(DOC_GENERO),
+         !is.na(optimo)) %>%   # usamos optimo en lugar de ejercicio_area
+  mutate(
+    genero_lbl = factor(DOC_GENERO, levels = c(1, 2),
+                        labels = c("Hombre", "Mujer")),
+    optimo_lbl = factor(ifelse(optimo == 1, "Sí", "No"),
+                        levels = c("Sí", "No"))
+  ) %>%
+  group_by(genero_lbl, optimo_lbl) %>%
+  summarise(n = n(), .groups = "drop_last") %>%
+  group_by(genero_lbl) %>%
+  mutate(prop_dentro_genero = n / sum(n)) %>%
+  ungroup()
+
+tabla_optimo_genero_cat <- docente_fil_r %>%
+  filter(!is.na(DOC_GENERO),
+         !is.na(categoria_peda),
+         !is.na(optimo)) %>%
+  mutate(
+    genero_lbl = factor(DOC_GENERO, levels = c(1, 2),
+                        labels = c("Hombre", "Mujer")),
+    optimo_lbl = factor(ifelse(optimo == 1, "Sí", "No"),
+                        levels = c("Sí", "No")),
+    categoria_lbl = factor(categoria_peda,
+                           levels = c("Parvularia", "Basica", "Mixta"))
+  ) %>%
+  group_by(categoria_lbl, genero_lbl, optimo_lbl) %>%
+  summarise(n = n(), .groups = "drop_last") %>%
+  group_by(categoria_lbl, genero_lbl) %>%
+  mutate(prop_dentro_genero = n / sum(n)) %>%
+  ungroup()
+
+ggplot(tabla_ejercicio_genero_cat,
+       aes(x = genero_lbl, y = prop_dentro_genero, fill = ejercicio_lbl)) +
+  geom_col(position = "fill") +
+  geom_text(aes(label = percent(prop_dentro_genero, accuracy = 0.1)),
+            position = position_stack(vjust = 0.5),
+            size = 3, color = "black") +
+  scale_y_continuous(labels = percent_format(accuracy = 1)) +
+  scale_fill_manual(
+    values = colores_syn,
+    name = "Ejercicio óptimo"
+  ) +
+  labs(
+    title = "Proporción de ejercicio óptimo",
+    x = "Género",
+    y = "Proporción dentro del género"
+  ) +
+  facet_wrap(~ categoria_lbl, nrow = 1) +
+  theme_minimal(base_size = 13) +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
 
 ##### chequeo rápido
 docente_fil_r %>% count(optimo) %>% mutate(prop = n / sum(n))
