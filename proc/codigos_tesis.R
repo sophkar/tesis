@@ -87,6 +87,8 @@ ggplot(tasas_todas, aes(x = anno, y = tasa, color = SEXO, linetype = SEXO)) +
 ####quiero ver ahora las preferencias de aquellos que ingresan
 ####uso otra base para esto
 
+
+
 base_panel_enriquecida_final_r <- base_panel_enriquecida_final_r %>%
   mutate(PREFERENCIA_RANGO = case_when(
     is.na(PREFERENCIA) ~ NA_character_,
@@ -151,6 +153,61 @@ ggplot(tabla_prop, aes(x = SEXO, y = prop, fill = PREFERENCIA_RANGO)) +
 
 ###rendciones/inscripciones
 #### Filtrar personas matriculadas en carreras de pedagogía
+
+rendiciones <- base_matriculado_corta %>%
+  count(rendiciones) %>%
+  mutate(prop = round(n / sum(n) * 100, 1))
+
+base_matriculado_corta %>%
+  count(rendiciones, SEXO) %>%
+  mutate(prop = round(n / sum(n) * 100, 1))
+
+base_matriculado_corta %>%
+  count(SEXO, rendiciones) %>%
+  group_by(SEXO) %>%
+  mutate(prop = round(n / sum(n) * 100, 1)) %>%
+  ggplot(aes(x = rendiciones, y = prop, fill = SEXO)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Distribución de rendiciones por género",
+    x = "Cantidad de rendiciones",
+    y = "Porcentaje (%)"
+  ) +
+  scale_fill_manual(values = c("Mujer" = "#B0C4DE", "Hombre" = "#6E7B8B")) +
+  theme_minimal(base_size = 14)
+
+base_matriculado_corta %>%
+  mutate(
+    rendiciones_grupo = case_when(
+      rendiciones %in% 1:5 ~ as.character(rendiciones),
+      rendiciones >= 6 ~ "6 o más",
+      TRUE ~ NA_character_
+    ),
+    rendiciones_grupo = factor(
+      rendiciones_grupo,
+      levels = c("1", "2", "3", "4", "5", "6 o más")
+    )
+  ) %>%
+  count(SEXO, rendiciones_grupo) %>%
+  group_by(SEXO) %>%
+  mutate(prop = n / sum(n) * 100) %>%
+  ggplot(aes(x = SEXO, y = prop, fill = rendiciones_grupo)) +
+  geom_col(color = "white") +
+  geom_text(
+    aes(label = ifelse(prop > 3, paste0(round(prop, 1), "%"), "")),
+    position = position_stack(vjust = 0.5),
+    size = 4,
+    color = "black"
+  ) +
+  scale_fill_brewer(palette = "Blues", name = "Rendiciones") +
+  labs(
+    title = "Distribución proporcional de rendiciones por género",
+    x = "Género",
+    y = "Proporción (%)"
+  ) +
+  theme_minimal(base_size = 14)
+
+
 
 matriculados <- base_panel_enriquecida_final_r %>%
   filter(matriculado == TRUE, !is.na(rendiciones), !is.na(SEXO))
