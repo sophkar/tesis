@@ -86,8 +86,9 @@ ggplot(tasas_todas, aes(x = anno, y = tasa, color = SEXO, linetype = SEXO)) +
 
 ####quiero ver ahora las preferencias de aquellos que ingresan
 ####uso otra base para esto
-
-
+tablaaa <-base_panel_enriquecida_final_r %>%
+  group_by(anno, matriculado) %>%
+  summarise(frecuencia = n(), .groups = "drop")
 
 base_panel_enriquecida_final_r <- base_panel_enriquecida_final_r %>%
   mutate(PREFERENCIA_RANGO = case_when(
@@ -588,6 +589,14 @@ colores_egreso <- c("Sí" = "#698B69", "No" = "#CD3333")
 duracion_promedio_categoria <- base_propu_trayec_r %>% group_by(categoria_peda) %>%
   summarise(promedio_duracion = mean(dur_estudio_carr, na.rm = TRUE))
 
+####ver base 
+
+frq(base_propu_trayec_r)
+glimpse(base_propu_trayec_r)
+table(base_propu_trayec_r$gen_alu)
+table(base_unica$egreso)
+table(base_unica$egreso, base_unica$sexo)
+
 ####calcular duración individual (por cantidad de años con presencia en la carrera)
 
 duracion_individual <- base_propu_trayec_r %>%
@@ -926,6 +935,11 @@ tab_model(
 ##base de datos abierta 2/2
 
 docente_fil_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/docente_fil_r.csv",delim = ",")
+
+####ver base 
+
+glimpse(docente_fil_r )
+table(docente_fil_r $DOC_GENERO)
 
 #### Paleta personalizada
 
@@ -1696,6 +1710,8 @@ ggplot(tabla_ejercicio_genero_cat,
     plot.title = element_text(face = "bold", hjust = 0.5)
   )
 
+table(docente_fil_r $ejercicio_area)
+table(docente_fil_r $ejercicio_area, docente_fil_r $DOC_GENERO)
 ##### chequeo rápido
 docente_fil_r %>% count(optimo) %>% mutate(prop = n / sum(n))
 
