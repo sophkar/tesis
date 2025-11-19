@@ -761,7 +761,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>         PROM_NOTAS)</span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>variables_predictoras<span class="ot">&lt;-</span> base_matriculado_corta <span class="sc">%&gt;%</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SEXO, rendiciones, REGIMEN, GRUPO_DEPENDENCIA, RAMA, anno, PTJE_NEM)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SEXO, rendiciones, REGIMEN, GRUPO_DEPENDENCIA, RAMA, PTJE_NEM)</span>
 <span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>variables_predictoras <span class="ot">&lt;-</span> variables_predictoras <span class="sc">%&gt;%</span></span>
 <span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -790,23 +790,23 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
 <span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Matriz de correlaciones entre variables numéricas"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="idtihryslc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#idtihryslc table {
+<div id="cdwoqjeezw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cdwoqjeezw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#idtihryslc thead, #idtihryslc tbody, #idtihryslc tfoot, #idtihryslc tr, #idtihryslc td, #idtihryslc th {
+#cdwoqjeezw thead, #cdwoqjeezw tbody, #cdwoqjeezw tfoot, #cdwoqjeezw tr, #cdwoqjeezw td, #cdwoqjeezw th {
   border-style: none;
 }
 
-#idtihryslc p {
+#cdwoqjeezw p {
   margin: 0;
   padding: 0;
 }
 
-#idtihryslc .gt_table {
+#cdwoqjeezw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -832,12 +832,12 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-left-color: #D3D3D3;
 }
 
-#idtihryslc .gt_caption {
+#cdwoqjeezw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#idtihryslc .gt_title {
+#cdwoqjeezw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -849,7 +849,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-bottom-width: 0;
 }
 
-#idtihryslc .gt_subtitle {
+#cdwoqjeezw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -861,7 +861,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-top-width: 0;
 }
 
-#idtihryslc .gt_heading {
+#cdwoqjeezw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -873,13 +873,13 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-right-color: #D3D3D3;
 }
 
-#idtihryslc .gt_bottom_border {
+#cdwoqjeezw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#idtihryslc .gt_col_headings {
+#cdwoqjeezw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -894,7 +894,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-right-color: #D3D3D3;
 }
 
-#idtihryslc .gt_col_heading {
+#cdwoqjeezw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -914,7 +914,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   overflow-x: hidden;
 }
 
-#idtihryslc .gt_column_spanner_outer {
+#cdwoqjeezw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -926,15 +926,15 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   padding-right: 4px;
 }
 
-#idtihryslc .gt_column_spanner_outer:first-child {
+#cdwoqjeezw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#idtihryslc .gt_column_spanner_outer:last-child {
+#cdwoqjeezw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#idtihryslc .gt_column_spanner {
+#cdwoqjeezw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -946,11 +946,11 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   width: 100%;
 }
 
-#idtihryslc .gt_spanner_row {
+#cdwoqjeezw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#idtihryslc .gt_group_heading {
+#cdwoqjeezw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -976,7 +976,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   text-align: left;
 }
 
-#idtihryslc .gt_empty_group_heading {
+#cdwoqjeezw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -991,15 +991,15 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   vertical-align: middle;
 }
 
-#idtihryslc .gt_from_md > :first-child {
+#cdwoqjeezw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#idtihryslc .gt_from_md > :last-child {
+#cdwoqjeezw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#idtihryslc .gt_row {
+#cdwoqjeezw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1018,7 +1018,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   overflow-x: hidden;
 }
 
-#idtihryslc .gt_stub {
+#cdwoqjeezw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1031,7 +1031,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   padding-right: 5px;
 }
 
-#idtihryslc .gt_stub_row_group {
+#cdwoqjeezw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1045,15 +1045,15 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   vertical-align: top;
 }
 
-#idtihryslc .gt_row_group_first td {
+#cdwoqjeezw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#idtihryslc .gt_row_group_first th {
+#cdwoqjeezw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#idtihryslc .gt_summary_row {
+#cdwoqjeezw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1063,16 +1063,16 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   padding-right: 5px;
 }
 
-#idtihryslc .gt_first_summary_row {
+#cdwoqjeezw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#idtihryslc .gt_first_summary_row.thick {
+#cdwoqjeezw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#idtihryslc .gt_last_summary_row {
+#cdwoqjeezw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1082,7 +1082,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-bottom-color: #D3D3D3;
 }
 
-#idtihryslc .gt_grand_summary_row {
+#cdwoqjeezw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1092,7 +1092,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   padding-right: 5px;
 }
 
-#idtihryslc .gt_first_grand_summary_row {
+#cdwoqjeezw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1102,7 +1102,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-top-color: #D3D3D3;
 }
 
-#idtihryslc .gt_last_grand_summary_row_top {
+#cdwoqjeezw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1112,11 +1112,11 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-bottom-color: #D3D3D3;
 }
 
-#idtihryslc .gt_striped {
+#cdwoqjeezw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#idtihryslc .gt_table_body {
+#cdwoqjeezw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1125,7 +1125,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-bottom-color: #D3D3D3;
 }
 
-#idtihryslc .gt_footnotes {
+#cdwoqjeezw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1139,7 +1139,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-right-color: #D3D3D3;
 }
 
-#idtihryslc .gt_footnote {
+#cdwoqjeezw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1148,7 +1148,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   padding-right: 5px;
 }
 
-#idtihryslc .gt_sourcenotes {
+#cdwoqjeezw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1162,7 +1162,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   border-right-color: #D3D3D3;
 }
 
-#idtihryslc .gt_sourcenote {
+#cdwoqjeezw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1170,72 +1170,72 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
   padding-right: 5px;
 }
 
-#idtihryslc .gt_left {
+#cdwoqjeezw .gt_left {
   text-align: left;
 }
 
-#idtihryslc .gt_center {
+#cdwoqjeezw .gt_center {
   text-align: center;
 }
 
-#idtihryslc .gt_right {
+#cdwoqjeezw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#idtihryslc .gt_font_normal {
+#cdwoqjeezw .gt_font_normal {
   font-weight: normal;
 }
 
-#idtihryslc .gt_font_bold {
+#cdwoqjeezw .gt_font_bold {
   font-weight: bold;
 }
 
-#idtihryslc .gt_font_italic {
+#cdwoqjeezw .gt_font_italic {
   font-style: italic;
 }
 
-#idtihryslc .gt_super {
+#cdwoqjeezw .gt_super {
   font-size: 65%;
 }
 
-#idtihryslc .gt_footnote_marks {
+#cdwoqjeezw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#idtihryslc .gt_asterisk {
+#cdwoqjeezw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#idtihryslc .gt_indent_1 {
+#cdwoqjeezw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#idtihryslc .gt_indent_2 {
+#cdwoqjeezw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#idtihryslc .gt_indent_3 {
+#cdwoqjeezw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#idtihryslc .gt_indent_4 {
+#cdwoqjeezw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#idtihryslc .gt_indent_5 {
+#cdwoqjeezw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#idtihryslc .katex-display {
+#cdwoqjeezw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#idtihryslc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#cdwoqjeezw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1243,7 +1243,7 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<td colspan="8" class="gt_heading gt_title gt_font_normal gt_bottom_border">Matriz de correlaciones entre variables numéricas</td>
+<td colspan="7" class="gt_heading gt_title gt_font_normal gt_bottom_border">Matriz de correlaciones entre variables numéricas</td>
 </tr>
 <tr class="gt_col_headings even">
 <th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
@@ -1252,7 +1252,6 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <th id="REGIMEN" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">REGIMEN</th>
 <th id="GRUPO_DEPENDENCIA" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">GRUPO_DEPENDENCIA</th>
 <th id="RAMA" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">RAMA</th>
-<th id="anno" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">anno</th>
 <th id="PTJE_NEM" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">PTJE_NEM</th>
 </tr>
 </thead>
@@ -1264,7 +1263,6 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <td class="gt_row gt_right" headers="REGIMEN">0.02</td>
 <td class="gt_row gt_right" headers="GRUPO_DEPENDENCIA">-0.07</td>
 <td class="gt_row gt_right" headers="RAMA">0.03</td>
-<td class="gt_row gt_right" headers="anno">0.11</td>
 <td class="gt_row gt_right" headers="PTJE_NEM">0.12</td>
 </tr>
 <tr class="even">
@@ -1274,7 +1272,6 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <td class="gt_row gt_right" headers="REGIMEN">-0.01</td>
 <td class="gt_row gt_right" headers="GRUPO_DEPENDENCIA">0.02</td>
 <td class="gt_row gt_right" headers="RAMA">-0.03</td>
-<td class="gt_row gt_right" headers="anno">0.12</td>
 <td class="gt_row gt_right" headers="PTJE_NEM">-0.14</td>
 </tr>
 <tr class="odd">
@@ -1284,7 +1281,6 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <td class="gt_row gt_right" headers="REGIMEN">1.00</td>
 <td class="gt_row gt_right" headers="GRUPO_DEPENDENCIA">-0.01</td>
 <td class="gt_row gt_right" headers="RAMA">0.08</td>
-<td class="gt_row gt_right" headers="anno">0.03</td>
 <td class="gt_row gt_right" headers="PTJE_NEM">-0.03</td>
 </tr>
 <tr class="even">
@@ -1294,7 +1290,6 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <td class="gt_row gt_right" headers="REGIMEN">-0.01</td>
 <td class="gt_row gt_right" headers="GRUPO_DEPENDENCIA">1.00</td>
 <td class="gt_row gt_right" headers="RAMA">-0.24</td>
-<td class="gt_row gt_right" headers="anno">-0.06</td>
 <td class="gt_row gt_right" headers="PTJE_NEM">0.01</td>
 </tr>
 <tr class="odd">
@@ -1304,27 +1299,15 @@ PREFERENCIA            0.057084327 -0.08384921  0.04816309  1.000000000</code></
 <td class="gt_row gt_right" headers="REGIMEN">0.08</td>
 <td class="gt_row gt_right" headers="GRUPO_DEPENDENCIA">-0.24</td>
 <td class="gt_row gt_right" headers="RAMA">1.00</td>
-<td class="gt_row gt_right" headers="anno">0.01</td>
 <td class="gt_row gt_right" headers="PTJE_NEM">-0.04</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Variable">anno</td>
-<td class="gt_row gt_right" headers="SEXO">0.11</td>
-<td class="gt_row gt_right" headers="rendiciones">0.12</td>
-<td class="gt_row gt_right" headers="REGIMEN">0.03</td>
-<td class="gt_row gt_right" headers="GRUPO_DEPENDENCIA">-0.06</td>
-<td class="gt_row gt_right" headers="RAMA">0.01</td>
-<td class="gt_row gt_right" headers="anno">1.00</td>
-<td class="gt_row gt_right" headers="PTJE_NEM">0.05</td>
-</tr>
-<tr class="odd">
 <td class="gt_row gt_left" headers="Variable">PTJE_NEM</td>
 <td class="gt_row gt_right" headers="SEXO">0.12</td>
 <td class="gt_row gt_right" headers="rendiciones">-0.14</td>
 <td class="gt_row gt_right" headers="REGIMEN">-0.03</td>
 <td class="gt_row gt_right" headers="GRUPO_DEPENDENCIA">0.01</td>
 <td class="gt_row gt_right" headers="RAMA">-0.04</td>
-<td class="gt_row gt_right" headers="anno">0.05</td>
 <td class="gt_row gt_right" headers="PTJE_NEM">1.00</td>
 </tr>
 </tbody>
@@ -1490,13 +1473,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>modelo_2 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> dependencia), <span class="at">data =</span> base_matriculado_corta, <span class="at">family =</span> binomial)</span>
 <span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo 3: + Edad y año</span></span>
-<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>modelo_3 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> edad_z <span class="sc">+</span> anno_z <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> dependencia), <span class="at">data =</span> base_matriculado_corta, <span class="at">family =</span> binomial)</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>modelo_3 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> edad_z <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> dependencia), <span class="at">data =</span> base_matriculado_corta, <span class="at">family =</span> binomial)</span>
 <span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo 4: + Rendiciones y PTJE_NEM</span></span>
 <span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>modelo_4 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(matriculado <span class="sc">~</span> rendiciones_z <span class="sc">+</span> PTJE_NEM_z <span class="sc">+</span> rama <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> dependencia), <span class="at">data =</span> base_matriculado_corta, <span class="at">family =</span> binomial)</span>
 <span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo 5 (final): + Rama</span></span>
-<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>modelo_5 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> edad_z <span class="sc">+</span> anno_z <span class="sc">+</span> rendiciones_z <span class="sc">+</span> PTJE_NEM_z <span class="sc">+</span> rama <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> dependencia), <span class="at">data =</span> base_matriculado_corta, <span class="at">family =</span> binomial)</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>modelo_5 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> edad_z <span class="sc">+</span> rendiciones_z <span class="sc">+</span> PTJE_NEM_z <span class="sc">+</span> rama <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> dependencia), <span class="at">data =</span> base_matriculado_corta, <span class="at">family =</span> binomial)</span>
 <span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(modelo_2, modelo_3, modelo_4, modelo_5,</span>
@@ -1544,7 +1527,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.34</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.25&nbsp;–&nbsp;0.45</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.22</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.21</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.16&nbsp;–&nbsp;0.28</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
@@ -1553,14 +1536,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.86</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.79&nbsp;–&nbsp;1.94</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.82</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.74&nbsp;–&nbsp;1.90</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.89</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.81&nbsp;–&nbsp;1.97</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">1.66</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.59&nbsp;–&nbsp;1.73</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">1.72</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.64&nbsp;–&nbsp;1.79</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
@@ -1568,29 +1551,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.05</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.04&nbsp;–&nbsp;1.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.06</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.05&nbsp;–&nbsp;1.07</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">1.10</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.08&nbsp;–&nbsp;1.11</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">anno z</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.13</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.12&nbsp;–&nbsp;1.15</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">1.13</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.12&nbsp;–&nbsp;1.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.09&nbsp;–&nbsp;1.12</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
@@ -1604,8 +1572,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.95</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.93&nbsp;–&nbsp;0.96</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.92</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.91&nbsp;–&nbsp;0.94</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.94</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.92&nbsp;–&nbsp;0.95</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
@@ -1619,8 +1587,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">1.42</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">1.40&nbsp;–&nbsp;1.44</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">1.39</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.37&nbsp;–&nbsp;1.42</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">1.41</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.39&nbsp;–&nbsp;1.43</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
@@ -1634,7 +1602,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.82</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.79&nbsp;–&nbsp;0.84</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.80</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.81</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.78&nbsp;–&nbsp;0.83</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
@@ -1680,16 +1648,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.015 / 0.044</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.021 / 0.049</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.016 / 0.046</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.039 / 0.058</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.057 / 0.074</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.053 / 0.071</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">AIC</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">132690.074</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">132275.933</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">132612.298</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">130937.625</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">129768.273</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">130079.502</td>
 </tr>
 
 </tbody></table>
@@ -1702,12 +1670,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="do">###o ver si me quedo con esto </span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>modelo_logit_simple <span class="ot">&lt;-</span> <span class="fu">glm</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> edad_z <span class="sc">+</span> PTJE_NEM_z <span class="sc">+</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                             rendiciones_z <span class="sc">+</span> anno_z <span class="sc">+</span> rama,</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                             rendiciones_z <span class="sc">+</span> rama,</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> base_matriculado_corta,</span>
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">family =</span> binomial)</span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>modelo_logit_simple <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>  matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> edad_z <span class="sc">+</span> anno_z <span class="sc">+</span> rendiciones_z <span class="sc">+</span> PTJE_NEM_z <span class="sc">+</span> rama,</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>  matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> edad_z <span class="sc">+</span> rendiciones_z <span class="sc">+</span> PTJE_NEM_z <span class="sc">+</span> rama,</span>
 <span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> base_matriculado_corta,</span>
 <span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> binomial)</span>
 <span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
@@ -1715,27 +1683,26 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-glm(formula = matriculado ~ SEXO + edad_z + anno_z + rendiciones_z + 
-    PTJE_NEM_z + rama, family = binomial, data = base_matriculado_corta)
+glm(formula = matriculado ~ SEXO + edad_z + rendiciones_z + PTJE_NEM_z + 
+    rama, family = binomial, data = base_matriculado_corta)
 
 Coefficients:
                Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)   -1.639989   0.020697  -79.24   &lt;2e-16 ***
-SEXOMujer      0.530358   0.021722   24.42   &lt;2e-16 ***
-edad_z         0.085654   0.006588   13.00   &lt;2e-16 ***
-anno_z         0.133252   0.006895   19.32   &lt;2e-16 ***
-rendiciones_z -0.085929   0.007427  -11.57   &lt;2e-16 ***
-PTJE_NEM_z     0.337389   0.007320   46.09   &lt;2e-16 ***
-ramaT         -0.312566   0.016027  -19.50   &lt;2e-16 ***
+(Intercept)   -1.666838   0.020640 -80.758   &lt;2e-16 ***
+SEXOMujer      0.567924   0.021608  26.283   &lt;2e-16 ***
+edad_z         0.090632   0.006582  13.769   &lt;2e-16 ***
+rendiciones_z -0.067862   0.007313  -9.279   &lt;2e-16 ***
+PTJE_NEM_z     0.345700   0.007302  47.341   &lt;2e-16 ***
+ramaT         -0.312992   0.016006 -19.555   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 134665  on 125535  degrees of freedom
-Residual deviance: 130300  on 125529  degrees of freedom
+Residual deviance: 130674  on 125530  degrees of freedom
   (10 observations deleted due to missingness)
-AIC: 130314
+AIC: 130686
 
 Number of Fisher Scoring iterations: 4</code></pre>
 </div>
@@ -1750,18 +1717,13 @@ modelo_5            | glmerMod | 1.3e+05 (&gt;.999) | 1.3e+05 (&gt;.999)
 
 Name                |   BIC (weights) |  RMSE | Sigma | Log_loss | Score_log
 ----------------------------------------------------------------------------
-modelo_logit_simple | 1.3e+05 (&lt;.001) | 0.412 |     1 |    0.519 |      -Inf
-modelo_5            | 1.3e+05 (&gt;.999) | 0.411 |     1 |    0.517 |      -Inf
+modelo_logit_simple | 1.3e+05 (&lt;.001) | 0.413 |     1 |    0.520 |      -Inf
+modelo_5            | 1.3e+05 (&gt;.999) | 0.412 |     1 |    0.518 |      -Inf
 
-Name                | Score_spherical | Tjur's R2 |   PCP | R2 (cond.)
-----------------------------------------------------------------------
-modelo_logit_simple |       7.966e-06 |     0.034 | 0.660 |           
-modelo_5            |       8.022e-06 |           |       |      0.074
-
-Name                | R2 (marg.) |   ICC
-----------------------------------------
-modelo_logit_simple |            |      
-modelo_5            |      0.057 | 0.017</code></pre>
+Name                | Tjur's R2 |   PCP | R2 (cond.) | R2 (marg.) |   ICC
+-------------------------------------------------------------------------
+modelo_logit_simple |     0.031 | 0.659 |            |            |      
+modelo_5            |           |       |      0.071 |      0.053 | 0.019</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1773,7 +1735,7 @@ modelo_5            |      0.057 | 0.017</code></pre>
 <span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>))</span>
 <span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>modelo_logit_matri <span class="ot">&lt;-</span> <span class="fu">glm</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> rendiciones <span class="sc">+</span> REGIMEN <span class="sc">+</span> GRUPO_DEPENDENCIA</span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>                          <span class="sc">+</span> RAMA <span class="sc">+</span> anno <span class="sc">+</span> PTJE_NEM,</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>                          <span class="sc">+</span> RAMA <span class="sc">+</span> PTJE_NEM,</span>
 <span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>                          <span class="at">data =</span> base_matriculado_corta,</span>
 <span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>                          <span class="at">family =</span> binomial)</span>
 <span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -1782,32 +1744,31 @@ modelo_5            |      0.057 | 0.017</code></pre>
 <pre><code>
 Call:
 glm(formula = matriculado ~ SEXO + rendiciones + REGIMEN + GRUPO_DEPENDENCIA + 
-    RAMA + anno + PTJE_NEM, family = binomial, data = base_matriculado_corta)
+    RAMA + PTJE_NEM, family = binomial, data = base_matriculado_corta)
 
 Coefficients:
-                       Estimate    Std. Error z value             Pr(&gt;|z|)    
-(Intercept)       -104.65717615    4.40999531 -23.732 &lt; 0.0000000000000002 ***
-SEXOMujer            0.47492528    0.02440135  19.463 &lt; 0.0000000000000002 ***
-rendiciones         -0.07541709    0.00938715  -8.034 0.000000000000000943 ***
-REGIMEN             -0.07014809    0.01756105  -3.995 0.000064823475360614 ***
-GRUPO_DEPENDENCIA   -0.23458600    0.01288699 -18.203 &lt; 0.0000000000000002 ***
-RAMA                 0.23008480    0.01957657  11.753 &lt; 0.0000000000000002 ***
-anno                 0.05039982    0.00219116  23.001 &lt; 0.0000000000000002 ***
-PTJE_NEM             0.00367713    0.00009342  39.360 &lt; 0.0000000000000002 ***
+                     Estimate  Std. Error z value             Pr(&gt;|z|)    
+(Intercept)       -3.26134215  0.09236474 -35.309 &lt; 0.0000000000000002 ***
+SEXOMujer          0.52459081  0.02425009  21.633 &lt; 0.0000000000000002 ***
+rendiciones       -0.01142848  0.00879494  -1.299             0.193794    
+REGIMEN           -0.06461146  0.01761441  -3.668             0.000244 ***
+GRUPO_DEPENDENCIA -0.26680533  0.01278579 -20.867 &lt; 0.0000000000000002 ***
+RAMA               0.22219937  0.01951595  11.386 &lt; 0.0000000000000002 ***
+PTJE_NEM           0.00354581  0.00009275  38.231 &lt; 0.0000000000000002 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 99199  on 93846  degrees of freedom
-Residual deviance: 95592  on 93839  degrees of freedom
+Residual deviance: 96119  on 93840  degrees of freedom
   (31699 observations deleted due to missingness)
-AIC: 95608
+AIC: 96133
 
 Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>modelo_logit_matri_1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> rendiciones <span class="sc">+</span> REGIMEN <span class="sc">+</span> GRUPO_DEPENDENCIA</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>                            <span class="sc">+</span> anno <span class="sc">+</span> PTJE_NEM,</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>                            <span class="sc">+</span> PTJE_NEM,</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> base_matriculado_corta,</span>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">family =</span> binomial)</span>
 <span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -1817,26 +1778,25 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <pre><code>
 Call:
 glm(formula = matriculado ~ SEXO + rendiciones + REGIMEN + GRUPO_DEPENDENCIA + 
-    anno + PTJE_NEM, family = binomial, data = base_matriculado_corta)
+    PTJE_NEM, family = binomial, data = base_matriculado_corta)
 
 Coefficients:
-                      Estimate   Std. Error z value             Pr(&gt;|z|)    
-(Intercept)       -56.56684354   2.91079055 -19.433 &lt; 0.0000000000000002 ***
-SEXOMujer           0.49155542   0.02195596  22.388 &lt; 0.0000000000000002 ***
-rendiciones        -0.07296809   0.00820936  -8.888 &lt; 0.0000000000000002 ***
-REGIMEN            -0.04726329   0.01493205  -3.165              0.00155 ** 
-GRUPO_DEPENDENCIA  -0.27811835   0.01061613 -26.198 &lt; 0.0000000000000002 ***
-anno                0.02672052   0.00144757  18.459 &lt; 0.0000000000000002 ***
-PTJE_NEM            0.00355075   0.00007936  44.744 &lt; 0.0000000000000002 ***
+                     Estimate  Std. Error z value             Pr(&gt;|z|)    
+(Intercept)       -2.85894019  0.07180013 -39.818 &lt; 0.0000000000000002 ***
+SEXOMujer          0.52647863  0.02184998  24.095 &lt; 0.0000000000000002 ***
+rendiciones       -0.05245430  0.00808528  -6.488      0.0000000000872 ***
+REGIMEN           -0.03889905  0.01498438  -2.596              0.00943 ** 
+GRUPO_DEPENDENCIA -0.29000148  0.01060123 -27.355 &lt; 0.0000000000000002 ***
+PTJE_NEM           0.00362856  0.00007919  45.820 &lt; 0.0000000000000002 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 131903  on 122898  degrees of freedom
-Residual deviance: 127428  on 122892  degrees of freedom
+Residual deviance: 127769  on 122893  degrees of freedom
   (2647 observations deleted due to missingness)
-AIC: 127442
+AIC: 127781
 
 Number of Fisher Scoring iterations: 4</code></pre>
 </div>
@@ -1873,60 +1833,53 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.057</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.004</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000&nbsp;–&nbsp;Inf</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">SEXO [Mujer]</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1.635</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.036</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1.693</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.037</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000&nbsp;–&nbsp;Inf</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">rendiciones</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.930</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.949</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.008</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000&nbsp;–&nbsp;Inf</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">REGIMEN</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.954</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.962</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.014</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000&nbsp;–&nbsp;Inf</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.002</strong></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.009</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">GRUPO DEPENDENCIA</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.757</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.748</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.008</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000&nbsp;–&nbsp;Inf</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
 </tr>
 <tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">anno</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1.027</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.001</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000&nbsp;–&nbsp;Inf</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
-</tr>
-<tr class="odd">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">PTJE NEM</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">1.004</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.000&nbsp;–&nbsp;Inf</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
 <td colspan="4" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">122899</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> Tjur</td>
-<td colspan="4" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.036</td>
+<td colspan="4" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.033</td>
 </tr>
 </tbody>
 </table>
@@ -1945,23 +1898,23 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">OR =</span> <span class="st">"Odds Ratio"</span>,</span>
 <span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">IC_95 =</span> <span class="st">"IC 95%"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="olvsgiazaw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#olvsgiazaw table {
+<div id="sovumztgdi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sovumztgdi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#olvsgiazaw thead, #olvsgiazaw tbody, #olvsgiazaw tfoot, #olvsgiazaw tr, #olvsgiazaw td, #olvsgiazaw th {
+#sovumztgdi thead, #sovumztgdi tbody, #sovumztgdi tfoot, #sovumztgdi tr, #sovumztgdi td, #sovumztgdi th {
   border-style: none;
 }
 
-#olvsgiazaw p {
+#sovumztgdi p {
   margin: 0;
   padding: 0;
 }
 
-#olvsgiazaw .gt_table {
+#sovumztgdi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1987,12 +1940,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_caption {
+#sovumztgdi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#olvsgiazaw .gt_title {
+#sovumztgdi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2004,7 +1957,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-bottom-width: 0;
 }
 
-#olvsgiazaw .gt_subtitle {
+#sovumztgdi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2016,7 +1969,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-top-width: 0;
 }
 
-#olvsgiazaw .gt_heading {
+#sovumztgdi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2028,13 +1981,13 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_bottom_border {
+#sovumztgdi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_col_headings {
+#sovumztgdi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2049,7 +2002,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_col_heading {
+#sovumztgdi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2069,7 +2022,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   overflow-x: hidden;
 }
 
-#olvsgiazaw .gt_column_spanner_outer {
+#sovumztgdi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2081,15 +2034,15 @@ Number of Fisher Scoring iterations: 4</code></pre>
   padding-right: 4px;
 }
 
-#olvsgiazaw .gt_column_spanner_outer:first-child {
+#sovumztgdi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#olvsgiazaw .gt_column_spanner_outer:last-child {
+#sovumztgdi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#olvsgiazaw .gt_column_spanner {
+#sovumztgdi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2101,11 +2054,11 @@ Number of Fisher Scoring iterations: 4</code></pre>
   width: 100%;
 }
 
-#olvsgiazaw .gt_spanner_row {
+#sovumztgdi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#olvsgiazaw .gt_group_heading {
+#sovumztgdi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2131,7 +2084,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   text-align: left;
 }
 
-#olvsgiazaw .gt_empty_group_heading {
+#sovumztgdi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2146,15 +2099,15 @@ Number of Fisher Scoring iterations: 4</code></pre>
   vertical-align: middle;
 }
 
-#olvsgiazaw .gt_from_md > :first-child {
+#sovumztgdi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#olvsgiazaw .gt_from_md > :last-child {
+#sovumztgdi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#olvsgiazaw .gt_row {
+#sovumztgdi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2173,7 +2126,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   overflow-x: hidden;
 }
 
-#olvsgiazaw .gt_stub {
+#sovumztgdi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2186,7 +2139,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   padding-right: 5px;
 }
 
-#olvsgiazaw .gt_stub_row_group {
+#sovumztgdi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2200,15 +2153,15 @@ Number of Fisher Scoring iterations: 4</code></pre>
   vertical-align: top;
 }
 
-#olvsgiazaw .gt_row_group_first td {
+#sovumztgdi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#olvsgiazaw .gt_row_group_first th {
+#sovumztgdi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#olvsgiazaw .gt_summary_row {
+#sovumztgdi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2218,16 +2171,16 @@ Number of Fisher Scoring iterations: 4</code></pre>
   padding-right: 5px;
 }
 
-#olvsgiazaw .gt_first_summary_row {
+#sovumztgdi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_first_summary_row.thick {
+#sovumztgdi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#olvsgiazaw .gt_last_summary_row {
+#sovumztgdi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2237,7 +2190,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_grand_summary_row {
+#sovumztgdi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2247,7 +2200,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   padding-right: 5px;
 }
 
-#olvsgiazaw .gt_first_grand_summary_row {
+#sovumztgdi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2257,7 +2210,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_last_grand_summary_row_top {
+#sovumztgdi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2267,11 +2220,11 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_striped {
+#sovumztgdi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#olvsgiazaw .gt_table_body {
+#sovumztgdi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2280,7 +2233,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_footnotes {
+#sovumztgdi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2294,7 +2247,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_footnote {
+#sovumztgdi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2303,7 +2256,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   padding-right: 5px;
 }
 
-#olvsgiazaw .gt_sourcenotes {
+#sovumztgdi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2317,7 +2270,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#olvsgiazaw .gt_sourcenote {
+#sovumztgdi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2325,72 +2278,72 @@ Number of Fisher Scoring iterations: 4</code></pre>
   padding-right: 5px;
 }
 
-#olvsgiazaw .gt_left {
+#sovumztgdi .gt_left {
   text-align: left;
 }
 
-#olvsgiazaw .gt_center {
+#sovumztgdi .gt_center {
   text-align: center;
 }
 
-#olvsgiazaw .gt_right {
+#sovumztgdi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#olvsgiazaw .gt_font_normal {
+#sovumztgdi .gt_font_normal {
   font-weight: normal;
 }
 
-#olvsgiazaw .gt_font_bold {
+#sovumztgdi .gt_font_bold {
   font-weight: bold;
 }
 
-#olvsgiazaw .gt_font_italic {
+#sovumztgdi .gt_font_italic {
   font-style: italic;
 }
 
-#olvsgiazaw .gt_super {
+#sovumztgdi .gt_super {
   font-size: 65%;
 }
 
-#olvsgiazaw .gt_footnote_marks {
+#sovumztgdi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#olvsgiazaw .gt_asterisk {
+#sovumztgdi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#olvsgiazaw .gt_indent_1 {
+#sovumztgdi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#olvsgiazaw .gt_indent_2 {
+#sovumztgdi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#olvsgiazaw .gt_indent_3 {
+#sovumztgdi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#olvsgiazaw .gt_indent_4 {
+#sovumztgdi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#olvsgiazaw .gt_indent_5 {
+#sovumztgdi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#olvsgiazaw .katex-display {
+#sovumztgdi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#olvsgiazaw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sovumztgdi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2409,35 +2362,30 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Variable">(Intercept)</td>
-<td class="gt_row gt_right" headers="OR">0.000</td>
-<td class="gt_row gt_left" headers="IC_95">[0 – 0]</td>
+<td class="gt_row gt_right" headers="OR">0.057</td>
+<td class="gt_row gt_left" headers="IC_95">[0.05 – 0.066]</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Variable">SEXOMujer</td>
-<td class="gt_row gt_right" headers="OR">1.635</td>
-<td class="gt_row gt_left" headers="IC_95">[1.566 – 1.707]</td>
+<td class="gt_row gt_right" headers="OR">1.693</td>
+<td class="gt_row gt_left" headers="IC_95">[1.622 – 1.767]</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Variable">rendiciones</td>
-<td class="gt_row gt_right" headers="OR">0.930</td>
-<td class="gt_row gt_left" headers="IC_95">[0.915 – 0.945]</td>
+<td class="gt_row gt_right" headers="OR">0.949</td>
+<td class="gt_row gt_left" headers="IC_95">[0.934 – 0.964]</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Variable">REGIMEN</td>
-<td class="gt_row gt_right" headers="OR">0.954</td>
-<td class="gt_row gt_left" headers="IC_95">[0.926 – 0.982]</td>
+<td class="gt_row gt_right" headers="OR">0.962</td>
+<td class="gt_row gt_left" headers="IC_95">[0.934 – 0.991]</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Variable">GRUPO_DEPENDENCIA</td>
-<td class="gt_row gt_right" headers="OR">0.757</td>
-<td class="gt_row gt_left" headers="IC_95">[0.742 – 0.773]</td>
+<td class="gt_row gt_right" headers="OR">0.748</td>
+<td class="gt_row gt_left" headers="IC_95">[0.733 – 0.764]</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Variable">anno</td>
-<td class="gt_row gt_right" headers="OR">1.027</td>
-<td class="gt_row gt_left" headers="IC_95">[1.024 – 1.03]</td>
-</tr>
-<tr class="odd">
 <td class="gt_row gt_left" headers="Variable">PTJE_NEM</td>
 <td class="gt_row gt_right" headers="OR">1.004</td>
 <td class="gt_row gt_left" headers="IC_95">[1.003 – 1.004]</td>
@@ -2450,11 +2398,11 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>modelo_logit_matri_1_1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> rendiciones <span class="sc">+</span> PTJE_NEM,</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> base_matriculado_corta,</span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">family =</span> binomial)</span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>modelo_logit_matri_1_2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(matriculado <span class="sc">~</span> REGIMEN <span class="sc">+</span> GRUPO_DEPENDENCIA <span class="sc">+</span> anno ,</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>modelo_logit_matri_1_2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(matriculado <span class="sc">~</span> REGIMEN <span class="sc">+</span> GRUPO_DEPENDENCIA,</span>
 <span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> base_matriculado_corta,</span>
 <span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">family =</span> binomial)</span>
 <span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>modelo_logit_matri_1_3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> rendiciones <span class="sc">+</span> PTJE_NEM <span class="sc">+</span> REGIMEN <span class="sc">+</span> GRUPO_DEPENDENCIA <span class="sc">+</span> anno ,</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>modelo_logit_matri_1_3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(matriculado <span class="sc">~</span> SEXO <span class="sc">+</span> rendiciones <span class="sc">+</span> PTJE_NEM <span class="sc">+</span> REGIMEN <span class="sc">+</span> GRUPO_DEPENDENCIA,</span>
 <span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> base_matriculado_corta,</span>
 <span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>                              <span class="at">family =</span> binomial)</span>
 <span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a></span>
@@ -2466,7 +2414,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.obs =</span> <span class="cn">TRUE</span>,           <span class="co"># Mostrar número de observaciones</span></span>
 <span id="cb58-18"><a href="#cb58-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.re.var =</span> <span class="cn">TRUE</span>,        <span class="co"># Mostrar varianza del intercepto aleatorio</span></span>
 <span id="cb58-19"><a href="#cb58-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">"Variables personales"</span>, <span class="st">"Variables contextuales"</span>, <span class="st">"Modelo total"</span>),</span>
-<span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Modelos Logísticos Multinivel (Odds Ratios)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Modelos Logísticos (Odds Ratios)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Profiled confidence intervals may take longer time to compute.
   Use `ci_method="wald"` for faster computation of CIs.</code></pre>
@@ -2479,7 +2427,7 @@ Profiled confidence intervals may take longer time to compute.
 </div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Modelos Logísticos Multinivel (Odds Ratios)</caption>
+<caption>Modelos Logísticos (Odds Ratios)</caption>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</th>
@@ -2504,11 +2452,11 @@ Profiled confidence intervals may take longer time to compute.
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.03</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.02&nbsp;–&nbsp;0.03</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.00</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.00&nbsp;–&nbsp;0.00</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.68</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.62&nbsp;–&nbsp;0.75</td>
 <td style="text-align: center;"><strong>&lt;0.001</strong></td>
-<td style="text-align: center;">0.00</td>
-<td style="text-align: center;">0.00&nbsp;–&nbsp;0.00</td>
+<td style="text-align: center;">0.06</td>
+<td style="text-align: center;">0.05&nbsp;–&nbsp;0.07</td>
 <td style="text-align: center;"><strong>&lt;0.001</strong></td>
 </tr>
 <tr class="even">
@@ -2519,8 +2467,8 @@ Profiled confidence intervals may take longer time to compute.
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">1.63</td>
-<td style="text-align: center;">1.57&nbsp;–&nbsp;1.71</td>
+<td style="text-align: center;">1.69</td>
+<td style="text-align: center;">1.62&nbsp;–&nbsp;1.77</td>
 <td style="text-align: center;"><strong>&lt;0.001</strong></td>
 </tr>
 <tr class="odd">
@@ -2531,8 +2479,8 @@ Profiled confidence intervals may take longer time to compute.
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">0.93</td>
-<td style="text-align: center;">0.91&nbsp;–&nbsp;0.94</td>
+<td style="text-align: center;">0.95</td>
+<td style="text-align: center;">0.93&nbsp;–&nbsp;0.96</td>
 <td style="text-align: center;"><strong>&lt;0.001</strong></td>
 </tr>
 <tr class="even">
@@ -2553,53 +2501,41 @@ Profiled confidence intervals may take longer time to compute.
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.95</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.92&nbsp;–&nbsp;0.97</td>
-<td style="text-align: center;"><strong>&lt;0.001</strong></td>
-<td style="text-align: center;">0.95</td>
-<td style="text-align: center;">0.93&nbsp;–&nbsp;0.98</td>
-<td style="text-align: center;"><strong>0.002</strong></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.93&nbsp;–&nbsp;0.98</td>
+<td style="text-align: center;"><strong>0.001</strong></td>
+<td style="text-align: center;">0.96</td>
+<td style="text-align: center;">0.93&nbsp;–&nbsp;0.99</td>
+<td style="text-align: center;"><strong>0.009</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;">GRUPO DEPENDENCIA</td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
 <td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.75</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.73&nbsp;–&nbsp;0.76</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.74</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.72&nbsp;–&nbsp;0.75</td>
 <td style="text-align: center;"><strong>&lt;0.001</strong></td>
-<td style="text-align: center;">0.76</td>
-<td style="text-align: center;">0.74&nbsp;–&nbsp;0.77</td>
+<td style="text-align: center;">0.75</td>
+<td style="text-align: center;">0.73&nbsp;–&nbsp;0.76</td>
 <td style="text-align: center;"><strong>&lt;0.001</strong></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">anno</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1.03</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1.03&nbsp;–&nbsp;1.03</td>
-<td style="text-align: center;"><strong>&lt;0.001</strong></td>
-<td style="text-align: center;">1.03</td>
-<td style="text-align: center;">1.02&nbsp;–&nbsp;1.03</td>
-<td style="text-align: center;"><strong>&lt;0.001</strong></td>
-</tr>
-<tr class="even">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
 <td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">125539</td>
 <td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">122906</td>
 <td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">122899</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> Tjur</td>
 <td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.027</td>
-<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.011</td>
-<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.036</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.007</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.033</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">AIC</td>
 <td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">131230.804</td>
-<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">130588.322</td>
-<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">127441.583</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">131069.884</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">127780.535</td>
 </tr>
 </tbody>
 </table>
@@ -2607,9 +2543,9 @@ Profiled confidence intervals may take longer time to compute.
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(modelo_logit_matri_1_3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             SEXO       rendiciones          PTJE_NEM           REGIMEN 
-         1.017972          1.040387          1.028671          1.002231 
-GRUPO_DEPENDENCIA              anno 
-         1.006818          1.030183 </code></pre>
+         1.011171          1.020595          1.025517          1.001247 
+GRUPO_DEPENDENCIA 
+         1.003914 </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -4338,8 +4274,8 @@ Parvularia |  61056 | 24.07 |   24.07 | 100.00
 <pre><code>Links is a tbl_df. Converting to a plain data frame.</code></pre>
 </div>
 <div class="cell-output-display">
-<div class="sankeyNetwork html-widget html-fill-item" id="htmlwidget-f03c1e523441aec7103d" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-f03c1e523441aec7103d">{"x":{"links":{"source":[0,0,0,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,9,9,9,9,9,9,10,10,10,10,11,11,11,11,11,11,11,11],"target":[2,3,4,2,3,4,5,6,8,7,9,10,11,5,6,8,7,9,10,11,5,6,8,7,9,10,11,15,2,12,16,13,17,18,14,19,20,15,2,12,16,13,17,18,14,15,2,12,16,13,17,18,14,15,2,12,16,13,17,14,15,2,12,16,13,17,15,2,12,17,15,2,12,16,13,17,18,14],"value":[13,4090,2,12302,14010,231,9395,767,191,675,75,34,1178,6776,2719,1537,848,508,204,5508,118,16,9,29,4,6,51,637,1391,4865,874,4987,1591,445,1383,107,9,1721,279,1369,10,58,36,3,26,404,60,1207,5,25,24,8,4,708,330,399,3,95,12,5,378,18,177,1,1,12,123,7,90,24,2202,439,3860,3,50,132,7,44]},"nodes":{"name":["Hombre","Mujer","Parvularia","Básica","Mixta","Docencia aula","Planta Técnico-pedagógica","Director(a)","Planta Directiva","Inspector(a) General","Orientador(a)","Otra/NA","Básica niños/as y jóvenes","Especial","Media TP (N/J)","No hace clases","Básica adultos","Media H-C (N/J)","Media H-C (Adultos)","Media TP (Adultos)","Sin dato"],"group":["Hombre","Mujer","Parvularia","Básica","Mixta","Docencia aula","Planta Técnico-pedagógica","Director(a)","Planta Directiva","Inspector(a) General","Orientador(a)","Otra/NA","Básica niños/as y jóvenes","Especial","Media TP (N/J)","No hace clases","Básica adultos","Media H-C (N/J)","Media H-C (Adultos)","Media TP (Adultos)","Sin dato"]},"options":{"NodeID":"name","NodeGroup":"name","LinkGroup":null,"colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":null,"nodeWidth":24,"nodePadding":10,"units":"","margin":{"top":10,"right":10,"bottom":10,"left":10},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
+<div class="sankeyNetwork html-widget html-fill-item" id="htmlwidget-60029068c179db74a09a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-60029068c179db74a09a">{"x":{"links":{"source":[0,0,0,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,9,9,9,9,9,9,10,10,10,10,11,11,11,11,11,11,11,11],"target":[2,3,4,2,3,4,5,6,8,7,9,10,11,5,6,8,7,9,10,11,5,6,8,7,9,10,11,15,2,12,16,13,17,18,14,19,20,15,2,12,16,13,17,18,14,15,2,12,16,13,17,18,14,15,2,12,16,13,17,14,15,2,12,16,13,17,15,2,12,17,15,2,12,16,13,17,18,14],"value":[13,4090,2,12302,14010,231,9395,767,191,675,75,34,1178,6776,2719,1537,848,508,204,5508,118,16,9,29,4,6,51,637,1391,4865,874,4987,1591,445,1383,107,9,1721,279,1369,10,58,36,3,26,404,60,1207,5,25,24,8,4,708,330,399,3,95,12,5,378,18,177,1,1,12,123,7,90,24,2202,439,3860,3,50,132,7,44]},"nodes":{"name":["Hombre","Mujer","Parvularia","Básica","Mixta","Docencia aula","Planta Técnico-pedagógica","Director(a)","Planta Directiva","Inspector(a) General","Orientador(a)","Otra/NA","Básica niños/as y jóvenes","Especial","Media TP (N/J)","No hace clases","Básica adultos","Media H-C (N/J)","Media H-C (Adultos)","Media TP (Adultos)","Sin dato"],"group":["Hombre","Mujer","Parvularia","Básica","Mixta","Docencia aula","Planta Técnico-pedagógica","Director(a)","Planta Directiva","Inspector(a) General","Orientador(a)","Otra/NA","Básica niños/as y jóvenes","Especial","Media TP (N/J)","No hace clases","Básica adultos","Media H-C (N/J)","Media H-C (Adultos)","Media TP (Adultos)","Sin dato"]},"options":{"NodeID":"name","NodeGroup":"name","LinkGroup":null,"colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":null,"nodeWidth":24,"nodePadding":10,"units":"","margin":{"top":10,"right":10,"bottom":10,"left":10},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="do">###### Flujos (ya con *_lbl creadas y ejercicio_area == 0)</span></span>
 <span id="cb151-2"><a href="#cb151-2" aria-hidden="true" tabindex="-1"></a>flows <span class="ot">&lt;-</span> base_sankey1 <span class="sc">%&gt;%</span></span>
@@ -4401,8 +4337,8 @@ Parvularia |  61056 | 24.07 |   24.07 | 100.00
 <span id="cb153-11"><a href="#cb153-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb153-12"><a href="#cb153-12" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="sankeyNetwork html-widget html-fill-item" id="htmlwidget-b04fa51ef0744ef729e3" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-b04fa51ef0744ef729e3">{"x":{"links":{"source":[0,0,0,1,1,1,3,3,3,3,3,3,3,4,4,4,4,4,4,4,2,2,2,2,2,2,2,7,7,7,7,7,7,7,5,5,5,5,5,5,5,5,5,5,9,9,9,9,9,9,10,10,10,10,11,11,11,11,11,11,11,11,8,8,8,8,8,8,8,8,6,6,6,6,6,6,6,6],"target":[3,4,2,3,4,2,7,5,9,10,11,8,6,7,5,9,10,11,8,6,7,5,9,10,11,8,6,17,12,13,18,14,15,16,17,12,13,19,18,20,14,15,16,21,17,12,13,18,15,16,12,18,15,16,17,12,13,19,18,14,15,16,17,12,13,19,18,14,15,16,17,12,13,19,18,14,15,16],"value":[4090,2,13,14010,231,12302,848,6776,508,204,5508,1537,2719,29,118,4,6,51,9,16,675,9395,75,34,1178,191,767,3,399,95,12,5,708,330,874,4865,4987,445,1591,107,1383,637,1391,9,1,177,1,12,378,18,90,24,123,7,3,3860,50,7,132,44,2202,439,5,1207,25,8,24,4,404,60,10,1369,58,3,36,26,1721,279]},"nodes":{"name":["G: Hombre","G: Mujer","C: Parvularia","C: Básica","C: Mixta","F: Docencia aula","F: Planta Técnico-pedagógica","F: Director(a)","F: Planta Directiva","F: Inspector(a) General","F: Orientador(a)","F: Otra/NA","N: Básica niños/as y jóvenes","N: Especial","N: Media TP (N/J)","N: No hace clases","N: Parvularia","N: Básica adultos","N: Media H-C (N/J)","N: Media H-C (Adultos)","N: Media TP (Adultos)","N: Sin dato"],"group":["G: Hombre","G: Mujer","C: Parvularia","C: Básica","C: Mixta","F: Docencia aula","F: Planta Técnico-pedagógica","F: Director(a)","F: Planta Directiva","F: Inspector(a) General","F: Orientador(a)","F: Otra/NA","N: Básica niños/as y jóvenes","N: Especial","N: Media TP (N/J)","N: No hace clases","N: Parvularia","N: Básica adultos","N: Media H-C (N/J)","N: Media H-C (Adultos)","N: Media TP (Adultos)","N: Sin dato"]},"options":{"NodeID":"name","NodeGroup":"name","LinkGroup":null,"colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":null,"nodeWidth":28,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":false}},"evals":[],"jsHooks":{"render":[{"code":"\n  function(el,x){\n    d3.select(el).selectAll(\".node text\").each(function(){\n      var t = d3.select(this).text();\n      t = t.replace(/^G: /,\"\").replace(/^C: /,\"\").replace(/^F: /,\"\").replace(/^N: /,\"\");\n      d3.select(this).text(t);\n    });\n  }\n","data":null}]}}</script>
+<div class="sankeyNetwork html-widget html-fill-item" id="htmlwidget-dcc2269d4ee3b7101898" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-dcc2269d4ee3b7101898">{"x":{"links":{"source":[0,0,0,1,1,1,3,3,3,3,3,3,3,4,4,4,4,4,4,4,2,2,2,2,2,2,2,7,7,7,7,7,7,7,5,5,5,5,5,5,5,5,5,5,9,9,9,9,9,9,10,10,10,10,11,11,11,11,11,11,11,11,8,8,8,8,8,8,8,8,6,6,6,6,6,6,6,6],"target":[3,4,2,3,4,2,7,5,9,10,11,8,6,7,5,9,10,11,8,6,7,5,9,10,11,8,6,17,12,13,18,14,15,16,17,12,13,19,18,20,14,15,16,21,17,12,13,18,15,16,12,18,15,16,17,12,13,19,18,14,15,16,17,12,13,19,18,14,15,16,17,12,13,19,18,14,15,16],"value":[4090,2,13,14010,231,12302,848,6776,508,204,5508,1537,2719,29,118,4,6,51,9,16,675,9395,75,34,1178,191,767,3,399,95,12,5,708,330,874,4865,4987,445,1591,107,1383,637,1391,9,1,177,1,12,378,18,90,24,123,7,3,3860,50,7,132,44,2202,439,5,1207,25,8,24,4,404,60,10,1369,58,3,36,26,1721,279]},"nodes":{"name":["G: Hombre","G: Mujer","C: Parvularia","C: Básica","C: Mixta","F: Docencia aula","F: Planta Técnico-pedagógica","F: Director(a)","F: Planta Directiva","F: Inspector(a) General","F: Orientador(a)","F: Otra/NA","N: Básica niños/as y jóvenes","N: Especial","N: Media TP (N/J)","N: No hace clases","N: Parvularia","N: Básica adultos","N: Media H-C (N/J)","N: Media H-C (Adultos)","N: Media TP (Adultos)","N: Sin dato"],"group":["G: Hombre","G: Mujer","C: Parvularia","C: Básica","C: Mixta","F: Docencia aula","F: Planta Técnico-pedagógica","F: Director(a)","F: Planta Directiva","F: Inspector(a) General","F: Orientador(a)","F: Otra/NA","N: Básica niños/as y jóvenes","N: Especial","N: Media TP (N/J)","N: No hace clases","N: Parvularia","N: Básica adultos","N: Media H-C (N/J)","N: Media H-C (Adultos)","N: Media TP (Adultos)","N: Sin dato"]},"options":{"NodeID":"name","NodeGroup":"name","LinkGroup":null,"colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":null,"nodeWidth":28,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":false}},"evals":[],"jsHooks":{"render":[{"code":"\n  function(el,x){\n    d3.select(el).selectAll(\".node text\").each(function(){\n      var t = d3.select(this).text();\n      t = t.replace(/^G: /,\"\").replace(/^C: /,\"\").replace(/^F: /,\"\").replace(/^N: /,\"\");\n      d3.select(this).text(t);\n    });\n  }\n","data":null}]}}</script>
 </div>
 </div>
 <p>Falta generar reporte de aquellos que no ejercen de lo que estudiaron</p>
@@ -4461,7 +4397,7 @@ Parvularia |  61056 | 24.07 |   24.07 | 100.00
 <span id="cb158-5"><a href="#cb158-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  26.10    0.26   26.49 </code></pre>
+  26.03    0.23   26.32 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">icc</span>(fit_null_mrun); <span class="fu">isSingular</span>(fit_null_mrun)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">

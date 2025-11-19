@@ -402,7 +402,7 @@ vars_interes <- base_matriculado_corta %>%
          PROM_NOTAS)
 
 variables_predictoras<- base_matriculado_corta %>%
-  select(SEXO, rendiciones, REGIMEN, GRUPO_DEPENDENCIA, RAMA, anno, PTJE_NEM)
+  select(SEXO, rendiciones, REGIMEN, GRUPO_DEPENDENCIA, RAMA, PTJE_NEM)
 
 variables_predictoras <- variables_predictoras %>%
   mutate(
@@ -455,7 +455,6 @@ icc(modelo_0)
 base_matriculado_corta <- base_matriculado_corta %>%
   mutate(
     edad_z         = scale(edad)[,1],
-    anno_z         = scale(anno)[,1],
     rendiciones_z  = scale(rendiciones)[,1],
     PTJE_NEM_z     = scale(PTJE_NEM)[,1],
     PROM_NOTAS_z   = scale(PROM_NOTAS)[,1])
@@ -571,6 +570,33 @@ tab_model(
 
 vif(modelo_logit_matri_1_3)
 
+###modelo simple 
+
+modelo_1 <- glm(matriculado ~ SEXO,
+                data = base_matriculado_corta,
+                family = binomial)
+modelo_2 <- glm(matriculado ~ SEXO + edad, 
+                data = base_matriculado_corta, 
+                family = binomial)
+modelo_3 <- glm(matriculado ~ rendiciones + PTJE_NEM + rama + dependencia_label,
+                data = base_matriculado_corta,
+                family = binomial)
+modelo_4 <- glm(matriculado ~ SEXO + edad + rendiciones + PTJE_NEM + rama + dependencia_label,
+                data = base_matriculado_corta,
+                family = binomial)
+
+tab_model(modelo_1, modelo_2, modelo_3, modelo_4,
+          transform = "exp",  # odds ratios
+          show.icc = FALSE,  
+          show.aic = TRUE,
+          show.obs = TRUE,
+          dv.labels = c("Genero",
+                        "Variables personales",
+                        "Variables academicas",
+                        "Modelo total"),
+          title = "Modelos Logísticos paso a paso (Odds Ratios)")
+
+
 ##base de datos abierta 1/2
 
 base_unica <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_unica.csv",delim = ",")
@@ -591,7 +617,6 @@ duracion_promedio_categoria <- base_propu_trayec_r %>% group_by(categoria_peda) 
 
 ####ver base 
 
-frq(base_propu_trayec_r)
 glimpse(base_propu_trayec_r)
 table(base_propu_trayec_r$gen_alu)
 table(base_unica$egreso)
@@ -698,7 +723,7 @@ proporciones_egreso <- base_propu_trayec_r %>%
     ),
     egresa = ifelse(egresa == 1, "Sí", "No")
   ) %>%
-  group_by(sexo, egresa) %>%
+  group_by(sexo, egresa, categoria_peda) %>%
   summarise(n = n(), .groups = "drop") %>%
   group_by(sexo) %>%
   mutate(proporcion = n / sum(n) * 100)
@@ -762,7 +787,7 @@ ggplot(tasas_todas_filtradas, aes(x = cat_periodo, y = tasa, color = SEXO, linet
   ) +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   labs(
-    title = "Tasa de egreso observada por año y sexo",
+    title = "Tasa de egreso observada por año y género",
     x = "Año observado (último año por persona)",
     y = "Tasa de egreso (%)",
     color = "Sexo",
@@ -868,6 +893,7 @@ num_vars <- base_para_modelo %>%
 correlaciones<- correlate(num_vars)
 correlaciones
 
+
 modelo_test <- glm(egreso ~ sexo + categoria_peda + tipo_inst_recod,
                    data = base_para_modelo,
                    family = binomial)
@@ -887,6 +913,7 @@ tab_model(modelo_test,
                           "Univ. Privada",
                           "Inst. profesional"),
           dv.labels = "Probabilidad de Egreso")
+####base unica
 
 base_unica <- base_para_modelo %>%
   arrange(mrun, cod_inst, cat_periodo) %>%   # ordenar por persona, carrera e inicio
@@ -894,42 +921,75 @@ base_unica <- base_para_modelo %>%
   slice_head(n = 1) %>%                      
   ungroup()
 
+proporciones_egreso <- base_unica %>%
+  mutate(
+    sexo = case_when(
+      gen_alu == 1 ~ "Hombre",
+      gen_alu == 2 ~ "Mujer"
+    ),
+    egresa = ifelse(egresa == 1, "Sí", "No")) %>%
+  group_by(sexo, categoria_peda, egresa) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(sexo, categoria_peda) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+ggplot(proporciones_egreso, aes(x = categoria_peda, y = proporcion, fill = egresa)) +
+  geom_col(position = "stack") +
+  facet_wrap(~ sexo) +
+  labs(
+    title = "Proporción de egreso por carrera y género",
+    x = "Categoría Pedagógica",
+    y = "Proporción (%)",
+    fill = "¿Egresó?"
+  ) +
+  scale_fill_manual(values = colores_egreso) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 13)
+
 ##### Revisar resultado
 nrow(base_unica)                 
 n_distinct(base_unica$mrun)      
 
 
-modelo_reg_1 <- glm(egresa ~ sexo, data = base_unica, family = binomial)
-modelo_reg_2 <- glm(egresa ~ categoria_peda + tipo_inst_recod, data = base_unica, family = binomial)
-modelo_reg_3 <- glm(egresa ~ sexo + tipo_inst_recod + categoria_peda, data = base_unica, family = binomial)
+modelo_reg_1 <- glm(egresa ~ sexo, 
+                    data = base_unica, 
+                    family = binomial)
+modelo_reg_2 <- glm(egresa ~ categoria_peda + tipo_inst_recod, 
+                    data = base_unica, 
+                    family = binomial)
+modelo_reg_3 <- glm(egresa ~ sexo + tipo_inst_recod + categoria_peda, 
+                    data = base_unica, 
+                    family = binomial)
 
-class(modelo_reg_1)
-class(modelo_reg_2)
-class(modelo_reg_3)
 
 tab_model(
   modelo_reg_1, modelo_reg_2, modelo_reg_3,
   transform = "exp",        # OR en vez de log-odds
-  show.ci = TRUE,
+  show.icc = TRUE,
   show.aic = TRUE,
   show.obs = TRUE,
-  show.r2 = TRUE,
-  dv.labels = c("Sexo", "Educativas", "Modelo completo"),
+  dv.labels = c("Género", "Educativas", "Modelo completo"),
   title = "Modelos de regresión logística sobre probabilidad de egreso")
 
 ######multinivel
 
-modelo_multinivel_1 <- glmer(egresa ~ sexo + categoria_peda + tipo_inst_recod + (1 |cod_inst),
+modelo_multinivel_1 <- glmer(egresa ~ sexo + (1 |cod_inst),
+                             data = base_unica,
+                             family = binomial)
+modelo_multinivel_2 <- glmer(egresa ~ categoria_peda + tipo_inst_recod + (1 |cod_inst),
+                             data = base_unica,
+                             family = binomial)
+modelo_multinivel_3 <- glmer(egresa ~ sexo + categoria_peda + tipo_inst_recod + (1 |cod_inst),
                              data = base_unica,
                              family = binomial)
 
 tab_model(
-  modelo_multinivel_1,
+  modelo_multinivel_1,modelo_multinivel_2,modelo_multinivel_3,
   transform = "exp",   # odds ratios
-  show.ci = TRUE,
+  show.icc =  TRUE,
   show.aic = TRUE,
   show.obs = TRUE,
-  show.r2 = TRUE,
+  dv.labels = c("Género", "Educativas", "Modelo completo"),
   title = "Modelo multinivel: probabilidad de egreso")
 
 ##base de datos abierta 2/2
