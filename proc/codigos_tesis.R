@@ -1853,10 +1853,106 @@ fit_m2 <- glmmTMB(
   optimo ~ DOC_GENERO + categoria_peda + dependencia +
     (1 | mrun) + (1 | RBD),
   family = binomial(link = "logit"),
-  data = base_ml
-)
+  data = base_ml)
 
 summary(fit_m2)
 
 tab_model(fit_m2, transform = "exp", show.ci = TRUE,
           title = "Logística multinivel")
+
+modelo_multinivel_1_ <- glmer(optimo ~ DOC_GENERO + (1 | mrun),
+                             data = base_princ,
+                             family = binomial)
+modelo_multinivel_2_ <- glmer(optimo ~ categoria_peda + (1 | mrun),
+                             data = base_princ,
+                             family = binomial)
+modelo_multinivel_3_ <- glmer(optimo ~  dependencia + (1 | mrun),
+                             data = base_princ,
+                             family = binomial)
+modelo_multinivel_4_ <- glmer(optimo ~ DOC_GENERO + categoria_peda + dependencia + (1 | mrun),
+                             data = base_princ,
+                             family = binomial)
+
+tab_model(
+  modelo_multinivel_1_,modelo_multinivel_2_,modelo_multinivel_3_,modelo_multinivel_4_,
+  transform = "exp",   # odds ratios
+  show.icc =  TRUE,
+  show.aic = TRUE,
+  show.obs = TRUE,
+  dv.labels = c("Género", "Educativas", "Dependencia laboral","Modelo completo"),
+  title = "Modelo multinivel ejercicio óptimo")
+
+### modelo doble
+
+modelo_multinivel_1_1 <- glmer(optimo ~ DOC_GENERO + (1 | mrun)  + (1 | RBD),
+                              data = base_princ,
+                              family = binomial)
+modelo_multinivel_2_1 <- glmer(optimo ~ categoria_peda + (1 | mrun) + (1 | RBD),
+                              data = base_princ,
+                              family = binomial)
+modelo_multinivel_3_1 <- glmer(optimo ~  dependencia + (1 | mrun) + (1 | RBD),
+                              data = base_princ,
+                              family = binomial)
+modelo_multinivel_4_1 <- glmer(optimo ~ DOC_GENERO + categoria_peda + dependencia + (1 | mrun) + (1 | RBD),
+                              data = base_princ,
+                              family = binomial)
+
+tab_model(
+  modelo_multinivel_1_1,modelo_multinivel_2_1,modelo_multinivel_3_1,modelo_multinivel_4_1,
+  transform = "exp",   # odds ratios
+  show.icc =  TRUE,
+  show.aic = TRUE,
+  show.obs = TRUE,
+  dv.labels = c("Género", "Educativas", "Dependencia laboral","Modelo completo"),
+  title = "Modelo multinivel ejercicio óptimo")
+
+table(docente_fil_r $optimo, docente_fil_r $DOC_GENERO)
+
+# Cargar librerías necesarias
+library(ggplot2)
+library(dplyr)
+library(scales)
+
+# Definir los colores para las categorías "Sí" y "No"
+colores_syn <- c("Sí" = "#698B69", "No" = "#CD3333")
+
+# Calcular las proporciones de 'optimo' (0 y 1) por 'DOC_GENERO'
+proporciones <- base_princ %>%
+  group_by(DOC_GENERO, optimo) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(DOC_GENERO) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+# Crear el gráfico con ggplot
+ggplot(proporciones, aes(x = DOC_GENERO, y = proporcion, fill = factor(optimo, labels = c("No", "Sí")))) +
+  geom_col(position = "stack") +
+  labs(
+    title = "Proporción de ejercicio óptimo por Género",
+    x = "Género",
+    y = "Proporción (%)",
+    fill = "¿Ejercicio óptimo?"
+  ) +
+  scale_fill_manual(values = colores_syn) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 13)
+
+# Calcular las proporciones de 'optimo' (0 y 1) por 'DOC_GENERO'
+proporciones <- base_princ %>%
+  group_by(DOC_GENERO, optimo, categoria_peda) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(DOC_GENERO, categoria_peda) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+# Crear el gráfico con ggplot
+ggplot(proporciones, aes(x = DOC_GENERO, y = proporcion, fill = factor(optimo, labels = c("No", "Sí")))) +
+  geom_col(position = "stack") +
+  facet_wrap(~categoria_peda, scales = "free_y") +  # Crear subgráficos por 'categoria_peda'
+  labs(
+    title = "Proporción de ejercicio óptimo por Género y Categoría Pedagógica",
+    x = "Género",
+    y = "Proporción (%)",
+    fill = "¿Ejercicio óptimo?"
+  ) +
+  scale_fill_manual(values = colores_syn) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +  # Formatear eje Y como porcentaje
+  theme_minimal(base_size = 13)
