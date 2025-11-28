@@ -149,7 +149,10 @@ La combinación de ambas estrategias analíticas permite adaptar los modelos a l
 
 ## Resultados
 
+La Base 1 registra un total de 125 546 observaciones. De ellas, 20 285 corresponden a hombres (16,16 %), mientras que 105 261 corresponden a mujeres (83,84 %). Asimismo, 96 974 personas no se encuentran matriculadas (77,24 %) y 28 572 sí están matriculadas (22,76 %). Al desagregar la información por género y condición de matrícula, se observa que entre los hombres la mayoría no se encuentra matriculada, representando el 85,68 % (17 381 casos), mientras que el 14,32 % (2 904 casos) sí está matriculado. En el caso de las mujeres, el 75,61 % (79 593 casos) no está matriculado y el 24,39 % (25 668 casos) sí lo está. Estos resultados evidencian que, en su mayoría los postulantes no suelen matricularse en la carrera de educación feminizada a la cual postulan, aunque en ambos géneros predomina la no matrícula, la proporción de mujeres matriculadas es superior a la de hombres.
+
 ```{r}
+#| echo: true
 #Codigos de bases de tesis 
 
 ##librerias
@@ -176,7 +179,39 @@ colores_preferencias <- c("1° preferencia" = "#63B8FF",
                           "3° preferencia" = "#4594CD",    
                           "4°-5° preferencia" = "#4682B4",
                           "6° o más" = "#36648B")
+```
 
+```{r}
+#| echo: true
+###codigos
+
+####saco proporciones por genero y por matricula, la idea es ver las diferencias
+####frecuencia no me sirve porque hombres son muy muy pocos
+
+proporciones_g <- base_matriculado_corta %>%
+  group_by(SEXO) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+proporciones_g
+
+proporciones_m <- base_matriculado_corta %>%
+  group_by(matriculado) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+proporciones_m
+
+proporciones_g_m <- base_matriculado_corta %>%
+  group_by(SEXO, matriculado) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(SEXO) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+proporciones_g_m
+```
+
+```{r}
 ###codigos
 
 ####saco proporciones por genero y por matricula, la idea es ver las diferencias
@@ -201,10 +236,8 @@ ggplot(proporciones, aes(x = SEXO, y = proporcion, fill = matriculado)) +
   ) +
   scale_fill_manual(values = colores_matricula) +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
-  theme_minimal()
+  theme_minimal
 ```
-
-Las mujeres presentan una mayor proporción de matrícula en carreras de pedagogía feminizadas en comparación con los hombres. No solo son más en términos absolutos, sino que proporcionalmente respecto a su propio grupo, la matrícula efectiva es más frecuente entre ellas. Este patrón da cuenta de la persistente feminización de estas carreras, tanto en volumen total como en participación relativa.
 
 ```{r}
 ####quiero ver factor tiempo, saco tasa de matricula hombres y mujeres
