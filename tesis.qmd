@@ -127,6 +127,28 @@ Se excluyen del análisis:
 
 -   Puntajes que se hayan obtenido desde la implementación de la PAES.
 
+### Operacionalización y construcción de variables
+
+Base 1 DEMRE
+
+|  |  |
+|----|----|
+| **Item** | **Categoría de respuesta** |
+| Variables individuales independientes |  |
+| ID_aux | Identificador anonimizado de los sujetos |
+| SEXO | Género del sujeto |
+| edad | Edad del sujeto expresada en números |
+| rendiciones | Cantidad de veces que el sujeto se inscribe para rendir las pruebas de selección universitarias |
+| PTJE NEM | Corresponde al puntaje obtenido por notas de la enseñanza media, el cual se pondera con los puntajes de las pruebas para postular a la educación superior |
+| PREFERENCIA | Indica el lugar en el que posiciona la carrera al momento de postular por el sistema de admisión |
+| Variables contextuales independientes |  |
+| anno | Año al que pertenece el sujeto  |
+| rama | Tipo de régimen al cual pertenece la institución educativa de origen del estudiante |
+| REGIMEN |  |
+| GRUPO DEPENDENCIA | Categorías de dependencias de la institución educativa de origen del estudiante, según su administración y fuentes de financiamiento |
+| Variable dependiente  |  |
+| matriculado | Muestra si el sujeto ID_aux, posee coincidencia en la base de matriculados para alguna de las carreras de pedagogía feminizada a las que postuló en cualquiera de sus preferencias. |
+
 ### Análisis
 
 #### 1. Análisis descriptivos
