@@ -129,26 +129,6 @@ Se excluyen del análisis:
 
 ### Operacionalización y construcción de variables
 
-Base 1 DEMRE
-
-|  |  |
-|----|----|
-| **Item** | **Categoría de respuesta** |
-| Variables individuales independientes |  |
-| ID_aux | Identificador anonimizado de los sujetos |
-| SEXO | Género del sujeto |
-| edad | Edad del sujeto expresada en números |
-| rendiciones | Cantidad de veces que el sujeto se inscribe para rendir las pruebas de selección universitarias |
-| PTJE NEM | Corresponde al puntaje obtenido por notas de la enseñanza media, el cual se pondera con los puntajes de las pruebas para postular a la educación superior |
-| PREFERENCIA | Indica el lugar en el que posiciona la carrera al momento de postular por el sistema de admisión |
-| Variables contextuales independientes |  |
-| anno | Año al que pertenece el sujeto  |
-| rama | Tipo de régimen al cual pertenece la institución educativa de origen del estudiante |
-| REGIMEN |  |
-| GRUPO DEPENDENCIA | Categorías de dependencias de la institución educativa de origen del estudiante, según su administración y fuentes de financiamiento |
-| Variable dependiente  |  |
-| matriculado | Muestra si el sujeto ID_aux, posee coincidencia en la base de matriculados para alguna de las carreras de pedagogía feminizada a las que postuló en cualquiera de sus preferencias. |
-
 ### Análisis
 
 #### 1. Análisis descriptivos
@@ -1945,9 +1925,9 @@ En el modelo de regresión logística multinivel cruzada, controla simultáneame
 
 ## Anexos
 
-**Tabla n**
+**Anexo 1**
 
-*Carreras o programas seleccionados para la base DEMRE 2007-2023*
+Carreras o programas seleccionados para la base DEMRE 2007-2023
 
 +----------------------------------------------------------------------------------------------------+----------------------------------+--------------------------------------------------------+
 | **Carrera o programa**                                                                             | **Código de carrera o programa** | **Centro de educación superior**                       |
@@ -2289,15 +2269,39 @@ En el modelo de regresión logística multinivel cruzada, controla simultáneame
 |                                                                                                    | 12096                            |                                                        |
 +----------------------------------------------------------------------------------------------------+----------------------------------+--------------------------------------------------------+
 
-*Elaboración propia a partir de las bases de datos del DEMRE*
+Elaboración propia a partir de las bases de datos del DEMRE 
 
-*\*desde el 2012 cambian los códigos de las carreras*
+\*desde el 2012 cambian los códigos de las carreras
 
-*\*\*Hay carreras que cambian de código de 5 cifras del 2012 al 2013*
+\*\*Hay carreras que cambian de código de 5 cifras del 2012 al 2013
 
-**Tabla n**
+**Anexo 2**
 
-*Listas de carreras de matrículas de pedagogía y su clasificación de base Mineduc 2007-2024*
+Tabla de variables base 1 DEMRE
+
+|  |  |
+|----|----|
+| **Item** | **Categoría de respuesta** |
+| Variables individuales independientes |  |
+| ID_aux | Identificador anonimizado de los sujetos |
+| SEXO | Género del sujeto |
+| edad | Edad del sujeto expresada en números |
+| rendiciones | Cantidad de veces que el sujeto se inscribe para rendir las pruebas de selección universitarias |
+| PTJE NEM | Corresponde al puntaje obtenido por notas de la enseñanza media, el cual se pondera con los puntajes de las pruebas para postular a la educación superior |
+| PREFERENCIA | Indica el lugar en el que posiciona la carrera al momento de postular por el sistema de admisión |
+| Variables contextuales independientes |  |
+| anno | Año al que pertenece el sujeto  |
+| rama | Tipo de régimen al cual pertenece la institución educativa de origen del estudiante |
+| REGIMEN | Corresponde al régimen del establecimiento de egreso del estudiante  |
+| GRUPO DEPENDENCIA | Categorías de dependencias de la institución educativa de origen del estudiante, según su administración y fuentes de financiamiento |
+| Variable dependiente  |  |
+| matriculado | Muestra si el sujeto ID_aux, posee coincidencia en la base de matriculados para alguna de las carreras de pedagogía feminizada a las que postuló en cualquiera de sus preferencias. |
+
+Elaboración propia
+
+**Anexo 3**
+
+Listas de carreras de matrículas de pedagogía y su clasificación de base Mineduc 2007-2024
 
 |  |  |
 |----|----|
@@ -2449,16 +2453,154 @@ En el modelo de regresión logística multinivel cruzada, controla simultáneame
 | profesor de educacion general basica | Básica |
 | profesor de educacion general basica, licenciado en educación | Básica |
 
-*Elaboración propia*
+Elaboración propia
 
-*\*Se consideran todas las carreras con nombres coincidentes*
+\*Se consideran todas las carreras con nombres coincidentes 
 
-*\*\*Se realiza una limpieza posterior a esta selección inicial de carreras, en la que se establece como criterio que debe tener una duración igual o mayor a 7 semestres*
+\*\*Se realiza una limpieza posterior a esta selección inicial de carreras, en la que se establece como criterio que debe tener una duración igual o mayor a 7 semestres 
 
-**Figura n**
+**Anexo 4**
 
-*Formula de tasa de matrícula por cohorte y sexo*
+Listas de instituciones de educación superior de base Mineduc 2007-2024
 
-![](images/Captura de pantalla 2025-12-01 182524-01.png)
+|                                                 |        |
+|-------------------------------------------------|--------|
+| Institución                                     | Código |
+| pontificia universidad católica de chile        | 86     |
+| pontificia universidad católica de valparaíso   | 89     |
+| umce                                            | 82     |
+| ip diego portales                               | 120    |
+| ip de los ángeles                               | 138    |
+| ip de enac                                      | 133    |
+| ip del valle central                            | 176    |
+| ip ipg                                          | 113    |
+| ip libertador de los andes                      | 101    |
+| ip los leones                                   | 155    |
+| ip aleman wilhelm von humboldt                  | 119    |
+| ip gamma galdames                               | 303    |
+| ip providencia                                  | 106    |
+| ipchile                                         | 123    |
+| universidad gabriela mistral                    | 1      |
+| universidad finis terrae                        | 2      |
+| universidad diego portales                      | 3      |
+| universidad central de chile                    | 4      |
+| universidad bolivariana                         | 7      |
+| universidad del mar                             | 27     |
+| universidad ucinf                               | 29     |
+| universidad pedro de valdivia                   | 9      |
+| universidad mayor                               | 10     |
+| universidad academia de humanismo cristiano     | 11     |
+| universidad santo tomás                         | 13     |
+| universidad la república                        | 16     |
+| universidad sek                                 | 17     |
+| universidad de las américas                     | 19     |
+| universidad andrés bello                        | 20     |
+| universidad de viña del mar                     | 22     |
+| universidad autónoma de chile                   | 31     |
+| universidad de los andes                        | 34     |
+| universidad adventista de chile                 | 38     |
+| universidad san sebastián                       | 39     |
+| universidad arcis                               | 40     |
+| universidad católica silva henríquez            | 42     |
+| universidad del desarrollo                      | 45     |
+| universidad de aconcagua                        | 46     |
+| universidad del pacífico                        | 47     |
+| universidad los leones                          | 48     |
+| universidad bernardo o’higgins                  | 50     |
+| universidad miguel de cervantes                 | 68     |
+| universidad alberto hurtado                     | 69     |
+| universidad de chile                            | 70     |
+| universidad de santiago de chile                | 71     |
+| universidad de valparaíso                       | 72     |
+| universidad de antofagasta                      | 73     |
+| universidad de la serena                        | 74     |
+| universidad del bío-bío                         | 75     |
+| universidad de magallanes                       | 77     |
+| universidad de talca                            | 78     |
+| universidad de atacama                          | 79     |
+| universidad de tarapacá                         | 80     |
+| universidad arturo prat                         | 81     |
+| universidad de playa ancha                      | 83     |
+| universidad de los lagos                        | 84     |
+| universidad de concepción                       | 87     |
+| universidad austral de chile                    | 90     |
+| universidad católica del norte                  | 91     |
+| universidad católica del maule                  | 92     |
+| universidad católica de la santísima concepción | 93     |
+| universidad católica de temuco                  | 94     |
+| universidad de rancagua                         | 531    |
+|  universidad regional san marcos                | 590    |
+| universidad chileno británica de cultura        | 651    |
+| universidad de o’higgins                        | 895    |
 
-*Elaboración propia*
+Elaboración propia a partir de libro de códigos de base de matrículas Mineduc
+
+**Anexo 5**
+
+Tabla de variables base 2 Mineduc
+
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Item                                  | Categoría de respuesta                                                                                                 |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Variables individuales independientes |                                                                                                                        |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| MRUN                                  | Identificador anonimizado de los sujetos                                                                               |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| sexo                                  | Género del sujeto                                                                                                      |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| categoria_peda                        | Categoría pedagógica a la cual pertenece la carrera o programa del estudiante (ver clasificación en anexo)             |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Variables contextuales independientes |                                                                                                                        |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Tipo_inst_recod                       | Tipo de institución a la cual pertenece el estudiante matriculado, según su administración y fuentes de financiamiento |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Variable dependiente                  |                                                                                                                        |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| egresa                                | Muestra si el sujeto mrun, posee coincidencia del nombre de la carrera de la base matriculados.                        |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Variable de agrupación                |                                                                                                                        |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| cod_inst                              | Código único asignado a cada casa de estudio a la cual está matriculado el estudiante                                  |
++---------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+
+**Anexo 6**
+
+Tabla de variables base 3 Mineduc
+
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Item**                              | **Categoría de respuesta**                                                                                                                                                                                              |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Variables individuales independientes |                                                                                                                                                                                                                         |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| DOC_GENERO                            | Género del sujeto                                                                                                                                                                                                       |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| categoria_peda                        | Categoría pedagógica a la cual pertenece la carrera o programa del estudiante (ver clasificación en anexo)                                                                                                              |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| abandono                              | Variable elaborada que permite identificar el abandono del aula en docentes. El cual se entiende cuando una persona menor de 60 y 65 para mujeres y hombres respectivamente, sale por más de 5 años de la base docente. |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Variables contextuales independientes |                                                                                                                                                                                                                         |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Tipo_inst_recod                       | Tipo de institución a la cual pertenece el estudiante matriculado, según su administración y fuentes de financiamiento                                                                                                  |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| RURAL_RBD                             | Permite distinguir el tipo de área según su nivel de urbanización de la escuela para la que trabaja el profesor                                                                                                         |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| dependencia                           | Categorías de dependencias de la institución educativa en la que trabaja el docente, según su administración y fuentes de financiamiento                                                                                |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ejercicio_area                        | Identifica si el docente ejerce actualmente en el área que se tituló                                                                                                                                                    |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| horas_grupo\_                         | Variable que clasifica las horas de contrato de los profesores según tramos                                                                                                                                             |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable dependiente                  |                                                                                                                                                                                                                         |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| optimo                                | Permite identificar si los docentes realizan clases en sala en el área de la cual se titularon, a contrato de tiempo completo (44 o 45 horas)                                                                           |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable de agrupación                |                                                                                                                                                                                                                         |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| MRUN                                  | Identificador anonimizado de los sujetos                                                                                                                                                                                |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| RBD                                   | Identificador anonimizado de los centros educativos en los que ejercen los profesores                                                                                                                                   |
++---------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Elaboración propia
+
+\*no todas las variables son empleadas en los modelos de regresión 

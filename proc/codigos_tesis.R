@@ -866,6 +866,9 @@ ggplot(proporciones_inst_genero, aes(x = cat_periodo, y = proporcion, fill = tip
   ) +
   facet_wrap(~ sexo) +
   theme_minimal(base_size = 13)
+####ver casa de estudios 
+
+unique(base_para_modelo$cod_inst)
 
 ####preparacion y modelos
 
