@@ -99,11 +99,13 @@ Este estudio se basa en un diseño de tipo panel longitudinal, que permite obser
 
 Para ello, se construyeron tres paneles principales:
 
-Panel de acceso universitario: elaborado a partir de los registros del DEMRE (Inscripción, Rendición, Postulación y Matrícula), permite caracterizar el perfil académico de ingreso, incluyendo puntajes en pruebas estandarizadas, preferencias de postulación y tipo de institución de destino.
+Panel de acceso universitario: elaborado a partir de los registros del DEMRE (Inscripción, Rendición, Postulación y Matrícula), permite caracterizar el perfil académico de ingreso, incluyendo puntajes en pruebas estandarizadas, preferencias de postulación y tipo de institución de destino. Considerando un total de 132 programas de estudio, pertenecientes a 34 instituciones (véase Anexo 1). 
 
-Panel formativo: construido con los registros de Matrícula y Titulación en Educación Superior (MINEDUC), permite identificar trayectorias formativas diferenciadas, considerando eventos de deserción, continuidad y egreso, así como la duración total de los estudios.
+Panel formativo: construido con los registros de Matrícula y Titulación en Educación Superior (MINEDUC), permite identificar trayectorias formativas diferenciadas, considerando eventos de deserción, continuidad y egreso, así como la duración total de los estudios. Considerando un total de 66 instituciones (véase Anexo 4), y 317 programas considerando diferentes instituciones y carreras.
 
 Panel laboral docente: basado en la base de Cargos Docentes del MINEDUC, permite analizar las trayectorias de inserción profesional de los egresados en el sistema escolar chileno, considerando su continuidad, rol de educador y la dependencia administrativa en la que ejerce.
+
+Es importante señalar que los registros del DEMRE incluyen únicamente las postulaciones realizadas a través del Sistema de Admisión Centralizado, por lo que no consideran vías especiales de ingreso, admisiones internas ni procesos complementarios gestionados directamente por las instituciones de educación superior. Por tanto, el panel de acceso caracteriza exclusivamente a quienes participaron en el proceso centralizado de admisión durante el período analizado. Por su parte Mineduc incluye la totalidad de instituciones y sedes que imparten programas de pedagogía.
 
 Se excluyen del análisis los programas con duración inferior a siete semestres, con el fin de asegurar comparabilidad entre trayectorias equivalentes. Permitiendo construir una base representativa del universo de estudiantes que han transitado por carreras de pedagogía altamente feminizadas en el período analizado, y realizar estimaciones sobre sus trayectorias.
 
@@ -129,6 +131,30 @@ Se excluyen del análisis:
 
 ### Operacionalización y construcción de variables
 
+La integración de las bases del DEMRE y del MINEDUC requirió un proceso de depuración y armonización orientado a transformar los conceptos analíticos, en variables observables comparables a lo largo del tiempo. A continuación, se sintetiza la construcción de los tres paneles utilizados; el detalle de las variables, categorías, recodificaciones y criterios de limpieza se presenta en los Anexos 2, 5 y 6.
+
+**Panel de acceso universitario**
+
+Empleando los registros del DEMRE de Inscripción, Rendición, Postulación y Matrícula, se descargan todas las bases disponibles para el periodo entre 2007 a 2022. Desde la base de postulación se revisa la oferta académica año a año seleccionando carreras que mencionen o hagan alusión a pedagogía en educación de párvulo y/o pedagogía básica (Véase anexo 1), para un manejo más sencillo de datos, se elimina año a año aquellos sujetos que no hayan postulado a estas carreras. Para posteriormente unir vía bind rows, con este proceso listo, se unen vía left join el resto de bases, para un mismo identificador común con año específico, en caso de que alguien realice más de una vez este proceso. Resultando en una base que permite caracterizar a los postulantes con un orden temporal (Véase anexo 2) con un total de 125.546 postulaciones.
+
+**Panel formativo**
+
+A partir de los registros de Matrícula y Titulación del MINEDUC, se recopilaron todas las bases disponibles para el período 2007–2024. En una primera etapa, se identificaron y clasificaron las carreras correspondientes a pedagogía en educación parvularia y pedagogía básica, aplicando el mismo criterio de selección utilizado previamente, se seleccionan manualmente las carreras vía nombre, agrupando según el tipo de pedagogía que estudian los sujetos (véase Anexo 3), las cuales pertenecen a un total de 66 entidades educativas (véase Anexo 4), solucionando con esto dificultades de selección de códigos asociados a la carrera. 
+
+Posteriormente, se depuraron anualmente los registros de personas matriculadas en programas que no pertenecieran a estos niveles educativos, con el fin de mantener coherencia con el universo definido. Todas las bases anuales se integraron mediante la función bind rows, entregando una gran base panel de matrícula, permitiendo reconstruir la trayectoria formativa de cada persona.  Se genera una segunda base donde se unen variables de las bases de titulación vía bind rows, la cual se emplea para generar la variable egreso en caso de identificar coincidencias. Para no sobreestimar los datos, se genera una segunda base que a diferencia de la previa que se centra en el total de matrículas con 333.510 datos, esta se orienta en ver los individuos con 94.399 (véase Anexo 5).
+
+**Panel laboral docente**
+
+El tercer panel se construyó a partir de los registros de Cargos Docentes del MINEDUC para el período 2007–2024. Con el fin de mantener la coherencia longitudinal del estudio, este panel considera exclusivamente a las personas identificadas en el panel de titulación. Uniendo vía bind rows las bases docentes, ordenando por mrun, se eliminan sujetos que no presentan coincidencias de mrun con la base de matrícula, importando variables relevantes de la misma base (véase Anexo 6) resultando en 253.268 datos.
+
+**Síntesis de variables utilizadas en los modelos**
+
+Los tres modelos estimados utilizan variables derivadas de los paneles descritos previamente. En el modelo de matrícula (Panel DEMRE), la variable dependiente corresponde a la matrícula efectiva en una carrera de pedagogía feminizada, mientras que las variables independientes incluyen características individuales (sexo, edad, rendiciones, puntajes) y atributos del establecimiento escolar. En el modelo de titulación (Panel Formativo MINEDUC), la variable dependiente es el egreso en la misma carrera declarada al ingreso; las variables explicativas incorporan sexo, categoría pedagógica y tipo de institución, siendo esta última (cod_inst) la unidad de agrupación en los modelos multinivel. En el modelo de inserción laboral (Panel Docente MINEDUC), la variable dependiente corresponde al ejercicio docente óptimo (docencia en el área de formación con jornada completa), utilizando predictores individuales, institucionales y del establecimiento; en este caso, los individuos (MRUN) están anidados en establecimientos escolares (RBD). El detalle completo de las variables, codificaciones y criterios de limpieza se encuentra en los Anexos 2, 5 y 6.
+
+**Tratamiento de valores faltantes**
+
+No se aplicaron procedimientos de imputación. Los casos con valores faltantes en variables esenciales fueron excluidos listwise, dada su baja frecuencia relativa.
+
 ### Análisis
 
 #### 1. Análisis descriptivos
@@ -148,6 +174,14 @@ Nivel 1 individuos anidados por identificador único
 Nivel 2 instituciones, lugar de estudio o ejercicio docente de los individuos 
 
 La combinación de ambas estrategias analíticas permite adaptar los modelos a la lógica de los datos, mientras la regresión logística multivariada se utiliza en contextos con trayectorias individuales no repetidas, los modelos multinivel capturan la heterogeneidad institucional y controlan la dependencia entre observaciones de sujetos anidados en un mismo contexto formativo o laboral.
+
+**Software**
+
+Los análisis se realizaron en R (versión 4.5.1). Para la limpieza y gestión de datos se utilizó el paquete tidyverse, para los modelos multinivel el paquete lme4, y para las visualizaciones descriptivas ggplot2 y networkD3.
+
+**Consideraciones éticas**
+
+El estudio emplea exclusivamente datos administrativos anonimizados provistos por el DEMRE y el MINEDUC, sin posibilidad de identificación individual, cumpliendo los estándares éticos para investigación con datos secundarios.
 
 ## Resultados
 
@@ -364,6 +398,82 @@ ggplot(tabla_prop, aes(x = SEXO, y = prop, fill = PREFERENCIA_RANGO)) +
 ```
 
 Al desagregar por género, se observa que tanto hombres como mujeres privilegian mayoritariamente su primera opción (65,2% y 71,3%, respectivamente). Sin embargo, los hombres tienden a matricularse en mayor proporción en segundas y terceras preferencias (16,9% y 9,7%) que las mujeres (15,2% y 7,1%). Esto sugiere que, si bien en ambos grupos la primera preferencia domina ampliamente, los hombres muestran una mayor dispersión en las opciones de matrícula en comparación con las mujeres, quienes concentran aún más sus decisiones en la primera alternativa.
+
+```{r}
+###rendciones/inscripciones
+#### Filtrar personas matriculadas en carreras de pedagogía
+
+rendiciones <- base_matriculado_corta %>%
+  count(rendiciones) %>%
+  mutate(prop = round(n / sum(n) * 100, 1))
+
+base_matriculado_corta %>%
+  count(rendiciones, SEXO) %>%
+  mutate(prop = round(n / sum(n) * 100, 1))
+
+base_matriculado_corta %>%
+  count(SEXO, rendiciones) %>%
+  group_by(SEXO) %>%
+  mutate(prop = round(n / sum(n) * 100, 1)) %>%
+  ggplot(aes(x = rendiciones, y = prop, fill = SEXO)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Distribución de rendiciones por género",
+    x = "Cantidad de rendiciones",
+    y = "Porcentaje (%)"
+  ) +
+  scale_fill_manual(values = c("Mujer" = "#B0C4DE", "Hombre" = "#6E7B8B")) +
+  theme_minimal(base_size = 14)
+
+base_matriculado_corta %>%
+  mutate(
+    rendiciones_grupo = case_when(
+      rendiciones %in% 1:5 ~ as.character(rendiciones),
+      rendiciones >= 6 ~ "6 o más",
+      TRUE ~ NA_character_
+    ),
+    rendiciones_grupo = factor(
+      rendiciones_grupo,
+      levels = c("1", "2", "3", "4", "5", "6 o más")
+    )
+  ) %>%
+  count(SEXO, rendiciones_grupo) %>%
+  group_by(SEXO) %>%
+  mutate(prop = n / sum(n) * 100) %>%
+  ggplot(aes(x = SEXO, y = prop, fill = rendiciones_grupo)) +
+  geom_col(color = "white") +
+  geom_text(
+    aes(label = ifelse(prop > 3, paste0(round(prop, 1), "%"), "")),
+    position = position_stack(vjust = 0.5),
+    size = 4,
+    color = "black"
+  ) +
+  scale_fill_brewer(palette = "Blues", name = "Rendiciones") +
+  labs(
+    title = "Distribución proporcional de rendiciones por género",
+    x = "Género",
+    y = "Proporción (%)"
+  ) +
+  theme_minimal(base_size = 14)
+
+
+
+matriculados <- base_panel_enriquecida_final_r %>%
+  filter(matriculado == TRUE, !is.na(rendiciones), !is.na(SEXO))
+
+#### Calcular estadísticos descriptivos
+resumen_rendiciones <- matriculados %>%
+  group_by(SEXO) %>%
+  summarise(
+    promedio_rendiciones = mean(rendiciones),
+    mediana_rendiciones = median(rendiciones),
+    maximo = max(rendiciones),
+    minimo = min(rendiciones),
+    n = n()
+    )
+
+print(resumen_rendiciones)
+```
 
 ```{r}
 ####Rama tecnico vs humanista/cientifico
@@ -590,144 +700,31 @@ base_matriculado_corta %>%
   ) %>% 
   sjPlot::tab_df(title = "Variables modelo 1")
 
-modelo_0 <- glmer(matriculado ~ 1 + (1 | dependencia),
-                  data = base_matriculado_corta,family = binomial)
+###modelo simple 
 
-summary(modelo_0)
-pacman::p_load(performance)
-icc(modelo_0)
+modelo_1 <- glm(matriculado ~ SEXO,
+                data = base_matriculado_corta,
+                family = binomial)
+modelo_2 <- glm(matriculado ~ SEXO + edad, 
+                data = base_matriculado_corta, 
+                family = binomial)
+modelo_3 <- glm(matriculado ~ rendiciones + PTJE_NEM + rama + dependencia_label,
+                data = base_matriculado_corta,
+                family = binomial)
+modelo_4 <- glm(matriculado ~ SEXO + edad + rendiciones + PTJE_NEM + rama + dependencia_label,
+                data = base_matriculado_corta,
+                family = binomial)
 
-base_matriculado_corta <- base_matriculado_corta %>%
-  mutate(
-    edad_z         = scale(edad)[,1],
-    anno_z         = scale(anno)[,1],
-    rendiciones_z  = scale(rendiciones)[,1],
-    PTJE_NEM_z     = scale(PTJE_NEM)[,1],
-    PROM_NOTAS_z   = scale(PROM_NOTAS)[,1])
-
-# Modelo 2: + Sexo
-modelo_2 <- glmer(matriculado ~ SEXO + (1 | dependencia), data = base_matriculado_corta, family = binomial)
-
-# Modelo 3: + Edad y año
-modelo_3 <- glmer(matriculado ~ SEXO + edad_z + (1 | dependencia), data = base_matriculado_corta, family = binomial)
-
-# Modelo 4: + Rendiciones y PTJE_NEM
-modelo_4 <- glmer(matriculado ~ rendiciones_z + PTJE_NEM_z + rama + (1 | dependencia), data = base_matriculado_corta, family = binomial)
-
-# Modelo 5 (final): + Rama
-modelo_5 <- glmer(matriculado ~ SEXO + edad_z + rendiciones_z + PTJE_NEM_z + rama + (1 | dependencia), data = base_matriculado_corta, family = binomial)
-
-
-tab_model(modelo_2, modelo_3, modelo_4, modelo_5,
+tab_model(modelo_1, modelo_2, modelo_3, modelo_4,
           transform = "exp",  # odds ratios
-          show.icc = TRUE,
+          show.icc = FALSE,  
           show.aic = TRUE,
           show.obs = TRUE,
-          show.re.var = TRUE,
-          dv.labels = c("Genero", "Variables personales", "Variables academicas", "Modelo total"),
-          title = "Modelos Logísticos Multinivel paso a paso (Odds Ratios)"
-)
-
-
-```
-
-En el modelo de regresión logística multivariada, se observa que las mujeres presentan 1.63 veces más probabilidades de matricularse en carreras de pedagogía altamente feminizadas en comparación con los hombres, controlando por el resto de los predictores. El número de rendiciones de la prueba se asocia negativamente con la matrícula: por cada rendición adicional, las probabilidades de ingreso disminuyen en torno a un 7% (OR = 0.93).
-
-En relación con los antecedentes académicos, el puntaje NEM presenta un efecto prácticamente neutro (OR = 1.00), lo que sugiere que, en este caso, su influencia sobre la matrícula es marginal. Por otra parte, el régimen de estudios muestra que los programas vespertinos reducen la probabilidad de matricularse en un 5% respecto de los programas diurnos (OR = 0.95).
-
-El grupo de dependencia del establecimiento escolar de origen también evidencia diferencias: quienes provienen de colegios municipales y subvencionados presentan aproximadamente un 26% menos de probabilidades de matricularse en comparación con quienes egresan de colegios particulares (OR = 0.74). Finalmente, el año de cohorte revela un efecto positivo: cada nuevo año se asocia a un incremento de alrededor de 3% en las probabilidades de matrícula (OR = 1.03).
-
-En conjunto, estos resultados indican que el acceso a la matrícula no solo está mediado por factores individuales como el género y la trayectoria de rendiciones, sino también por el tipo de establecimiento y la modalidad de estudio, reflejando la interacción entre características personales y contextuales en el ingreso a carreras pedagógicas feminizadas.
-
-```{r}
-###o ver si me quedo con esto 
-modelo_logit_simple <- glm(matriculado ~ SEXO + edad_z + PTJE_NEM_z +
-                             rendiciones_z + rama,
-                           data = base_matriculado_corta,
-                           family = binomial)
-
-modelo_logit_simple <- glm(
-  matriculado ~ SEXO + edad_z + rendiciones_z + PTJE_NEM_z + rama,
-  data = base_matriculado_corta,
-  family = binomial)
-
-summary(modelo_logit_simple)
-
-performance::compare_performance(modelo_logit_simple, modelo_5)
-
-options(scipen = 999)
-
-base_matriculado_corta <- base_matriculado_corta %>%
-  mutate(
-    RAMA = case_when(
-      RAMA %in% c("H1", "H2", "H3", "H4") ~ 2,
-      RAMA %in% c("T1", "T2", "T3", "T4", "T5") ~ 1,
-      TRUE ~ NA_real_))
-
-modelo_logit_matri <- glm(matriculado ~ SEXO + rendiciones + REGIMEN + GRUPO_DEPENDENCIA
-                          + RAMA + PTJE_NEM,
-                          data = base_matriculado_corta,
-                          family = binomial)
-
-summary(modelo_logit_matri)
-
-
-modelo_logit_matri_1 <- glm(matriculado ~ SEXO + rendiciones + REGIMEN + GRUPO_DEPENDENCIA
-                            + PTJE_NEM,
-                            data = base_matriculado_corta,
-                            family = binomial)
-
-
-summary(modelo_logit_matri_1)
-
-
-OR <- exp(coef(modelo_logit_matri_1))               # OR
-IC <- exp(confint(modelo_logit_matri_1))            # IC 95%
-
-tab_model(modelo_logit_matri_1,
-          transform = "exp",           
-          show.ci = TRUE,             
-          show.se = TRUE,               
-          show.p = TRUE,                
-          digits = 3,                  
-          title = "Modelo logístico: Odds Ratios sobre la probabilidad de matrícula")
-
-tabla_OR <- tibble(
-  Variable = names(OR),
-  OR = round(OR, 3),
-  IC_95 = paste0("[", round(IC[,1], 3), " – ", round(IC[,2], 3), "]"))
-
-# Mostrar en tabla gt
-tabla_OR %>%
-  gt() %>%
-  tab_header(title = "Modelo de probabilidad de matrícula") %>%
-  cols_label(
-    Variable = "Variable",
-    OR = "Odds Ratio",
-    IC_95 = "IC 95%")
-
-modelo_logit_matri_1_1 <- glm(matriculado ~ SEXO + rendiciones + PTJE_NEM,
-                              data = base_matriculado_corta,
-                              family = binomial)
-modelo_logit_matri_1_2 <- glm(matriculado ~ REGIMEN + GRUPO_DEPENDENCIA,
-                              data = base_matriculado_corta,
-                              family = binomial)
-
-modelo_logit_matri_1_3 <- glm(matriculado ~ SEXO + rendiciones + PTJE_NEM + REGIMEN + GRUPO_DEPENDENCIA,
-                              data = base_matriculado_corta,
-                              family = binomial)
-
-tab_model(
-  modelo_logit_matri_1_1, modelo_logit_matri_1_2, modelo_logit_matri_1_3,
-  transform = "exp",         # Mostrar Odds Ratios
-  show.icc = TRUE,           # Mostrar ICC (intra-class correlation)
-  show.aic = TRUE,           # Mostrar AIC
-  show.obs = TRUE,           # Mostrar número de observaciones
-  show.re.var = TRUE,        # Mostrar varianza del intercepto aleatorio
-  dv.labels = c("Variables personales", "Variables contextuales", "Modelo total"),
-  title = "Modelos Logísticos (Odds Ratios)")
-
-vif(modelo_logit_matri_1_3)
+          dv.labels = c("Genero",
+                        "Variables personales",
+                        "Variables academicas",
+                        "Modelo total"),
+          title = "Modelos Logísticos paso a paso (Odds Ratios)")
 ```
 
 ```{r}
@@ -737,6 +734,10 @@ base_unica <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/b
 base_propu_trayec_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_propu_trayec_r.csv",delim = ",")
 base_para_modelo <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_para_modelo.csv",delim = ",")
 base_trayectorias_SC_r <- read_delim("https://raw.githubusercontent.com/sophkar/tesis/main/base_trayectorias_SC_r.csv",delim = ",")
+
+```
+
+```{r}
 
 ###codigos
 
@@ -748,6 +749,13 @@ colores_egreso <- c("Sí" = "#698B69", "No" = "#CD3333")
 
 duracion_promedio_categoria <- base_propu_trayec_r %>% group_by(categoria_peda) %>%
   summarise(promedio_duracion = mean(dur_estudio_carr, na.rm = TRUE))
+
+####ver base 
+
+glimpse(base_propu_trayec_r)
+table(base_propu_trayec_r$gen_alu)
+table(base_unica$egreso)
+table(base_unica$egreso, base_unica$sexo)
 
 ####calcular duración individual (por cantidad de años con presencia en la carrera)
 
@@ -787,31 +795,6 @@ duracion_individual <- base_propu_trayec_r %>%
     egresado = ifelse(egresado == 1, "Egresó", "No egresó"),
     sexo = ifelse(sexo == 1, "Hombre", "Mujer"))
 
-#### grafico de velas no reportar pero si ver 
-ggplot(duracion_individual, aes(
-  x = ifelse(egresado == "Egresó", duracion_carrera, -duracion_carrera),
-  y = categoria_peda,
-  fill = sexo
-)) +
-  geom_bar(stat = "identity", position = "stack") +
-  scale_fill_manual(values = c("Hombre" = "#6E7B8B", "Mujer" = "#B0C4DE")) +
-  labs(
-    title = "Duración en la carrera según egreso, categoría pedagógica y género",
-    x = "Duración en años (negativo: no egresó / positivo: egresó)",
-    y = "Categoría pedagógica",
-    fill = "Género"
-  ) +
-  theme_minimal() +
-  geom_vline(xintercept = 0, color = "black", linewidth = 0.4) +
-  facet_wrap(~categoria_peda, scales = "free_y") +
-  theme(strip.text = element_text(face = "bold")) +
-  coord_flip()
-
-####ver base
-
-glimpse(base_trayectorias_SC_r)
-summary(base_trayectorias_SC_r)
-
 base_trayectorias_SC_ultimo_dato <- base_trayectorias_SC_r %>%
   group_by(mrun) %>%
   filter(cat_periodo == max(cat_periodo, na.rm = TRUE)) %>%
@@ -842,6 +825,20 @@ proporciones_egreso <- base_propu_trayec_r %>%
   group_by(sexo, categoria_peda) %>%
   mutate(proporcion = n / sum(n) * 100)
 
+proporciones_egreso <- base_propu_trayec_r %>%
+  mutate(
+    sexo = case_when(
+      gen_alu == 1 ~ "Hombre",
+      gen_alu == 2 ~ "Mujer"
+    ),
+    egresa = ifelse(egresa == 1, "Sí", "No")
+  ) %>%
+  group_by(sexo, egresa, categoria_peda) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(sexo) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+
 ggplot(proporciones_egreso, aes(x = categoria_peda, y = proporcion, fill = egresa)) +
   geom_col(position = "stack") +
   facet_wrap(~ sexo) +
@@ -855,10 +852,6 @@ ggplot(proporciones_egreso, aes(x = categoria_peda, y = proporcion, fill = egres
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   theme_minimal(base_size = 13)
 ```
-
-La proporción de egreso muestra diferencias tanto por género como por categoría pedagógica. En los hombres, los niveles de egreso son más bajos en comparación con las mujeres, especialmente en parvularia, donde menos de la mitad culmina sus estudios. En básica y en programas mixtos la brecha se mantiene, aunque con una mayor proporción de egresados respecto a parvularia.
-
-En el caso de las mujeres, las tasas de egreso son más altas en todas las categorías, superando consistentemente el 70%. Destaca que en pedagogía básica y parvularia la mayoría logra egresar, mientras que en programas mixtos la proporción de no egreso es relativamente mayor, aunque aún inferior a la observada en hombres.
 
 ```{r}
 ####evolucion por anno
@@ -885,7 +878,7 @@ tasas_todas <- bind_rows(tasas_por_egreso, tasas_promedio) %>%
 tasas_todas_filtradas <- tasas_todas %>%
   filter(cat_periodo <= 2022)
 
-##### Gráfico veste no lo reporto
+##### Gráfico este lo reporto?
 ggplot(tasas_todas_filtradas, aes(x = cat_periodo, y = tasa, color = SEXO, linetype = SEXO)) +
   geom_line(size = 1) +
   geom_point() +
@@ -1018,26 +1011,6 @@ num_vars <- base_para_modelo %>%
 correlaciones<- correlate(num_vars)
 correlaciones
 
-modelo_test <- glm(egreso ~ sexo + categoria_peda + tipo_inst_recod,
-                   data = base_para_modelo,
-                   family = binomial)
-
-modelo_test
-
-tab_model(modelo_test,
-          transform = "exp",  # muestra OR en vez de log-odds
-          show.ci = TRUE,
-          show.aic = TRUE,
-          show.obs = TRUE,
-          digits = 3,
-          pred.labels = c("Intercepto",
-                          "Sexo (Mujer)",
-                          "Pedagogía Mixta",
-                          "Educación Parvularia",
-                          "Univ. Privada",
-                          "Inst. profesional"),
-          dv.labels = "Probabilidad de Egreso")
-
 base_unica <- base_para_modelo %>%
   arrange(mrun, cod_inst, cat_periodo) %>%   # ordenar por persona, carrera e inicio
   group_by(mrun) %>%               # agrupar por persona y carrera
@@ -1046,41 +1019,84 @@ base_unica <- base_para_modelo %>%
 
 ##### Revisar resultado
 nrow(base_unica)                 
-n_distinct(base_unica$mrun)      
+n_distinct(base_unica$mrun)   
+```
+
+```{r}
+
+proporciones_egreso <- base_unica %>%
+  mutate(
+    sexo = case_when(
+      gen_alu == 1 ~ "Hombre",
+      gen_alu == 2 ~ "Mujer"
+    ),
+    egresa = ifelse(egresa == 1, "Sí", "No")) %>%
+  group_by(sexo, categoria_peda, egresa) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(sexo, categoria_peda) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+ggplot(proporciones_egreso, aes(x = categoria_peda, y = proporcion, fill = egresa)) +
+  geom_col(position = "stack") +
+  facet_wrap(~ sexo) +
+  labs(
+    title = "Proporción de egreso por carrera y género",
+    x = "Categoría Pedagógica",
+    y = "Proporción (%)",
+    fill = "¿Egresó?"
+  ) +
+  scale_fill_manual(values = colores_egreso) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 13)
+
 ```
 
 ```{r}
       
-modelo_reg_1 <- glm(egresa ~ sexo, data = base_unica, family = binomial)
-modelo_reg_2 <- glm(egresa ~ categoria_peda + tipo_inst_recod, data = base_unica, family = binomial)
-modelo_reg_3 <- glm(egresa ~ sexo + tipo_inst_recod + categoria_peda, data = base_unica, family = binomial)
+##### Revisar resultado
+nrow(base_unica)                 
+n_distinct(base_unica$mrun)      
+
+
+modelo_reg_1 <- glm(egresa ~ sexo, 
+                    data = base_unica, 
+                    family = binomial)
+modelo_reg_2 <- glm(egresa ~ categoria_peda + tipo_inst_recod, 
+                    data = base_unica, 
+                    family = binomial)
+modelo_reg_3 <- glm(egresa ~ sexo + tipo_inst_recod + categoria_peda, 
+                    data = base_unica, 
+                    family = binomial)
+
 
 tab_model(
   modelo_reg_1, modelo_reg_2, modelo_reg_3,
   transform = "exp",        # OR en vez de log-odds
-  show.ci = TRUE,
+  show.icc = TRUE,
   show.aic = TRUE,
   show.obs = TRUE,
-  show.r2 = TRUE,
-  dv.labels = c("Sexo", "Educativas", "Modelo completo"),
+  dv.labels = c("Género", "Educativas", "Modelo completo"),
   title = "Modelos de regresión logística sobre probabilidad de egreso")
-
-install.packages("modelsummary")
-library("modelsummary")
 
 ######multinivel
 
-modelo_multinivel_1 <- glmer(egresa ~ sexo + categoria_peda + tipo_inst_recod + (1 |cod_inst),
+modelo_multinivel_1 <- glmer(egresa ~ sexo + (1 |cod_inst),
+                             data = base_unica,
+                             family = binomial)
+modelo_multinivel_2 <- glmer(egresa ~ categoria_peda + tipo_inst_recod + (1 |cod_inst),
+                             data = base_unica,
+                             family = binomial)
+modelo_multinivel_3 <- glmer(egresa ~ sexo + categoria_peda + tipo_inst_recod + (1 |cod_inst),
                              data = base_unica,
                              family = binomial)
 
 tab_model(
-  modelo_multinivel_1,
+  modelo_multinivel_1,modelo_multinivel_2,modelo_multinivel_3,
   transform = "exp",   # odds ratios
-  show.ci = TRUE,
+  show.icc =  TRUE,
   show.aic = TRUE,
   show.obs = TRUE,
-  show.r2 = TRUE,
+  dv.labels = c("Género", "Educativas", "Modelo completo"),
   title = "Modelo multinivel: probabilidad de egreso")
 ```
 
@@ -1263,10 +1279,6 @@ ggplot(tabla_horas_genero,
   theme_minimal(base_size = 13)
 
 ```
-
-La distribución de horas de contrato evidencia diferencias por género en la inserción laboral docente. Entre los hombres, predomina la jornada completa de 40–45 horas (50,8%), seguida por el tramo de 30–39 horas (36,8%), mientras que las jornadas parciales menores a 30 horas representan proporciones reducidas.
-
-En el caso de las mujeres, aunque también es mayoritaria la jornada de 40–45 horas (43,3%), se observa una presencia más elevada en tramos inferiores, especialmente en 30–39 horas (47,1%). Además, la proporción femenina en contratos de 20–29 horas (7,1%) es superior a la masculina (6,4%), lo que sugiere una mayor dispersión en la carga laboral de las mujeres.
 
 ```{r}
 ###5.comprobar ruralidad hvsm 
@@ -1602,6 +1614,21 @@ tabla_ejercicio_genero_cat <- docente_fil_r %>%
   mutate(prop_dentro_genero = n / sum(n)) %>%
   ungroup()
 
+tabla_ejercicio_genero <- docente_fil_r %>%
+  filter(!is.na(DOC_GENERO),
+         !is.na(ejercicio_area)) %>%   # Quitamos categoria_peda porque ya no la usamos
+  mutate(
+    genero_lbl     = factor(DOC_GENERO, levels = c(1, 2),
+                            labels = c("Hombre", "Mujer")),
+    ejercicio_lbl  = factor(ifelse(ejercicio_area == 1, "Sí", "No"),
+                            levels = c("Sí", "No"))
+  ) %>%
+  group_by(genero_lbl, ejercicio_lbl) %>%
+  summarise(n = n(), .groups = "drop_last") %>%
+  group_by(genero_lbl) %>%
+  mutate(prop_dentro_genero = n / sum(n)) %>%
+  ungroup()
+
 #### separado por categoría pedagógica
 ggplot(tabla_ejercicio_genero_cat,
        aes(x = genero_lbl, y = prop_dentro_genero, fill = ejercicio_lbl)) +
@@ -1621,6 +1648,57 @@ ggplot(tabla_ejercicio_genero_cat,
   theme_minimal(base_size = 13) +
   theme(legend.position = "bottom")
 
+```
+
+```{r}
+# Cargar librerías necesarias
+library(ggplot2)
+library(dplyr)
+library(scales)
+
+# Definir los colores para las categorías "Sí" y "No"
+colores_syn <- c("Sí" = "#698B69", "No" = "#CD3333")
+
+# Calcular las proporciones de 'optimo' (0 y 1) por 'DOC_GENERO'
+proporciones <- base_princ %>%
+  group_by(DOC_GENERO, optimo) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(DOC_GENERO) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+# Crear el gráfico con ggplot
+ggplot(proporciones, aes(x = DOC_GENERO, y = proporcion, fill = factor(optimo, labels = c("No", "Sí")))) +
+  geom_col(position = "stack") +
+  labs(
+    title = "Proporción de ejercicio óptimo por Género",
+    x = "Género",
+    y = "Proporción (%)",
+    fill = "¿Ejercicio óptimo?"
+  ) +
+  scale_fill_manual(values = colores_syn) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 13)
+
+# Calcular las proporciones de 'optimo' (0 y 1) por 'DOC_GENERO'
+proporciones <- base_princ %>%
+  group_by(DOC_GENERO, optimo, categoria_peda) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(DOC_GENERO, categoria_peda) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
+# Crear el gráfico con ggplot
+ggplot(proporciones, aes(x = DOC_GENERO, y = proporcion, fill = factor(optimo, labels = c("No", "Sí")))) +
+  geom_col(position = "stack") +
+  facet_wrap(~categoria_peda, scales = "free_y") +  # Crear subgráficos por 'categoria_peda'
+  labs(
+    title = "Proporción de ejercicio óptimo por Género y Categoría Pedagógica",
+    x = "Género",
+    y = "Proporción (%)",
+    fill = "¿Ejercicio óptimo?"
+  ) +
+  scale_fill_manual(values = colores_syn) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +  # Formatear eje Y como porcentaje
+  theme_minimal(base_size = 13)
 ```
 
 La proporción de ejercicio en el área titulada muestra diferencias relevantes por género y categoría pedagógica. En educación parvularia, solo el 31,6% de los hombres se desempeña en el área para la que se formó, frente al 79,8% de las mujeres, lo que evidencia una brecha marcada. En cambio, en educación básica y en programas mixtos las tasas de ejercicio son altas en ambos géneros, con valores que superan el 85% entre hombres y el 90% entre mujeres.
@@ -1804,8 +1882,6 @@ p
 
 ```
 
-Falta generar reporte de aquellos que no ejercen de lo que estudiaron
-
 ```{r}
 ###10.preparar modelos
 
@@ -1820,6 +1896,64 @@ docente_fil_r <- docente_fil_r %>%
       ejercicio_area == 1L &
         str_replace_all(str_squish(as.character(horas_grupo_)), "[−–—]", "-") == "40-45"
     ))
+tabla_optimo_genero <- docente_fil_r %>%
+  filter(!is.na(DOC_GENERO),
+         !is.na(optimo)) %>%   # usamos optimo en lugar de ejercicio_area
+  mutate(
+    genero_lbl = factor(DOC_GENERO, levels = c(1, 2),
+                        labels = c("Hombre", "Mujer")),
+    optimo_lbl = factor(ifelse(optimo == 1, "Sí", "No"),
+                        levels = c("Sí", "No"))
+  ) %>%
+  group_by(genero_lbl, optimo_lbl) %>%
+  summarise(n = n(), .groups = "drop_last") %>%
+  group_by(genero_lbl) %>%
+  mutate(prop_dentro_genero = n / sum(n)) %>%
+  ungroup()
+
+tabla_optimo_genero_cat <- docente_fil_r %>%
+  filter(!is.na(DOC_GENERO),
+         !is.na(categoria_peda),
+         !is.na(optimo)) %>%
+  mutate(
+    genero_lbl = factor(DOC_GENERO, levels = c(1, 2),
+                        labels = c("Hombre", "Mujer")),
+    optimo_lbl = factor(ifelse(optimo == 1, "Sí", "No"),
+                        levels = c("Sí", "No")),
+    categoria_lbl = factor(categoria_peda,
+                           levels = c("Parvularia", "Basica", "Mixta"))
+  ) %>%
+  group_by(categoria_lbl, genero_lbl, optimo_lbl) %>%
+  summarise(n = n(), .groups = "drop_last") %>%
+  group_by(categoria_lbl, genero_lbl) %>%
+  mutate(prop_dentro_genero = n / sum(n)) %>%
+  ungroup()
+
+ggplot(tabla_ejercicio_genero_cat,
+       aes(x = genero_lbl, y = prop_dentro_genero, fill = ejercicio_lbl)) +
+  geom_col(position = "fill") +
+  geom_text(aes(label = percent(prop_dentro_genero, accuracy = 0.1)),
+            position = position_stack(vjust = 0.5),
+            size = 3, color = "black") +
+  scale_y_continuous(labels = percent_format(accuracy = 1)) +
+  scale_fill_manual(
+    values = colores_syn,
+    name = "Ejercicio óptimo"
+  ) +
+  labs(
+    title = "Proporción de ejercicio óptimo",
+    x = "Género",
+    y = "Proporción dentro del género"
+  ) +
+  facet_wrap(~ categoria_lbl, nrow = 1) +
+  theme_minimal(base_size = 13) +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+table(docente_fil_r $ejercicio_area)
+table(docente_fil_r $ejercicio_area, docente_fil_r $DOC_GENERO)
 
 ##### chequeo rápido
 docente_fil_r %>% count(optimo) %>% mutate(prop = n / sum(n))
@@ -1863,71 +1997,61 @@ base_princ <- docente_fil_r %>%
   tidyr::drop_na(optimo) %>%
   droplevels()
 
-fit_fe <- glm(optimo ~ DOC_GENERO + categoria_peda + dependencia,
-              family = binomial, data = base_princ)
-start_fixef <- coef(fit_fe)
 
-fit_m1 <- glmer(
-  optimo ~ DOC_GENERO + categoria_peda + dependencia +
-    (1 | mrun),
-  family = binomial, data = base_princ,
-  start  = list(fixef = start_fixef),
-  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)))
+modelo_multinivel_1_ <- glmer(optimo ~ DOC_GENERO + (1 | mrun),
+                             data = base_princ,
+                             family = binomial)
+modelo_multinivel_2_ <- glmer(optimo ~ categoria_peda + (1 | mrun),
+                             data = base_princ,
+                             family = binomial)
+modelo_multinivel_3_ <- glmer(optimo ~  dependencia + (1 | mrun),
+                             data = base_princ,
+                             family = binomial)
+modelo_multinivel_4_ <- glmer(optimo ~ DOC_GENERO + categoria_peda + dependencia + (1 | mrun),
+                             data = base_princ,
+                             family = binomial)
 
-tab_model(fit_m1, transform = "exp", show.ci = TRUE, show.icc = TRUE,
-          title = "Modelo 1 — RE: mrun — DV: Óptimo")
+tab_model(
+  modelo_multinivel_1_,modelo_multinivel_2_,modelo_multinivel_3_,modelo_multinivel_4_,
+  transform = "exp",   # odds ratios
+  show.icc =  TRUE,
+  show.aic = TRUE,
+  show.obs = TRUE,
+  dv.labels = c("Género", "Educativas", "Dependencia laboral","Modelo completo"),
+  title = "Modelo multinivel ejercicio óptimo")
 
-performance::icc(fit_m1)   # ICC(mrun) en logit
+### modelo doble
 
-base_ml <- docente_fil_r %>%
-  group_by(mrun, RBD) %>%
-  summarise(
-    optimo         = as.integer(any(optimo == 1L, na.rm = TRUE)),
-    DOC_GENERO     = dplyr::first(na.omit(DOC_GENERO)),
-    categoria_peda = dplyr::first(na.omit(categoria_peda)),
-    dependencia    = dplyr::first(na.omit(dependencia)),
-    .groups = "drop"
-  ) %>%
-  mutate(
-    mrun          = factor(mrun),
-    RBD           = factor(RBD),
-    DOC_GENERO    = factor(DOC_GENERO),
-    categoria_peda= factor(categoria_peda),
-    dependencia   = factor(dependencia)) %>%
-  tidyr::drop_na(optimo) %>%
-  droplevels()
+modelo_multinivel_1_1 <- glmer(optimo ~ DOC_GENERO + (1 | mrun)  + (1 | RBD),
+                              data = base_princ,
+                              family = binomial)
+modelo_multinivel_2_1 <- glmer(optimo ~ categoria_peda + (1 | mrun) + (1 | RBD),
+                              data = base_princ,
+                              family = binomial)
+modelo_multinivel_3_1 <- glmer(optimo ~  dependencia + (1 | mrun) + (1 | RBD),
+                              data = base_princ,
+                              family = binomial)
+modelo_multinivel_4_1 <- glmer(optimo ~ DOC_GENERO + categoria_peda + dependencia + (1 | mrun) + (1 | RBD),
+                              data = base_princ,
+                              family = binomial)
 
-library(glmmTMB)
+tab_model(
+  modelo_multinivel_1_1,modelo_multinivel_2_1,modelo_multinivel_3_1,modelo_multinivel_4_1,
+  transform = "exp",   # odds ratios
+  show.icc =  TRUE,
+  show.aic = TRUE,
+  show.obs = TRUE,
+  dv.labels = c("Género", "Educativas", "Dependencia laboral","Modelo completo"),
+  title = "Modelo multinivel ejercicio óptimo")
 
-fit_m2 <- glmmTMB(
-  optimo ~ DOC_GENERO + categoria_peda + dependencia + 
-    (1 | mrun) + (1 | RBD),
-  family = binomial(link = "logit"),
-  data = base_ml
-)
-
-summary(fit_m2)
-
-tab_model(fit_m2, transform = "exp", show.ci = TRUE,
-          title = "Logística multinivel")
-
+table(docente_fil_r $optimo, docente_fil_r $DOC_GENERO)
 ```
-
-En el modelo multinivel que estima la probabilidad de un ejercicio docente considerado óptimo (definido como desempeño en aula con jornada de 44-45 horas), se observan diferencias relevantes según género, categoría pedagógica y dependencia institucional.
-
-En comparación con los hombres, las mujeres presentan menores probabilidades de alcanzar un ejercicio docente óptimo (OR = 0,88). En relación con la categoría de referencia (pedagogía básica), quienes provienen de programas mixtos muestran una probabilidad aún menor (OR = 0,56), mientras que los egresados de pedagogía parvularia presentan la probabilidad más baja de todas (OR = 0,36).
-
-Al analizar la dependencia administrativa, tomando como referencia los establecimientos municipales, los docentes que se desempeñan en el sector particular subvencionado tienen un 66% menos de probabilidades de alcanzar un ejercicio óptimo (OR = 0,34), y aquellos en el sector particular pagado una reducción similar (OR = 0,42).
-
-En términos de variabilidad, el modelo arroja un ICC de 0,61, lo que indica que más de la mitad de la variación en la probabilidad de ejercicio docente óptimo se explica por diferencias entre individuos, incluso después de controlar por características institucionales y contextuales.
-
-En el modelo de regresión logística multinivel cruzada, controla simultáneamente las trayectorias individuales y la institución de formación, los resultados confirman los patrones observados en el modelo anterior, aunque con variaciones en la intensidad de los efectos.
 
 ## Anexos
 
 **Anexo 1**
 
-Carreras o programas seleccionados para la base DEMRE 2007-2023
+Carreras o programas seleccionados para la base DEMRE 2007-2022
 
 +----------------------------------------------------------------------------------------------------+----------------------------------+--------------------------------------------------------+
 | **Carrera o programa**                                                                             | **Código de carrera o programa** | **Centro de educación superior**                       |
