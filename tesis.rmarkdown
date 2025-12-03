@@ -1020,9 +1020,6 @@ base_unica <- base_para_modelo %>%
 ##### Revisar resultado
 nrow(base_unica)                 
 n_distinct(base_unica$mrun)   
-```
-
-```{r}
 
 proporciones_egreso <- base_unica %>%
   mutate(
