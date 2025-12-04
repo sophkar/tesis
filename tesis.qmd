@@ -1827,7 +1827,6 @@ p <- onRender(p, '
 ')
 
 p
-
 ```
 
 ```{r}
@@ -1923,6 +1922,9 @@ base_princ <- docente_fil_r %>%
   droplevels()
 
 base_princ %>% summarise(n = n(), n_mrun = n_distinct(mrun), n_RBD = n_distinct(RBD))
+```
+
+```{r}
 
 ###11.generar modelos
 
@@ -1938,19 +1940,37 @@ base_princ <- docente_fil_r %>%
   tidyr::drop_na(optimo) %>%
   droplevels()
 
+```
+
+```{r}
 
 modelo_multinivel_1_ <- glmer(optimo ~ DOC_GENERO + (1 | mrun),
                              data = base_princ,
                              family = binomial)
+```
+
+```{r}
+
 modelo_multinivel_2_ <- glmer(optimo ~ categoria_peda + (1 | mrun),
                              data = base_princ,
                              family = binomial)
+```
+
+```{r}
+
 modelo_multinivel_3_ <- glmer(optimo ~  dependencia + (1 | mrun),
                              data = base_princ,
                              family = binomial)
+```
+
+```{r}
+
 modelo_multinivel_4_ <- glmer(optimo ~ DOC_GENERO + categoria_peda + dependencia + (1 | mrun),
                              data = base_princ,
                              family = binomial)
+```
+
+```{r}
 
 tab_model(
   modelo_multinivel_1_,modelo_multinivel_2_,modelo_multinivel_3_,modelo_multinivel_4_,
@@ -1960,21 +1980,38 @@ tab_model(
   show.obs = TRUE,
   dv.labels = c("Género", "Educativas", "Dependencia laboral","Modelo completo"),
   title = "Modelo multinivel ejercicio óptimo")
+```
 
+```{r}
 ### modelo doble
 
 modelo_multinivel_1_1 <- glmer(optimo ~ DOC_GENERO + (1 | mrun)  + (1 | RBD),
                               data = base_princ,
                               family = binomial)
+```
+
+```{r}
+
 modelo_multinivel_2_1 <- glmer(optimo ~ categoria_peda + (1 | mrun) + (1 | RBD),
                               data = base_princ,
                               family = binomial)
+```
+
+```{r}
+
 modelo_multinivel_3_1 <- glmer(optimo ~  dependencia + (1 | mrun) + (1 | RBD),
                               data = base_princ,
                               family = binomial)
+```
+
+```{r}
+
 modelo_multinivel_4_1 <- glmer(optimo ~ DOC_GENERO + categoria_peda + dependencia + (1 | mrun) + (1 | RBD),
                               data = base_princ,
                               family = binomial)
+```
+
+```{r}
 
 tab_model(
   modelo_multinivel_1_1,modelo_multinivel_2_1,modelo_multinivel_3_1,modelo_multinivel_4_1,
