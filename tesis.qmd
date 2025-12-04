@@ -2,6 +2,8 @@
 title: "tesis mg"
 author: "sophia"
 format: html
+execute:
+  cache: true
 editor: visual
 ---
 
@@ -2035,7 +2037,9 @@ ggplot(proporciones, aes(x = DOC_GENERO, y = proporcion, fill = factor(optimo, l
   theme_minimal(base_size = 13)
 ```
 
-```{table(docente_fil_r $optimo, docente_fil_r $DOC_GENERO)}
+```{r}
+
+table(docente_fil_r $optimo, docente_fil_r $DOC_GENERO)
 ```
 
 ## Anexos
