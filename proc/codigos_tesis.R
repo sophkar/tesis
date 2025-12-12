@@ -990,7 +990,6 @@ modelo_reg_3 <- glm(egresa ~ sexo + tipo_inst_recod + categoria_peda,
                     data = base_unica, 
                     family = binomial)
 
-
 tab_model(
   modelo_reg_1, modelo_reg_2, modelo_reg_3,
   transform = "exp",        # OR en vez de log-odds
@@ -999,6 +998,17 @@ tab_model(
   show.obs = TRUE,
   dv.labels = c("Género", "Educativas", "Modelo completo"),
   title = "Modelos de regresión logística sobre probabilidad de egreso")
+
+models_1 <- list(
+  "Genero" = modelo_reg_1,
+  "Educativas" = modelo_reg_2,
+  "Modelo completo" = modelo_reg_3)
+
+modelsummary(
+  models_1,
+  statistic = "({std.error})",   # SE debajo entre paréntesis
+  estimate = "{estimate}",       # coef logit
+  title = "Modelos Logísticos (logits con SE debajo)")
 
 ######multinivel
 
@@ -1020,6 +1030,17 @@ tab_model(
   show.obs = TRUE,
   dv.labels = c("Género", "Educativas", "Modelo completo"),
   title = "Modelo multinivel: probabilidad de egreso")
+
+models_2 <- list(
+  "Genero" = modelo_multinivel_1,
+  "Educativas" = modelo_multinivel_2,
+  "Modelo completo" = modelo_multinivel_3)
+
+modelsummary(
+  models_2,
+  statistic = "({std.error})",   # SE debajo entre paréntesis
+  estimate = "{estimate}",       # coef logit
+  title = "Modelos Logísticos (logits con SE debajo)")
 
 ##base de datos abierta 2/2
 
@@ -1826,53 +1847,6 @@ base_princ <- docente_fil_r %>%
   ) %>%
   tidyr::drop_na(optimo) %>%
   droplevels()
-
-fit_fe <- glm(optimo ~ DOC_GENERO + categoria_peda + dependencia ,
-              family = binomial, data = base_princ)
-start_fixef <- coef(fit_fe)
-
-fit_m1 <- glmer(
-  optimo ~ DOC_GENERO + categoria_peda + dependencia + 
-    (1 | mrun),
-  family = binomial, data = base_princ,
-  start  = list(fixef = start_fixef),
-  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)))
-
-tab_model(fit_m1, transform = "exp", show.ci = TRUE, show.icc = TRUE,
-          title = "Modelo 1 — RE: mrun — DV: Óptimo")
-
-performance::icc(fit_m1)   # ICC(mrun) en logit
-
-base_ml <- docente_fil_r %>%
-  group_by(mrun, RBD) %>%
-  summarise(
-    optimo         = as.integer(any(optimo == 1L, na.rm = TRUE)),
-    DOC_GENERO     = dplyr::first(na.omit(DOC_GENERO)),
-    categoria_peda = dplyr::first(na.omit(categoria_peda)),
-    dependencia    = dplyr::first(na.omit(dependencia)),
-    .groups = "drop"
-  ) %>%
-  mutate(
-    mrun          = factor(mrun),
-    RBD           = factor(RBD),
-    DOC_GENERO    = factor(DOC_GENERO),
-    categoria_peda= factor(categoria_peda),
-    dependencia   = factor(dependencia)) %>%
-  tidyr::drop_na(optimo) %>%
-  droplevels()
-
-library(glmmTMB)
-
-fit_m2 <- glmmTMB(
-  optimo ~ DOC_GENERO + categoria_peda + dependencia +
-    (1 | mrun) + (1 | RBD),
-  family = binomial(link = "logit"),
-  data = base_ml)
-
-summary(fit_m2)
-
-tab_model(fit_m2, transform = "exp", show.ci = TRUE,
-          title = "Logística multinivel")
 
 modelo_multinivel_1_ <- glmer(optimo ~ DOC_GENERO + (1 | mrun),
                              data = base_princ,
