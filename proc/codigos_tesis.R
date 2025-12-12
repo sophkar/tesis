@@ -77,11 +77,11 @@ ggplot(tasas_todas, aes(x = anno, y = tasa, color = SEXO, linetype = SEXO)) +
       "Mujer" = "solid",
       "Promedio" = "dashed")) +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
-  labs(title = "Tasa de matrícula por cohorte y sexo",
+  labs(title = "Tasa de matrícula por cohorte y género",
        x = "Cohorte",
        y = "Tasa de matrícula (%)",
-       color = "Sexo",
-       linetype = "Sexo") +
+       color = "Género",
+       linetype = "Género") +
   theme_minimal(base_size = 13)
 
 ####quiero ver ahora las preferencias de aquellos que ingresan
@@ -445,130 +445,12 @@ base_matriculado_corta %>%
   ) %>% 
   sjPlot::tab_df(title = "Variables modelo 1")
 
-modelo_0 <- glmer(matriculado ~ 1 + (1 | dependencia),
-                  data = base_matriculado_corta,family = binomial)
-
-summary(modelo_0)
-pacman::p_load(performance)
-icc(modelo_0)
-
-base_matriculado_corta <- base_matriculado_corta %>%
-  mutate(
-    edad_z         = scale(edad)[,1],
-    rendiciones_z  = scale(rendiciones)[,1],
-    PTJE_NEM_z     = scale(PTJE_NEM)[,1],
-    PROM_NOTAS_z   = scale(PROM_NOTAS)[,1])
-
-# Modelo 2: + Sexo
-modelo_2 <- glmer(matriculado ~ SEXO + (1 | dependencia), data = base_matriculado_corta, family = binomial)
-
-# Modelo 3: + Edad y año
-modelo_3 <- glmer(matriculado ~ SEXO + edad_z + anno_z + (1 | dependencia), data = base_matriculado_corta, family = binomial)
-
-# Modelo 4: + Rendiciones y PTJE_NEM
-modelo_4 <- glmer(matriculado ~ rendiciones_z + PTJE_NEM_z + rama + (1 | dependencia), data = base_matriculado_corta, family = binomial)
-
-# Modelo 5 (final): + Rama
-modelo_5 <- glmer(matriculado ~ SEXO + edad_z + anno_z + rendiciones_z + PTJE_NEM_z + rama + (1 | dependencia), data = base_matriculado_corta, family = binomial)
-
-
-tab_model(modelo_2, modelo_3, modelo_4, modelo_5,
-          transform = "exp",  # odds ratios
-          show.icc = TRUE,
-          show.aic = TRUE,
-          show.obs = TRUE,
-          show.re.var = TRUE,
-          dv.labels = c("Genero", "Variables personales", "Variables academicas", "Modelo total"),
-          title = "Modelos Logísticos Multinivel paso a paso (Odds Ratios)"
-)
-
-modelo_logit_simple <- glm(matriculado ~ SEXO + edad_z + PTJE_NEM_z +
-                             rendiciones_z + anno_z + rama,
-                           data = base_matriculado_corta,
-                           family = binomial)
-
-modelo_logit_simple <- glm(
-  matriculado ~ SEXO + edad_z + anno_z + rendiciones_z + PTJE_NEM_z + rama,
-  data = base_matriculado_corta,
-  family = binomial)
-
-summary(modelo_logit_simple)
-
-performance::compare_performance(modelo_logit_simple, modelo_5)
-
-options(scipen = 999)
-
 base_matriculado_corta <- base_matriculado_corta %>%
   mutate(
     RAMA = case_when(
       RAMA %in% c("H1", "H2", "H3", "H4") ~ 2,
       RAMA %in% c("T1", "T2", "T3", "T4", "T5") ~ 1,
       TRUE ~ NA_real_))
-
-modelo_logit_matri <- glm(matriculado ~ SEXO + rendiciones + REGIMEN + GRUPO_DEPENDENCIA
-                          + RAMA + anno + PTJE_NEM,
-                          data = base_matriculado_corta,
-                          family = binomial)
-
-summary(modelo_logit_matri)
-
-
-modelo_logit_matri_1 <- glm(matriculado ~ SEXO + rendiciones + REGIMEN + GRUPO_DEPENDENCIA
-                            + anno + PTJE_NEM,
-                            data = base_matriculado_corta,
-                            family = binomial)
-
-
-summary(modelo_logit_matri_1)
-
-
-OR <- exp(coef(modelo_logit_matri_1))               # OR
-IC <- exp(confint(modelo_logit_matri_1))            # IC 95%
-
-tab_model(modelo_logit_matri_1,
-          transform = "exp",           
-          show.ci = TRUE,             
-          show.se = TRUE,               
-          show.p = TRUE,                
-          digits = 3,                  
-          title = "Modelo logístico: Odds Ratios sobre la probabilidad de matrícula")
-
-tabla_OR <- tibble(
-  Variable = names(OR),
-  OR = round(OR, 3),
-  IC_95 = paste0("[", round(IC[,1], 3), " – ", round(IC[,2], 3), "]"))
-
-# Mostrar en tabla gt
-tabla_OR %>%
-  gt() %>%
-  tab_header(title = "Modelo de probabilidad de matrícula") %>%
-  cols_label(
-    Variable = "Variable",
-    OR = "Odds Ratio",
-    IC_95 = "IC 95%")
-
-modelo_logit_matri_1_1 <- glm(matriculado ~ SEXO + rendiciones + PTJE_NEM,
-                              data = base_matriculado_corta,
-                              family = binomial)
-modelo_logit_matri_1_2 <- glm(matriculado ~ REGIMEN + GRUPO_DEPENDENCIA + anno ,
-                              data = base_matriculado_corta,
-                              family = binomial)
-
-modelo_logit_matri_1_3 <- glm(matriculado ~ SEXO + rendiciones + PTJE_NEM + REGIMEN + GRUPO_DEPENDENCIA + anno ,
-                              data = base_matriculado_corta,
-                              family = binomial)
-
-tab_model(
-  modelo_logit_matri_1_1, modelo_logit_matri_1_2, modelo_logit_matri_1_3,
-  transform = "exp",         # Mostrar Odds Ratios
-  show.icc = TRUE,           # Mostrar ICC (intra-class correlation)
-  show.aic = TRUE,           # Mostrar AIC
-  show.obs = TRUE,           # Mostrar número de observaciones
-  show.re.var = TRUE,        # Mostrar varianza del intercepto aleatorio
-  dv.labels = c("Variables personales", "Variables contextuales", "Modelo total"),
-  title = "Modelos Logísticos Multinivel (Odds Ratios)")
-
-vif(modelo_logit_matri_1_3)
 
 ###modelo simple 
 
@@ -596,6 +478,21 @@ tab_model(modelo_1, modelo_2, modelo_3, modelo_4,
                         "Modelo total"),
           title = "Modelos Logísticos paso a paso (Odds Ratios)")
 
+library(modelsummary)
+
+models <- list(
+  "Genero" = modelo_1,
+  "Variables personales" = modelo_2,
+  "Variables academicas" = modelo_3,
+  "Modelo total" = modelo_4)
+
+modelsummary(
+  models,
+  statistic = "({std.error})",   # SE debajo entre paréntesis
+  estimate = "{estimate}",       # coef logit
+  title = "Modelos Logísticos (logits con SE debajo)")
+
+
 
 ##base de datos abierta 1/2
 
@@ -618,7 +515,7 @@ duracion_promedio_categoria <- base_propu_trayec_r %>% group_by(categoria_peda) 
 ####ver base 
 
 glimpse(base_propu_trayec_r)
-table(base_propu_trayec_r$gen_alu)
+table(base_unica$gen_alu)
 table(base_unica$egreso)
 table(base_unica$egreso, base_unica$sexo)
 
@@ -715,7 +612,9 @@ proporciones_egreso <- base_propu_trayec_r %>%
   group_by(sexo, categoria_peda) %>%
   mutate(proporcion = n / sum(n) * 100)
 
-proporciones_egreso <- base_propu_trayec_r %>%
+#####con base unica
+
+proporciones_egreso <- base_unica %>%
   mutate(
     sexo = case_when(
       gen_alu == 1 ~ "Hombre",
@@ -723,11 +622,38 @@ proporciones_egreso <- base_propu_trayec_r %>%
     ),
     egresa = ifelse(egresa == 1, "Sí", "No")
   ) %>%
-  group_by(sexo, egresa, categoria_peda) %>%
+  group_by(sexo, egresa) %>%
   summarise(n = n(), .groups = "drop") %>%
   group_by(sexo) %>%
   mutate(proporcion = n / sum(n) * 100)
 
+ggplot(proporciones_egreso, aes(x = sexo, y = proporcion, fill = egresa)) +
+  geom_col(position = "stack", color = "white") +
+  labs(
+    title = "Proporción de egreso por género",
+    x = "Género",
+    y = "Proporción (%)",
+    fill = "¿Egresó?"
+  ) +
+  scale_fill_manual(values = colores_egreso) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 13)
+
+
+
+
+
+proporciones_egreso <- base_unica %>%
+  mutate(
+    sexo = case_when(
+      gen_alu == 1 ~ "Hombre",
+      gen_alu == 2 ~ "Mujer"
+    ),
+    egresa = ifelse(egresa == 1, "Sí", "No")) %>%
+  group_by(sexo, categoria_peda, egresa) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(sexo, categoria_peda) %>%
+  mutate(proporcion = n / sum(n) * 100)
 
 ggplot(proporciones_egreso, aes(x = categoria_peda, y = proporcion, fill = egresa)) +
   geom_col(position = "stack") +
@@ -866,6 +792,106 @@ ggplot(proporciones_inst_genero, aes(x = cat_periodo, y = proporcion, fill = tip
   ) +
   facet_wrap(~ sexo) +
   theme_minimal(base_size = 13)
+
+####ver por género apilado
+
+proporciones_inst_genero <- base_para_modelo %>%
+  filter(!is.na(tipo_inst_recod), gen_alu %in% c(1, 2)) %>%
+  mutate(
+    sexo = case_when(
+      gen_alu == 1 ~ "Hombre",
+      gen_alu == 2 ~ "Mujer"
+    )
+  ) %>%
+  group_by(sexo, tipo_inst_recod) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(sexo) %>%
+  mutate(proporcion = n / sum(n))
+
+proporciones_inst_genero <- proporciones_inst_genero %>%
+  mutate(
+    tipo_inst_recod = factor(
+      tipo_inst_recod,
+      levels = c(
+        "Universidad estatal",
+        "Universidad privada",
+        "Instituto profesional")))
+
+ggplot(proporciones_inst_genero,
+       aes(x = sexo, y = proporcion, fill = tipo_inst_recod)) +
+  geom_bar(stat = "identity", color = "white") +
+  geom_text(aes(label = scales::percent(proporcion, accuracy = 0.1)),
+            position = position_stack(vjust = 0.5),
+            color = "black", size = 4) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(
+    values = c(
+      "Universidad estatal"   = "#6E7B8B",
+      "Universidad privada"   = "#B0C4DE",
+      "Instituto profesional" = "#CDCDC1"
+    )
+  ) +
+  labs(
+    title = "Distribución de matrícula por tipo de institución y género",
+    x = "Género",
+    y = "Proporción (%)",
+    fill = "Tipo de institución"
+  ) +
+  theme_minimal(base_size = 13)
+
+#####apilado por tipo de pedagogía
+
+proporciones_inst_genero <- base_para_modelo %>%
+  filter(!is.na(tipo_inst_recod), gen_alu %in% c(1, 2)) %>%
+  mutate(
+    sexo = case_when(
+      gen_alu == 1 ~ "Hombre",
+      gen_alu == 2 ~ "Mujer"
+    )
+  ) %>%
+  group_by(sexo, tipo_inst_recod,categoria_peda) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(sexo,categoria_peda) %>%
+  mutate(proporcion = n / sum(n))
+
+proporciones_inst_genero <- proporciones_inst_genero %>%
+  mutate(
+    tipo_inst_recod = factor(
+      tipo_inst_recod,
+      levels = c(
+        "Universidad estatal",
+        "Universidad privada",
+        "Instituto profesional")))
+
+ggplot(proporciones_inst_genero,
+       aes(x = sexo, y = proporcion, fill = tipo_inst_recod)) +
+  geom_bar(stat = "identity", color = "white") +
+  geom_text(aes(label = scales::percent(proporcion, accuracy = 0.1)),
+            position = position_stack(vjust = 0.5),
+            size = 4, color = "black") +
+  
+  scale_y_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(
+    values = c(
+      "Universidad estatal"   = "#6E7B8B",
+      "Universidad privada"   = "#B0C4DE",
+      "Instituto profesional" = "#CDCDC1"
+    )
+  ) +
+  
+  labs(
+    title = "Distribución por género y categoría pedagógica",
+    x = "Género",
+    y = "Proporción (%)",
+    fill = "Tipo de institución"
+  ) +
+  
+  facet_wrap(~ categoria_peda, nrow = 1) +
+  theme_minimal(base_size = 13)
+
+
+
+
 ####ver casa de estudios 
 
 unique(base_para_modelo$cod_inst)
@@ -1154,11 +1180,29 @@ ggplot(tabla_horas_genero,
   ) +
   theme_minimal(base_size = 13)
 
+ggplot(
+  tabla_horas_genero %>% filter(horas_grupo_ != "46+"),
+  aes(x = DOC_GENERO, y = prop, fill = horas_grupo_)) +
+  geom_col(position = "fill") +
+  geom_text(aes(label = percent(prop, accuracy = 0.1)),
+            position = position_stack(vjust = 0.5),
+            size = 3, color = "black") +
+  scale_y_continuous(labels = percent_format(scale = 100)) +
+  scale_fill_manual(values = colores_preferencias) +
+  labs(
+    title = "Distribución de horas de contrato por género",
+    x = "Género",
+    y = "Proporporción (%)",
+    fill = "Grupo de horas"
+  ) +
+  theme_minimal(base_size = 13)
+
+
 base_filtrada <- docente_fil_r %>%
   filter(!is.na(horas_grupo_),
          horas_grupo_ != 0)
 
-ggplot(tabla_horas_genero,
+ggplot(tabla_horas_genero %>% filter(horas_grupo_ != "46+"),
        aes(x = DOC_GENERO, y = prop, fill = horas_grupo_)) +
   geom_col(position = "fill") +
   geom_text(aes(label = percent(prop, accuracy = 0.1)),
@@ -1496,7 +1540,7 @@ tabla_ejercicio_genero_cat <- docente_fil_r %>%
 
 tabla_ejercicio_genero <- docente_fil_r %>%
   filter(!is.na(DOC_GENERO),
-         !is.na(ejercicio_area)) %>%   # Quitamos categoria_peda porque ya no la usamos
+         !is.na(ejercicio_area)) %>%   
   mutate(
     genero_lbl     = factor(DOC_GENERO, levels = c(1, 2),
                             labels = c("Hombre", "Mujer")),
@@ -1509,6 +1553,8 @@ tabla_ejercicio_genero <- docente_fil_r %>%
   mutate(prop_dentro_genero = n / sum(n)) %>%
   ungroup()
 
+tabla_ejercicio_genero_cat <- tabla_ejercicio_genero_cat %>%
+  mutate(ejercicio_lbl = fct_relevel(ejercicio_lbl, "Sí", "No"))
 
 #### separado por categoría pedagógica
 ggplot(tabla_ejercicio_genero_cat,
@@ -1608,42 +1654,6 @@ base_sankey1 <- base_sankey1 %>%
                                                      "Especial","Media H-C (N/J)","Media H-C (Adultos)",
                                                      "Media TP (N/J)","Media TP (Adultos)","Otro nivel","Sin dato","Otra/NA"))
   )
-
-flows2 <- base_sankey1 %>%
-  group_by(genero_lbl, categoria_lbl, ifp_lbl, nivel1_lbl) %>%
-  summarise(n = n(), .groups = "drop")
-
-nodos <- data.frame(name = unique(c(
-  as.character(flows2$genero_lbl),
-  as.character(flows2$categoria_lbl),
-  as.character(flows2$ifp_lbl),
-  as.character(flows2$nivel1_lbl)
-)), stringsAsFactors = FALSE)
-
-idx <- function(x) match(x, nodos$name) - 1
-
-links_g_cat <- flows2 %>%
-  group_by(genero_lbl, categoria_lbl) %>%
-  summarise(value = sum(n), .groups = "drop") %>%
-  transmute(source = idx(genero_lbl), target = idx(categoria_lbl), value)
-
-links_cat_ifp <- flows2 %>%
-  group_by(categoria_lbl, ifp_lbl) %>%
-  summarise(value = sum(n), .groups = "drop") %>%
-  transmute(source = idx(categoria_lbl), target = idx(ifp_lbl), value)
-
-links_ifp_niv <- flows2 %>%
-  group_by(ifp_lbl, nivel1_lbl) %>%
-  summarise(value = sum(n), .groups = "drop") %>%
-  transmute(source = idx(ifp_lbl), target = idx(nivel1_lbl), value)
-
-links <- bind_rows(links_g_cat, links_cat_ifp, links_ifp_niv)
-
-###### Sankey interactivo
-sankeyNetwork(Links = links, Nodes = nodos,
-              Source = "source", Target = "target", Value = "value", NodeID = "name",
-              fontSize = 12, nodeWidth = 24, margin = list(top=10, right=10, bottom=10, left=10))
-
 
 ###### Flujos (ya con *_lbl creadas y ejercicio_area == 0)
 flows <- base_sankey1 %>%
@@ -1759,10 +1769,10 @@ ggplot(tabla_ejercicio_genero_cat,
   scale_y_continuous(labels = percent_format(accuracy = 1)) +
   scale_fill_manual(
     values = colores_syn,
-    name = "Ejercicio óptimo"
+    name = "Ejercicio área titulada"
   ) +
   labs(
-    title = "Proporción de ejercicio óptimo",
+    title = "Proporción de ejercicio área",
     x = "Género",
     y = "Proporción dentro del género"
   ) +
@@ -1794,6 +1804,7 @@ base_princ <- docente_fil_r %>%
   droplevels()
 
 base_princ %>% summarise(n = n(), n_mrun = n_distinct(mrun), n_RBD = n_distinct(RBD))
+frq(base_princ$DOC_GENERO)
 
 system.time({
   fit_null_mrun <- glmer(optimo ~ 1 + (1 | mrun),
@@ -1926,11 +1937,25 @@ proporciones <- base_princ %>%
   group_by(DOC_GENERO) %>%
   mutate(proporcion = n / sum(n) * 100)
 
+proporciones <- base_princ %>%
+  # Recodificar DOC_GENERO con mutate
+  mutate(
+    genero_lbl = case_when(
+      DOC_GENERO == 1 ~ "Hombre",
+      DOC_GENERO == 2 ~ "Mujer",
+      TRUE ~ as.character(DOC_GENERO)  # Para mantener otros valores si existen
+    )
+  ) %>%
+  group_by(genero_lbl, optimo) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(genero_lbl) %>%
+  mutate(proporcion = n / sum(n) * 100)
+
 # Crear el gráfico con ggplot
-ggplot(proporciones, aes(x = DOC_GENERO, y = proporcion, fill = factor(optimo, labels = c("No", "Sí")))) +
+ggplot(proporciones, aes(x = genero_lbl, y = proporcion, fill = factor(optimo, labels = c("No", "Sí")))) +
   geom_col(position = "stack") +
   labs(
-    title = "Proporción de ejercicio óptimo por Género",
+    title = "Proporción de ejercicio óptimo por género",
     x = "Género",
     y = "Proporción (%)",
     fill = "¿Ejercicio óptimo?"
@@ -1959,3 +1984,28 @@ ggplot(proporciones, aes(x = DOC_GENERO, y = proporcion, fill = factor(optimo, l
   scale_fill_manual(values = colores_syn) +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +  # Formatear eje Y como porcentaje
   theme_minimal(base_size = 13)
+
+proporciones <- base_princ %>%
+  group_by(DOC_GENERO, optimo, categoria_peda) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(DOC_GENERO, categoria_peda) %>%
+  mutate(
+    proporcion = n / sum(n) * 100,
+    DOC_GENERO = dplyr::recode_factor(DOC_GENERO,
+                                      `1` = "Hombre",
+                                      `2` = "Mujer"))
+
+ggplot(proporciones, aes(x = DOC_GENERO, y = proporcion,
+                         fill = factor(optimo, labels = c("No", "Sí")))) +
+  geom_col(position = "stack") +
+  facet_wrap(~categoria_peda) +   # <--- ahora todos comparten el mismo eje Y
+  labs(
+    title = "Proporción de ejercicio óptimo por Género y Categoría Pedagógica",
+    x = "Género",
+    y = "Proporción (%)",
+    fill = "¿Ejercicio óptimo?"
+  ) +
+  scale_fill_manual(values = colores_syn) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal(base_size = 13)
+
